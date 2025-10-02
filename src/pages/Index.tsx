@@ -32,12 +32,6 @@ const Index = () => {
     }
   };
 
-  const handlePayment = () => {
-    toast({
-      title: "Pagamento",
-      description: "Sistema de pagamento em desenvolvimento.",
-    });
-  };
 
   if (hasAccess) {
     return <ExamQuiz />;
@@ -111,13 +105,15 @@ const Index = () => {
               </div>
 
               <Button
-                onClick={handlePayment}
+                asChild
                 variant="outline"
                 className="w-full"
                 size="lg"
               >
-                <CreditCard className="w-5 h-5 mr-2" />
-                Pagar Acesso
+                <a href="#">
+                  <CreditCard className="w-5 h-5 mr-2" />
+                  Pagar Acesso
+                </a>
               </Button>
             </CardContent>
           </Card>
