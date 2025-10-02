@@ -4,6 +4,8 @@ import { QuestionCard } from "./QuestionCard";
 import { Timer } from "./Timer";
 import { Results } from "./Results";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { ChevronLeft, ChevronRight, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import {
@@ -16,8 +18,11 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const ExamQuiz = () => {
+  const [participantName, setParticipantName] = useState("");
+  const [hasStarted, setHasStarted] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<number, string>>({});
   const [showResults, setShowResults] = useState(false);
@@ -77,7 +82,49 @@ export const ExamQuiz = () => {
   };
 
   if (showResults) {
-    return <Results questions={questions} userAnswers={userAnswers} onRestart={handleRestart} />;
+    return <Results questions={questions} userAnswers={userAnswers} onRestart={handleRestart} participantName={participantName} />;
+  }
+
+  if (!hasStarted) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center px-4 py-8">
+        <Card className="w-full max-w-md shadow-elegant">
+          <CardHeader>
+            <CardTitle className="text-2xl text-center">Antes de Começar</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="participant-name">Nome do Participante</Label>
+              <Input
+                id="participant-name"
+                type="text"
+                placeholder="Digite seu nome completo"
+                value={participantName}
+                onChange={(e) => setParticipantName(e.target.value)}
+                className="text-lg"
+              />
+            </div>
+            <Button
+              onClick={() => {
+                if (participantName.trim()) {
+                  setHasStarted(true);
+                } else {
+                  toast({
+                    title: "Nome obrigatório",
+                    description: "Por favor, digite seu nome para continuar.",
+                    variant: "destructive",
+                  });
+                }
+              }}
+              className="w-full"
+              size="lg"
+            >
+              Iniciar Teste
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 
   const answeredCount = Object.keys(userAnswers).length;
@@ -87,10 +134,10 @@ export const ExamQuiz = () => {
     <div className="min-h-screen bg-background">
       {/* Header with Timer */}
       <div className="sticky top-0 z-10 bg-card shadow-md border-b">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 py-3 md:py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
           <div className="space-y-1">
-            <h1 className="text-xl font-bold">Teste Online</h1>
-            <p className="text-sm text-muted-foreground">
+            <h1 className="text-lg md:text-xl font-bold">Teste Online</h1>
+            <p className="text-xs md:text-sm text-muted-foreground">
               {answeredCount} de {questions.length} respondidas ({progress}%)
             </p>
           </div>
@@ -140,9 +187,9 @@ export const ExamQuiz = () => {
         </div>
 
         {/* Question Navigation Grid */}
-        <div className="mt-8 p-6 bg-card rounded-lg shadow-md">
-          <h3 className="text-lg font-semibold mb-4">Navegação Rápida</h3>
-          <div className="grid grid-cols-10 gap-2">
+        <div className="mt-8 p-4 md:p-6 bg-card rounded-lg shadow-md">
+          <h3 className="text-base md:text-lg font-semibold mb-4">Navegação Rápida</h3>
+          <div className="grid grid-cols-5 sm:grid-cols-10 gap-2">
             {questions.map((q, index) => {
               const isAnswered = userAnswers[q.id];
               const isCurrent = index === currentQuestionIndex;
@@ -151,7 +198,7 @@ export const ExamQuiz = () => {
                   key={q.id}
                   onClick={() => setCurrentQuestionIndex(index)}
                   className={`
-                    aspect-square rounded-md text-sm font-medium transition-all
+                    aspect-square rounded-md text-xs md:text-sm font-medium transition-all
                     ${isCurrent ? "ring-2 ring-primary scale-110" : ""}
                     ${
                       isAnswered

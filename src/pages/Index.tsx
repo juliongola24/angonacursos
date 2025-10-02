@@ -46,11 +46,11 @@ const Index = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Hero Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src={heroImage}
           alt="Plataforma de testes online"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
       </div>

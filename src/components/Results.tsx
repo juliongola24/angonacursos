@@ -1,19 +1,86 @@
 import { Question } from "@/data/questions";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, XCircle } from "lucide-react";
+import { CheckCircle2, XCircle, Download } from "lucide-react";
+import jsPDF from "jspdf";
 
 interface ResultsProps {
   questions: Question[];
   userAnswers: Record<number, string>;
   onRestart: () => void;
+  participantName: string;
 }
 
-export const Results = ({ questions, userAnswers, onRestart }: ResultsProps) => {
+export const Results = ({ questions, userAnswers, onRestart, participantName }: ResultsProps) => {
   const correctCount = questions.filter(
     (q) => userAnswers[q.id] === q.correctAnswer
   ).length;
   const percentage = ((correctCount / questions.length) * 100).toFixed(1);
+
+  const downloadPDF = () => {
+    const pdf = new jsPDF();
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    let yPosition = 20;
+
+    // Cabeçalho
+    pdf.setFontSize(16);
+    pdf.setFont("helvetica", "bold");
+    pdf.text("TESTE ONLINE - GABARITO", pageWidth / 2, yPosition, { align: "center" });
+    
+    yPosition += 10;
+    pdf.setFontSize(10);
+    pdf.setFont("helvetica", "normal");
+    pdf.text("www.testeonline.com.br", pageWidth / 2, yPosition, { align: "center" });
+    
+    yPosition += 10;
+    pdf.setFontSize(12);
+    pdf.setFont("helvetica", "bold");
+    pdf.text(`Participante: ${participantName}`, 20, yPosition);
+    
+    yPosition += 15;
+    
+    // Resultado
+    pdf.setFontSize(14);
+    pdf.setFont("helvetica", "bold");
+    pdf.text(`Resultado: ${percentage}% (${correctCount}/${questions.length})`, 20, yPosition);
+    
+    yPosition += 15;
+
+    // Questões
+    pdf.setFontSize(10);
+    questions.forEach((question, index) => {
+      if (yPosition > pageHeight - 30) {
+        pdf.addPage();
+        yPosition = 20;
+      }
+
+      const userAnswer = userAnswers[question.id];
+      const isCorrect = userAnswer === question.correctAnswer;
+      
+      pdf.setFont("helvetica", "bold");
+      pdf.text(`${index + 1}. `, 20, yPosition);
+      
+      pdf.setFont("helvetica", "normal");
+      const questionText = pdf.splitTextToSize(question.question, pageWidth - 40);
+      pdf.text(questionText, 30, yPosition);
+      yPosition += questionText.length * 5;
+
+      pdf.setFont("helvetica", "normal");
+      pdf.text(`Sua resposta: ${userAnswer ? userAnswer.toUpperCase() : "Não respondida"}`, 30, yPosition);
+      yPosition += 5;
+      
+      if (!isCorrect) {
+        pdf.setFont("helvetica", "bold");
+        pdf.text(`Resposta correta: ${question.correctAnswer.toUpperCase()}`, 30, yPosition);
+        yPosition += 5;
+      }
+      
+      yPosition += 5;
+    });
+
+    pdf.save(`gabarito_${participantName.replace(/\s+/g, '_')}.pdf`);
+  };
 
   return (
     <div className="min-h-screen bg-background py-8 px-4">
@@ -32,9 +99,15 @@ export const Results = ({ questions, userAnswers, onRestart }: ResultsProps) => 
               </p>
             </div>
             
-            <Button onClick={onRestart} className="w-full" size="lg">
-              Reiniciar Teste
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button onClick={downloadPDF} variant="outline" className="flex-1" size="lg">
+                <Download className="w-5 h-5 mr-2" />
+                Baixar Gabarito (PDF)
+              </Button>
+              <Button onClick={onRestart} className="flex-1" size="lg">
+                Reiniciar Teste
+              </Button>
+            </div>
           </CardContent>
         </Card>
 
@@ -61,11 +134,14 @@ export const Results = ({ questions, userAnswers, onRestart }: ResultsProps) => 
                   <p className="font-medium">{question.question}</p>
                   
                   {question.imageUrl && (
-                    <img
-                      src={question.imageUrl}
-                      alt={`Questão ${index + 1}`}
-                      className="max-w-md h-auto rounded-lg"
-                    />
+                    <div className="w-full overflow-hidden">
+                      <img
+                        src={question.imageUrl}
+                        alt={`Questão ${index + 1}`}
+                        className="w-full max-w-full h-auto object-contain rounded-lg"
+                        style={{ maxHeight: '400px' }}
+                      />
+                    </div>
                   )}
                   
                   <div className="space-y-2">
