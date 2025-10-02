@@ -128,7 +128,7 @@ const Index = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary" />
-                  <span>Tempo cronometrado de 2 horas</span>
+                  <span>Tempo cronometrado de 60 minutos</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary" />

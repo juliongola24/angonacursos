@@ -55,4 +55,4 @@ export const questions: Question[] = [
 ];
 
 export const CORRECT_ACCESS_CODE = "17202116";
-export const EXAM_DURATION_MINUTES = 120; // 2 hours for 95 questions
+export const EXAM_DURATION_MINUTES = 60;
