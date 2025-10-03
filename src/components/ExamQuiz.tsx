@@ -6,7 +6,7 @@ import { Results } from "./Results";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ChevronLeft, ChevronRight, Send } from "lucide-react";
+import { ChevronLeft, ChevronRight, Send, LogOut } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import {
   AlertDialog,
@@ -81,6 +81,12 @@ export const ExamQuiz = () => {
     setShowResults(false);
   };
 
+  const handleExit = () => {
+    if (confirm("Tem certeza que deseja sair? Todo o progresso será perdido.")) {
+      window.location.reload();
+    }
+  };
+
   if (showResults) {
     return <Results questions={questions} userAnswers={userAnswers} onRestart={handleRestart} participantName={participantName} />;
   }
@@ -141,7 +147,18 @@ export const ExamQuiz = () => {
               {answeredCount} de {questions.length} respondidas ({progress}%)
             </p>
           </div>
-          <Timer duration={EXAM_DURATION_MINUTES} onTimeUp={handleTimeUp} />
+          <div className="flex items-center gap-3">
+            <Timer duration={EXAM_DURATION_MINUTES} onTimeUp={handleTimeUp} />
+            <Button
+              onClick={handleExit}
+              variant="outline"
+              size="sm"
+              className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+            >
+              <LogOut className="w-4 h-4 mr-2" />
+              <span className="hidden sm:inline">Sair</span>
+            </Button>
+          </div>
         </div>
         <div className="h-1 bg-muted">
           <div
