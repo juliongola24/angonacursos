@@ -19,7 +19,7 @@ export const QuestionCard = ({
   totalQuestions
 }: QuestionCardProps) => {
   return (
-    <Card className="w-full shadow-elegant">
+    <Card className="w-full shadow-elegant animate-enter">
       <CardHeader>
         <CardTitle className="flex justify-between items-center">
           <span>Questão {questionNumber}</span>

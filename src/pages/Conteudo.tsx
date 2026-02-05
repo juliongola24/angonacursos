@@ -64,13 +64,17 @@ const Conteudo = () => {
       </header>
 
       <main className="max-w-4xl mx-auto px-4 py-8">
-        <p className="text-muted-foreground mb-8 text-lg">
+        <p className="text-muted-foreground mb-8 text-lg animate-fade-in">
           Confira abaixo os principais temas abordados nas questões do teste. Use este guia para direcionar seus estudos.
         </p>
 
         <div className="grid gap-4 md:grid-cols-2">
           {topics.map((topic, index) => (
-            <Card key={index} className="shadow-elegant hover:scale-[1.02] transition-transform">
+            <Card
+              key={index}
+              className="shadow-elegant hover-scale animate-fade-in opacity-0 fill-mode-forwards"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg flex items-center gap-2">
                   <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
