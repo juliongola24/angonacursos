@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, Info, Code, Target, Users } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import developerPhoto from "@/assets/developer-photo.jpg";
 
 const SobrePage = () => {
   const navigate = useNavigate();
@@ -61,14 +62,31 @@ const SobrePage = () => {
               Sobre o Desenvolvedor
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              Esta aplicação foi desenvolvida com as mais modernas tecnologias web, 
-              priorizando performance, acessibilidade e uma experiência de utilizador excepcional.
-            </p>
-            <p>
-              Tecnologias utilizadas: React, TypeScript, Tailwind CSS e componentes UI modernos.
-            </p>
+          <CardContent className="space-y-6">
+            <div className="flex flex-col items-center gap-4">
+              <img
+                src={developerPhoto}
+                alt="Lucas Mendes - Desenvolvedor"
+                className="w-32 h-32 rounded-full object-cover border-4 border-primary shadow-elegant"
+              />
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-foreground">Lucas Mendes</h3>
+                <p className="text-sm text-muted-foreground">Desenvolvedor Full Stack</p>
+              </div>
+            </div>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Apaixonado por tecnologia e educação, <strong className="text-foreground">Lucas Mendes</strong> é 
+                desenvolvedor full stack com experiência em criar soluções digitais que impactam positivamente a vida das pessoas.
+              </p>
+              <p>
+                Com formação em Engenharia de Software e mais de 5 anos de experiência, 
+                dedica-se a construir ferramentas educativas acessíveis e de alta qualidade.
+              </p>
+              <p>
+                Tecnologias utilizadas: React, TypeScript, Tailwind CSS e componentes UI modernos.
+              </p>
+            </div>
           </CardContent>
         </Card>
 
