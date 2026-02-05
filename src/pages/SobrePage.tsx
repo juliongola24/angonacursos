@@ -55,7 +55,7 @@ const SobrePage = () => {
         </Card>
 
         {/* About the Developer */}
-        <Card className="shadow-elegant">
+        <Card className="shadow-elegant animate-fade-in stagger-2 opacity-0 fill-mode-forwards">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-2xl">
               <Code className="w-6 h-6 text-primary" />
