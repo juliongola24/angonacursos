@@ -66,7 +66,7 @@ const Index = () => {
       <div className="relative z-10 flex min-h-screen items-center justify-center px-4 py-12">
         <div className="w-full max-w-md space-y-8">
           {/* Logo/Title */}
-          <div className="text-center space-y-2">
+          <div className="text-center space-y-2 animate-fade-in">
             <h1 className="text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               Teste Online
             </h1>
@@ -79,7 +79,7 @@ const Index = () => {
           <div className="space-y-3">
             <Button
               onClick={() => setHasStarted(true)}
-              className="w-full bg-gradient-primary text-lg h-14"
+              className="w-full bg-gradient-primary text-lg h-14 animate-fade-in stagger-1 opacity-0 fill-mode-forwards hover-scale"
               size="lg"
             >
               <Play className="w-6 h-6 mr-2" />
@@ -89,7 +89,7 @@ const Index = () => {
             <Button
               onClick={() => navigate("/conteudo")}
               variant="outline"
-              className="w-full text-lg h-14"
+              className="w-full text-lg h-14 animate-fade-in stagger-2 opacity-0 fill-mode-forwards hover-scale"
               size="lg"
             >
               <BookOpen className="w-6 h-6 mr-2" />
@@ -99,7 +99,7 @@ const Index = () => {
             <Button
               onClick={() => navigate("/sobre")}
               variant="outline"
-              className="w-full text-lg h-14"
+              className="w-full text-lg h-14 animate-fade-in stagger-3 opacity-0 fill-mode-forwards hover-scale"
               size="lg"
             >
               <Info className="w-6 h-6 mr-2" />
@@ -109,7 +109,7 @@ const Index = () => {
             <Button
               onClick={() => setShareOpen(true)}
               variant="outline"
-              className="w-full text-lg h-14"
+              className="w-full text-lg h-14 animate-fade-in stagger-4 opacity-0 fill-mode-forwards hover-scale"
               size="lg"
             >
               <Share2 className="w-6 h-6 mr-2" />
@@ -118,7 +118,7 @@ const Index = () => {
           </div>
 
           {/* Info */}
-          <div className="text-center text-sm text-muted-foreground space-y-1">
+          <div className="text-center text-sm text-muted-foreground space-y-1 animate-fade-in stagger-5 opacity-0 fill-mode-forwards">
             <p>95 questões · 60 minutos · Gabarito detalhado</p>
           </div>
         </div>

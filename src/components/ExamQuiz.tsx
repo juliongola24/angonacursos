@@ -94,7 +94,7 @@ export const ExamQuiz = () => {
   if (!hasStarted) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center px-4 py-8">
-        <Card className="w-full max-w-md shadow-elegant">
+        <Card className="w-full max-w-md shadow-elegant animate-enter">
           <CardHeader>
             <CardTitle className="text-2xl text-center">Antes de Começar</CardTitle>
           </CardHeader>

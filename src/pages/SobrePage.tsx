@@ -23,7 +23,7 @@ const SobrePage = () => {
 
       <main className="max-w-4xl mx-auto px-4 py-8 space-y-6">
         {/* About the App */}
-        <Card className="shadow-elegant">
+        <Card className="shadow-elegant animate-fade-in">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-2xl">
               <Target className="w-6 h-6 text-primary" />
@@ -55,7 +55,7 @@ const SobrePage = () => {
         </Card>
 
         {/* About the Developer */}
-        <Card className="shadow-elegant">
+        <Card className="shadow-elegant animate-fade-in stagger-2 opacity-0 fill-mode-forwards">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-2xl">
               <Code className="w-6 h-6 text-primary" />
@@ -91,7 +91,7 @@ const SobrePage = () => {
         </Card>
 
         {/* Mission */}
-        <Card className="shadow-elegant">
+        <Card className="shadow-elegant animate-fade-in stagger-3 opacity-0 fill-mode-forwards">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-2xl">
               <Users className="w-6 h-6 text-primary" />

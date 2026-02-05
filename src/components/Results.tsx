@@ -85,7 +85,7 @@ export const Results = ({ questions, userAnswers, onRestart, participantName }: 
   return (
     <div className="min-h-screen bg-background py-8 px-4">
       <div className="max-w-4xl mx-auto space-y-6">
-        <Card className="shadow-elegant">
+        <Card className="shadow-elegant animate-enter">
           <CardHeader>
             <CardTitle className="text-3xl text-center">Resultado do Teste</CardTitle>
           </CardHeader>
