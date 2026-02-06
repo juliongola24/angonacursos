@@ -11,12 +11,26 @@ const paymentMethods = [
     icon: Smartphone,
     reference: "923 456 789",
     description: "Envie o seu donativo via carteira PayPay",
+    extraInfo: {
+      title: "Também pode doar via Multicaixa Express para a carteira PayPay:",
+      steps: [
+        "Abrir o Multicaixa Express",
+        "Ir em Transferências/Pagamentos",
+        "Escolher Pagamentos por Referência",
+        "Preencher os campos:",
+      ],
+      fields: [
+        { label: "Valor", value: "Valor pretendido" },
+        { label: "Entidade", value: "10116", copyable: true },
+        { label: "Referência", value: "943693959", copyable: true },
+      ],
+    },
   },
   {
-    name: "Multicaixa Express",
+    name: "KWiK",
     icon: CreditCard,
-    reference: "912 345 678",
-    description: "Transfira usando o Multicaixa Express",
+    reference: "AO06042000000000061156412",
+    description: "Transfira usando o IBAN da conta KWiK",
   },
 ];
 
