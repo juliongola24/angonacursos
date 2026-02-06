@@ -37,7 +37,7 @@ const paymentMethods = [
 const Donativos = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [emailCopied, setEmailCopied] = useState(false);
 
   const email = "angonurse@gmail.com";
