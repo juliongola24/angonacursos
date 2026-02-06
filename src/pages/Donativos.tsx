@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Heart, Copy, Check, Smartphone, CreditCard, Mail } from "lucide-react";
+import { ArrowLeft, Heart, Copy, Check, Smartphone, CreditCard, Mail, Building } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -11,19 +11,33 @@ const paymentMethods = [
     icon: Smartphone,
     reference: "923 456 789",
     description: "Envie o seu donativo via carteira PayPay",
+    extraInfo: {
+      title: "Também pode doar via Multicaixa Express para a carteira PayPay:",
+      steps: [
+        "Abrir o Multicaixa Express",
+        "Ir em Transferências/Pagamentos",
+        "Escolher Pagamentos por Referência",
+        "Preencher os campos:",
+      ],
+      fields: [
+        { label: "Valor", value: "Valor pretendido" },
+        { label: "Entidade", value: "10116", copyable: true },
+        { label: "Referência", value: "943693959", copyable: true },
+      ],
+    },
   },
   {
-    name: "Multicaixa Express",
+    name: "KWiK",
     icon: CreditCard,
-    reference: "912 345 678",
-    description: "Transfira usando o Multicaixa Express",
+    reference: "AO06042000000000061156412",
+    description: "Transfira usando o IBAN da conta KWiK",
   },
 ];
 
 const Donativos = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [emailCopied, setEmailCopied] = useState(false);
 
   const email = "angonurse@gmail.com";
@@ -46,19 +60,19 @@ const Donativos = () => {
     }
   };
 
-  const handleCopy = async (reference: string, index: number) => {
+  const handleCopy = async (text: string, key: string) => {
     try {
-      await navigator.clipboard.writeText(reference);
-      setCopiedIndex(index);
+      await navigator.clipboard.writeText(text);
+      setCopiedKey(key);
       toast({
         title: "Copiado!",
-        description: "Referência copiada para a área de transferência.",
+        description: "Valor copiado para a área de transferência.",
       });
-      setTimeout(() => setCopiedIndex(null), 2000);
+      setTimeout(() => setCopiedKey(null), 2000);
     } catch {
       toast({
         title: "Erro",
-        description: "Não foi possível copiar a referência.",
+        description: "Não foi possível copiar.",
         variant: "destructive",
       });
     }
@@ -119,30 +133,68 @@ const Donativos = () => {
               style={{ animationDelay: `${(index + 2) * 0.1}s` }}
             >
               <CardContent className="p-6">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div className="flex flex-col sm:flex-row items-start gap-4">
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                     <method.icon className="w-7 h-7 text-primary" />
                   </div>
-                  <div className="flex-1 space-y-1">
+                  <div className="flex-1 space-y-3">
                     <h3 className="text-lg font-bold">{method.name}</h3>
                     <p className="text-sm text-muted-foreground">{method.description}</p>
-                    <div className="flex items-center gap-2 mt-2">
-                      <code className="bg-muted px-3 py-1.5 rounded-md text-base font-mono font-semibold">
+                    <div className="flex items-center gap-2">
+                      <code className="bg-muted px-3 py-1.5 rounded-md text-base font-mono font-semibold break-all">
                         {method.reference}
                       </code>
                       <Button
                         variant="ghost"
                         size="icon"
-                        onClick={() => handleCopy(method.reference, index)}
+                        onClick={() => handleCopy(method.reference, `method-${index}`)}
                         className="shrink-0"
                       >
-                        {copiedIndex === index ? (
+                        {copiedKey === `method-${index}` ? (
                           <Check className="w-4 h-4 text-success" />
                         ) : (
                           <Copy className="w-4 h-4" />
                         )}
                       </Button>
                     </div>
+
+                    {/* Extra info for PayPay - Multicaixa Express instructions */}
+                    {"extraInfo" in method && method.extraInfo && (
+                      <div className="mt-4 p-4 bg-muted/50 rounded-lg border space-y-3">
+                        <p className="text-sm font-semibold text-foreground">
+                          {method.extraInfo.title}
+                        </p>
+                        <ol className="text-sm text-muted-foreground space-y-1.5 list-decimal list-inside">
+                          {method.extraInfo.steps.map((step: string, i: number) => (
+                            <li key={i}>{step}</li>
+                          ))}
+                        </ol>
+                        <div className="space-y-2 pl-4">
+                          {method.extraInfo.fields.map((field: { label: string; value: string; copyable?: boolean }, i: number) => (
+                            <div key={i} className="flex items-center gap-2 flex-wrap">
+                              <span className="text-sm font-medium text-foreground">{field.label}:</span>
+                              <code className="bg-muted px-2 py-1 rounded text-sm font-mono font-semibold">
+                                {field.value}
+                              </code>
+                              {field.copyable && (
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  className="h-7 w-7 shrink-0"
+                                  onClick={() => handleCopy(field.value, `field-${index}-${i}`)}
+                                >
+                                  {copiedKey === `field-${index}-${i}` ? (
+                                    <Check className="w-3.5 h-3.5 text-success" />
+                                  ) : (
+                                    <Copy className="w-3.5 h-3.5" />
+                                  )}
+                                </Button>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </CardContent>
