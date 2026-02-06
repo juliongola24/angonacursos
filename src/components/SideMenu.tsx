@@ -8,7 +8,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun, Volume2, Music, Facebook } from "lucide-react";
+import { Moon, Sun, Volume2, Music, Facebook, MessageCircle } from "lucide-react";
 
 interface SideMenuProps {
   open: boolean;
@@ -94,22 +94,58 @@ export const SideMenu = ({
 
           <Separator />
 
-          {/* Follow on Facebook */}
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="w-full"
-          >
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
+          {/* Social Links */}
+          <div className="space-y-3">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="w-full"
             >
-              <Facebook className="w-5 h-5 mr-2 text-[hsl(220,60%,50%)]" />
-              Seguir no Facebook
-            </a>
-          </Button>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Facebook className="w-5 h-5 mr-2 text-[hsl(220,60%,50%)]" />
+                Seguir no Facebook
+              </a>
+            </Button>
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="w-full"
+            >
+              <a
+                href="https://wa.me/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="w-5 h-5 mr-2 text-[hsl(142,70%,40%)]" />
+                Seguir no WhatsApp
+              </a>
+            </Button>
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="w-full"
+            >
+              <a
+                href="https://tiktok.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor" style={{ color: 'hsl(340, 80%, 50%)' }}>
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.77a8.16 8.16 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.2z"/>
+                </svg>
+                Seguir no TikTok
+              </a>
+            </Button>
+          </div>
         </div>
       </SheetContent>
     </Sheet>
