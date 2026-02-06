@@ -8,7 +8,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun, Volume2, Music, Facebook } from "lucide-react";
+import { Moon, Sun, Volume2, Music, Facebook, MessageCircle } from "lucide-react";
 
 interface SideMenuProps {
   open: boolean;
