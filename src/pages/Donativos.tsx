@@ -24,6 +24,27 @@ const Donativos = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const email = "angonurse@gmail.com";
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setEmailCopied(true);
+      toast({
+        title: "Copiado!",
+        description: "E-mail copiado para a área de transferência.",
+      });
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch {
+      toast({
+        title: "Erro",
+        description: "Não foi possível copiar o e-mail.",
+        variant: "destructive",
+      });
+    }
+  };
 
   const handleCopy = async (reference: string, index: number) => {
     try {
