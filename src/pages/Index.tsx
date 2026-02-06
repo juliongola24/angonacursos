@@ -119,7 +119,7 @@ const Index = () => {
             <Button
               onClick={() => setShareOpen(true)}
               variant="outline"
-              className="w-full text-lg h-14 animate-fade-in stagger-4 opacity-0 fill-mode-forwards hover-scale"
+              className="w-full text-lg h-14 animate-fade-in stagger-5 opacity-0 fill-mode-forwards hover-scale"
               size="lg"
             >
               <Share2 className="w-6 h-6 mr-2" />
