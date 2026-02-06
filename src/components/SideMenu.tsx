@@ -135,7 +135,7 @@ export const SideMenu = ({
               className="w-full"
             >
               <a
-                href="https://tiktok.com"
+                href="https://tiktok.com/@angonurse"
                 target="_blank"
                 rel="noopener noreferrer"
               >
