@@ -103,7 +103,7 @@ export const SideMenu = ({
               className="w-full"
             >
               <a
-                href="https://facebook.com"
+                href="https://facebook.com/angonurse"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -119,7 +119,7 @@ export const SideMenu = ({
               className="w-full"
             >
               <a
-                href="https://wa.me/"
+                href="https://whatsapp.com/channel/0029VbAkfjb0Qeamx7kuuR28"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -135,7 +135,7 @@ export const SideMenu = ({
               className="w-full"
             >
               <a
-                href="https://tiktok.com"
+                href="https://tiktok.com/@angonurse"
                 target="_blank"
                 rel="noopener noreferrer"
               >
