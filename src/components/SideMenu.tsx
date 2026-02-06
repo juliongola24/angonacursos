@@ -103,7 +103,7 @@ export const SideMenu = ({
               className="w-full"
             >
               <a
-                href="https://facebook.com"
+                href="https://facebook.com/angonurse"
                 target="_blank"
                 rel="noopener noreferrer"
               >
