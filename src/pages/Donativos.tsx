@@ -150,8 +150,52 @@ const Donativos = () => {
           ))}
         </div>
 
-        {/* Agradecimento */}
+        {/* Enviar comprovativo */}
         <Card className="shadow-elegant animate-fade-in opacity-0 fill-mode-forwards" style={{ animationDelay: "0.4s" }}>
+          <CardContent className="p-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
+                <Mail className="w-7 h-7 text-secondary" />
+              </div>
+              <div className="flex-1 space-y-2">
+                <h3 className="text-lg font-bold">Enviar Comprovativo</h3>
+                <p className="text-sm text-muted-foreground">
+                  Após efectuar o donativo, envie o comprovativo de pagamento para o nosso e-mail para confirmarmos a sua contribuição.
+                </p>
+                <div className="flex items-center gap-2 mt-2">
+                  <code className="bg-muted px-3 py-1.5 rounded-md text-base font-mono font-semibold break-all">
+                    {email}
+                  </code>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={handleCopyEmail}
+                    className="shrink-0"
+                  >
+                    {emailCopied ? (
+                      <Check className="w-4 h-4 text-success" />
+                    ) : (
+                      <Copy className="w-4 h-4" />
+                    )}
+                  </Button>
+                </div>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="mt-3 w-full sm:w-auto"
+                >
+                  <a href={`mailto:${email}?subject=Comprovativo de Donativo - Teste Online`}>
+                    <Mail className="w-4 h-4 mr-2" />
+                    Abrir E-mail
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Agradecimento */}
+        <Card className="shadow-elegant animate-fade-in opacity-0 fill-mode-forwards" style={{ animationDelay: "0.5s" }}>
           <CardContent className="p-6 text-center text-muted-foreground">
             <p className="text-lg">
               💛 <strong className="text-foreground">Obrigado pelo seu apoio!</strong>
