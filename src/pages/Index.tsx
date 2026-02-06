@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ExamQuiz } from "@/components/ExamQuiz";
 import { ShareDialog } from "@/components/ShareDialog";
 import { SideMenu } from "@/components/SideMenu";
-import { Play, BookOpen, Info, Share2, Menu } from "lucide-react";
+import { Play, BookOpen, Info, Share2, Menu, Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-exam.jpg";
 
