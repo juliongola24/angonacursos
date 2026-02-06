@@ -97,9 +97,19 @@ const Index = () => {
             </Button>
 
             <Button
-              onClick={() => navigate("/sobre")}
+              onClick={() => navigate("/donativos")}
               variant="outline"
               className="w-full text-lg h-14 animate-fade-in stagger-3 opacity-0 fill-mode-forwards hover-scale"
+              size="lg"
+            >
+              <Heart className="w-6 h-6 mr-2" />
+              Apoio & Donativos
+            </Button>
+
+            <Button
+              onClick={() => navigate("/sobre")}
+              variant="outline"
+              className="w-full text-lg h-14 animate-fade-in stagger-4 opacity-0 fill-mode-forwards hover-scale"
               size="lg"
             >
               <Info className="w-6 h-6 mr-2" />
