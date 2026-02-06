@@ -60,19 +60,19 @@ const Donativos = () => {
     }
   };
 
-  const handleCopy = async (reference: string, index: number) => {
+  const handleCopy = async (text: string, key: string) => {
     try {
-      await navigator.clipboard.writeText(reference);
-      setCopiedIndex(index);
+      await navigator.clipboard.writeText(text);
+      setCopiedKey(key);
       toast({
         title: "Copiado!",
-        description: "Referência copiada para a área de transferência.",
+        description: "Valor copiado para a área de transferência.",
       });
-      setTimeout(() => setCopiedIndex(null), 2000);
+      setTimeout(() => setCopiedKey(null), 2000);
     } catch {
       toast({
         title: "Erro",
-        description: "Não foi possível copiar a referência.",
+        description: "Não foi possível copiar.",
         variant: "destructive",
       });
     }
