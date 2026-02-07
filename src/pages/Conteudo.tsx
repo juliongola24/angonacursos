@@ -1,14 +1,57 @@
+import { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, BookOpen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const topics = [
+interface Topic {
+  title: string;
+  description?: string;
+  content?: ReactNode;
+  expanded?: boolean;
+}
+
+const topics: Topic[] = [
   {
     title: "Anatomia e Fisiologia Humana",
-    description:
-      "Estudo detalhado dos sistemas do corpo humano: sistema nervoso (central e periférico), sistema cardiovascular (coração, vasos sanguíneos, ciclo cardíaco, débito cardíaco), sistema respiratório (mecânica ventilatória, trocas gasosas, volumes pulmonares), sistema digestivo (digestão mecânica e química, absorção de nutrientes), sistema urinário (filtração glomerular, reabsorção tubular, regulação do equilíbrio ácido-base), sistema endócrino (eixos hormonais, feedback negativo e positivo), sistema musculoesquelético (tipos de articulações, contracção muscular) e sistema linfático (imunidade inata e adaptativa).",
     expanded: true,
+    content: (
+      <>
+        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+          Estudo detalhado dos <strong className="text-foreground">sistemas do corpo humano</strong>, abrangendo a estrutura e o funcionamento de cada sistema orgânico essencial à prática clínica.
+        </p>
+        <blockquote className="border-l-4 border-primary/40 pl-4 italic text-muted-foreground text-sm mb-4">
+          "O conhecimento profundo da anatomia é a base de toda a prática médica e de enfermagem."
+        </blockquote>
+        <h4 className="text-sm font-semibold text-foreground mb-2">Sistemas abordados:</h4>
+        <ul className="space-y-2 text-sm text-muted-foreground leading-relaxed">
+          <li>
+            <strong className="text-foreground">Sistema Nervoso</strong> — central e periférico, arco reflexo, neurotransmissores
+          </li>
+          <li>
+            <strong className="text-foreground">Sistema Cardiovascular</strong> — coração, vasos sanguíneos, ciclo cardíaco, <em className="text-primary/80">débito cardíaco</em>
+          </li>
+          <li>
+            <strong className="text-foreground">Sistema Respiratório</strong> — mecânica ventilatória, trocas gasosas, <em className="text-primary/80">volumes pulmonares</em>
+          </li>
+          <li>
+            <strong className="text-foreground">Sistema Digestivo</strong> — digestão mecânica e química, absorção de nutrientes
+          </li>
+          <li>
+            <strong className="text-foreground">Sistema Urinário</strong> — filtração glomerular, reabsorção tubular, <em className="text-primary/80">equilíbrio ácido-base</em>
+          </li>
+          <li>
+            <strong className="text-foreground">Sistema Endócrino</strong> — eixos hormonais, feedback negativo e positivo
+          </li>
+          <li>
+            <strong className="text-foreground">Sistema Musculoesquelético</strong> — tipos de articulações, contracção muscular
+          </li>
+          <li>
+            <strong className="text-foreground">Sistema Linfático</strong> — imunidade inata e adaptativa
+          </li>
+        </ul>
+      </>
+    ),
   },
   {
     title: "Farmacologia e Terapêutica",
@@ -84,17 +127,16 @@ const Conteudo = () => {
                     {index + 1}
                   </span>
                   {topic.title}
-                  {topic.expanded && (
-                    <span className="ml-auto text-xs font-normal bg-primary/10 text-primary px-2 py-1 rounded-full">
-                      Conteúdo aprofundado
-                    </span>
-                  )}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {topic.description}
-                </p>
+                {topic.content ? (
+                  topic.content
+                ) : (
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {topic.description}
+                  </p>
+                )}
               </CardContent>
             </Card>
           ))}
