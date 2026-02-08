@@ -30,17 +30,6 @@ export const QuestionCard = ({
       </CardHeader>
       <CardContent className="space-y-6">
         <p className="text-lg font-medium">{question.question}</p>
-        
-        {question.imageUrl && (
-          <div className="w-full overflow-hidden">
-            <img
-              src={question.imageUrl}
-              alt={`Imagem da questão ${questionNumber}`}
-              className="w-full max-w-full h-auto object-contain rounded-lg shadow-md"
-              style={{ maxHeight: '70vh' }}
-            />
-          </div>
-        )}
 
         <RadioGroup value={selectedAnswer} onValueChange={onAnswerChange}>
           <div className="space-y-3">

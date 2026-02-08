@@ -133,17 +133,8 @@ export const Results = ({ questions, userAnswers, onRestart, participantName }: 
                 <CardContent className="space-y-3">
                   <p className="font-medium">{question.question}</p>
                   
-                  {question.imageUrl && (
-                    <div className="w-full overflow-hidden">
-                      <img
-                        src={question.imageUrl}
-                        alt={`Questão ${index + 1}`}
-                        className="w-full max-w-full h-auto object-contain rounded-lg"
-                        style={{ maxHeight: '400px' }}
-                      />
-                    </div>
-                  )}
-                  
+
+
                   <div className="space-y-2">
                     <p className="text-sm">
                       <span className="font-semibold">Sua resposta: </span>
