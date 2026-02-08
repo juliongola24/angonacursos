@@ -12,13 +12,16 @@ import { useToast } from "@/hooks/use-toast";
 interface ShareDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  resultText?: string;
 }
 
-export const ShareDialog = ({ open, onOpenChange }: ShareDialogProps) => {
+export const ShareDialog = ({ open, onOpenChange, resultText }: ShareDialogProps) => {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
-  const shareText = "📚 Teste Online - Plataforma de Avaliação\n\nPrepare-se com 95 questões de múltipla escolha, cronômetro e gabarito detalhado!\n\n";
+  const shareText = resultText
+    ? resultText
+    : "📚 Teste Online - Plataforma de Avaliação\n\nPrepare-se com 95 questões de múltipla escolha, cronômetro e gabarito detalhado!\n\n";
   const shareUrl = window.location.href;
   const fullShareText = shareText + shareUrl;
 
