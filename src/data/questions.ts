@@ -3,7 +3,6 @@ export interface Question {
   question: string;
   options: string[];
   correctAnswer: string;
-  imageUrl?: string;
 }
 
 export const questions: Question[] = [
@@ -49,8 +48,7 @@ export const questions: Question[] = [
       `e) Opção E da questão ${i + 6}`,
       `f) Opção F da questão ${i + 6}`
     ],
-    correctAnswer: ["a", "b", "c", "d", "e", "f"][Math.floor(Math.random() * 6)],
-    imageUrl: i % 5 === 0 ? `https://picsum.photos/600/400?random=${i}` : undefined
+    correctAnswer: ["a", "b", "c", "d", "e", "f"][Math.floor(Math.random() * 6)]
   }))
 ];
 
