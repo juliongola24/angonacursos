@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { questions, EXAM_DURATION_MINUTES } from "@/data/questions";
+import { saveResult } from "@/lib/resultHistory";
 import { QuestionCard } from "./QuestionCard";
 import { Timer } from "./Timer";
 import { Results } from "./Results";
@@ -62,11 +63,35 @@ export const ExamQuiz = () => {
   };
 
   const finishExam = () => {
+    const correctCount = questions.filter(
+      (q) => userAnswers[q.id] === q.correctAnswer
+    ).length;
+    const percentage = ((correctCount / questions.length) * 100).toFixed(1);
+
+    saveResult({
+      participantName,
+      percentage,
+      correctCount,
+      totalQuestions: questions.length,
+    });
+
     setShowResults(true);
     setShowSubmitDialog(false);
   };
 
   const handleTimeUp = () => {
+    const correctCount = questions.filter(
+      (q) => userAnswers[q.id] === q.correctAnswer
+    ).length;
+    const percentage = ((correctCount / questions.length) * 100).toFixed(1);
+
+    saveResult({
+      participantName,
+      percentage,
+      correctCount,
+      totalQuestions: questions.length,
+    });
+
     toast({
       title: "Tempo esgotado!",
       description: "O teste foi finalizado automaticamente.",
