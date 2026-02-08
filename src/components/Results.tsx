@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Question } from "@/data/questions";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, XCircle, Download } from "lucide-react";
+import { CheckCircle2, XCircle, Download, Share2 } from "lucide-react";
 import jsPDF from "jspdf";
+import { ShareDialog } from "./ShareDialog";
 
 interface ResultsProps {
   questions: Question[];
@@ -12,6 +14,7 @@ interface ResultsProps {
 }
 
 export const Results = ({ questions, userAnswers, onRestart, participantName }: ResultsProps) => {
+  const [shareOpen, setShareOpen] = useState(false);
   const correctCount = questions.filter(
     (q) => userAnswers[q.id] === q.correctAnswer
   ).length;
@@ -107,9 +110,15 @@ export const Results = ({ questions, userAnswers, onRestart, participantName }: 
               <Button onClick={onRestart} className="flex-1" size="lg">
                 Reiniciar Teste
               </Button>
+              <Button onClick={() => setShareOpen(true)} variant="outline" className="flex-1" size="lg">
+                <Share2 className="w-5 h-5 mr-2" />
+                Compartilhar Resultado
+              </Button>
             </div>
           </CardContent>
         </Card>
+
+        <ShareDialog open={shareOpen} onOpenChange={setShareOpen} />
 
         <div className="space-y-4">
           <h2 className="text-2xl font-bold">Gabarito Detalhado</h2>
