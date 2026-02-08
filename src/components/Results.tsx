@@ -118,7 +118,11 @@ export const Results = ({ questions, userAnswers, onRestart, participantName }: 
           </CardContent>
         </Card>
 
-        <ShareDialog open={shareOpen} onOpenChange={setShareOpen} />
+        <ShareDialog
+          open={shareOpen}
+          onOpenChange={setShareOpen}
+          resultText={`🎓 Teste Online - Resultado\n\n${participantName} obteve ${percentage}% (${correctCount}/${questions.length} questões corretas)!\n\nExperimenta também o Teste Online:\n`}
+        />
 
         <div className="space-y-4">
           <h2 className="text-2xl font-bold">Gabarito Detalhado</h2>
