@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ExamQuiz } from "@/components/ExamQuiz";
 import { ShareDialog } from "@/components/ShareDialog";
 import { SideMenu } from "@/components/SideMenu";
-import { Play, BookOpen, Info, Share2, Menu, Heart } from "lucide-react";
+import { Play, BookOpen, Info, Share2, Menu, Heart, History } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-exam.jpg";
 
@@ -107,9 +107,19 @@ const Index = () => {
             </Button>
 
             <Button
-              onClick={() => navigate("/sobre")}
+              onClick={() => navigate("/historico")}
               variant="outline"
               className="w-full text-lg h-14 animate-fade-in stagger-4 opacity-0 fill-mode-forwards hover-scale"
+              size="lg"
+            >
+              <History className="w-6 h-6 mr-2" />
+              Histórico de Resultados
+            </Button>
+
+            <Button
+              onClick={() => navigate("/sobre")}
+              variant="outline"
+              className="w-full text-lg h-14 animate-fade-in stagger-5 opacity-0 fill-mode-forwards hover-scale"
               size="lg"
             >
               <Info className="w-6 h-6 mr-2" />
@@ -119,7 +129,7 @@ const Index = () => {
             <Button
               onClick={() => setShareOpen(true)}
               variant="outline"
-              className="w-full text-lg h-14 animate-fade-in stagger-5 opacity-0 fill-mode-forwards hover-scale"
+              className="w-full text-lg h-14 animate-fade-in stagger-6 opacity-0 fill-mode-forwards hover-scale"
               size="lg"
             >
               <Share2 className="w-6 h-6 mr-2" />
