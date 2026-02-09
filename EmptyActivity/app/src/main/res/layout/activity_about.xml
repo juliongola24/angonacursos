@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp"
+        android:background="@color/card"
+        android:elevation="4dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_title"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/foreground"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- About the App -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/CardStyle"
+                android:elevation="4dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about_app_title"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/foreground"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="O Teste Online é uma plataforma profissional de avaliação desenvolvida para oferecer uma experiência completa de simulado online.\n\nCom 95 questões de múltipla escolha cuidadosamente elaboradas, a plataforma cobre diversas áreas do conhecimento.\n\nRecursos:\n• 95 questões de múltipla escolha\n• Cronômetro de 60 minutos\n• Navegação rápida entre questões\n• Gabarito detalhado ao final\n• Download do resultado em PDF\n• Interface nativa para Android"
+                        android:textSize="14sp"
+                        android:textColor="@color/muted_foreground"
+                        android:lineSpacingMultiplier="1.4" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- About the Developer -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/CardStyle"
+                android:elevation="4dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about_dev_title"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/foreground"
+                        android:layout_marginBottom="16dp"
+                        android:layout_gravity="start" />
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@mipmap/dev_profile"
+                        android:scaleType="centerCrop"
+                        android:layout_marginBottom="12dp"
+                        android:contentDescription="Foto do desenvolvedor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lucas Mendes"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/foreground" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Desenvolvedor Full Stack"
+                        android:textSize="13sp"
+                        android:textColor="@color/muted_foreground"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Apaixonado por tecnologia e educação, Lucas Mendes é desenvolvedor full stack com experiência em criar soluções digitais que impactam positivamente a vida das pessoas.\n\nCom formação em Engenharia de Software e mais de 5 anos de experiência, dedica-se a construir ferramentas educativas acessíveis e de alta qualidade."
+                        android:textSize="14sp"
+                        android:textColor="@color/muted_foreground"
+                        android:lineSpacingMultiplier="1.4" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Mission -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/CardStyle"
+                android:elevation="4dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mission_title"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/foreground"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Democratizar o acesso à educação e preparação para provas, oferecendo uma ferramenta gratuita, acessível e de qualidade para estudantes e profissionais que desejam testar e aprimorar seus conhecimentos."
+                        android:textSize="14sp"
+                        android:textColor="@color/muted_foreground"
+                        android:lineSpacingMultiplier="1.4" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

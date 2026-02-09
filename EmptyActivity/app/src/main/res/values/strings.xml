@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Teste Online</string>
+    <string name="subtitle">Plataforma Profissional de Avaliação</string>
+    <string name="start_test">Iniciar Teste</string>
+    <string name="content">Conteúdo</string>
+    <string name="donations">Apoio &amp; Donativos</string>
+    <string name="history">Histórico de Resultados</string>
+    <string name="about">Saber Mais</string>
+    <string name="share">Compartilhar</string>
+    <string name="settings">Definições</string>
+    <string name="dark_mode">Modo Escuro</string>
+    <string name="sound_effects">Efeitos Sonoros</string>
+    <string name="background_music">Música de Fundo</string>
+    <string name="follow_facebook">Seguir no Facebook</string>
+    <string name="follow_whatsapp">Seguir no WhatsApp</string>
+    <string name="follow_tiktok">Seguir no TikTok</string>
+    <string name="info_text">95 questões · 60 minutos · Gabarito detalhado</string>
+
+    <!-- Name Input -->
+    <string name="before_start">Antes de Começar</string>
+    <string name="participant_name">Nome do Participante</string>
+    <string name="enter_full_name">Digite seu nome completo</string>
+    <string name="name_required">Nome obrigatório</string>
+    <string name="name_required_desc">Por favor, digite seu nome para continuar.</string>
+
+    <!-- Exam -->
+    <string name="online_test">Teste Online</string>
+    <string name="answered_count">%1$d de %2$d respondidas (%3$s%%)</string>
+    <string name="exit">Sair</string>
+    <string name="exit_confirm">Tem certeza que deseja sair? Todo o progresso será perdido.</string>
+    <string name="exit_confirm_title">Sair do Teste</string>
+    <string name="previous">Anterior</string>
+    <string name="next">Próxima</string>
+    <string name="finish_test">Finalizar Teste</string>
+    <string name="quick_nav">Navegação Rápida</string>
+    <string name="question_n">Questão %1$d</string>
+    <string name="question_of">%1$d de %2$d</string>
+    <string name="time_up">Tempo esgotado!</string>
+    <string name="time_up_desc">O teste foi finalizado automaticamente.</string>
+    <string name="finish_confirm_title">Finalizar Teste?</string>
+    <string name="finish_confirm_desc">Você ainda tem %1$d questões não respondidas. Deseja realmente finalizar o teste?</string>
+    <string name="continue_answering">Continuar Respondendo</string>
+    <string name="finish_anyway">Finalizar Mesmo Assim</string>
+    <string name="cancel">Cancelar</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+
+    <!-- Results -->
+    <string name="test_result">Resultado do Teste</string>
+    <string name="correct_of_total">%1$d de %2$d questões corretas</string>
+    <string name="download_pdf">Baixar Gabarito (PDF)</string>
+    <string name="restart_test">Reiniciar Teste</string>
+    <string name="share_result">Compartilhar Resultado</string>
+    <string name="detailed_answers">Gabarito Detalhado</string>
+    <string name="your_answer">Sua resposta: </string>
+    <string name="not_answered">Não respondida</string>
+    <string name="correct_answer">Resposta correta: </string>
+    <string name="back">Voltar</string>
+    <string name="pdf_saved">PDF salvo com sucesso!</string>
+
+    <!-- History -->
+    <string name="history_title">Histórico de Resultados</string>
+    <string name="clear_history">Limpar Histórico</string>
+    <string name="clear_confirm_title">Limpar Histórico?</string>
+    <string name="clear_confirm_desc">Esta acção irá apagar todos os registos de resultados. Não é possível desfazer.</string>
+    <string name="delete_all">Apagar Tudo</string>
+    <string name="no_tests_yet">Nenhum teste realizado ainda.</string>
+    <string name="attempts_count">%1$d tentativa(s) registada(s)</string>
+    <string name="complete_test_to_see">Complete um teste para ver o seu histórico aqui.</string>
+    <string name="go_to_test">Ir para o Teste</string>
+
+    <!-- Content -->
+    <string name="content_title">Conteúdo Programático</string>
+    <string name="content_intro">Confira abaixo os principais temas de saúde abordados nas questões do teste. Use este guia para direcionar seus estudos.</string>
+
+    <!-- Donations -->
+    <string name="donations_title">Apoio &amp; Donativos</string>
+    <string name="support_platform">Apoie o Teste Online</string>
+    <string name="support_text_1">O Teste Online é uma plataforma gratuita dedicada a ajudar estudantes e profissionais a prepararem-se para provas e concursos.</string>
+    <string name="support_text_2">A sua contribuição ajuda-nos a manter a plataforma activa, criar novas questões e melhorar continuamente a experiência de aprendizagem para todos.</string>
+    <string name="min_donation">Valor mínimo de donativo</string>
+    <string name="min_value">100 Kz</string>
+    <string name="any_value_welcome">Qualquer valor acima de 100 Kz é bem-vindo e faz a diferença!</string>
+    <string name="how_to_contribute">Como contribuir</string>
+    <string name="copied">Copiado!</string>
+    <string name="copied_desc">Valor copiado para a área de transferência.</string>
+    <string name="send_receipt">Enviar Comprovativo</string>
+    <string name="receipt_desc">Após efectuar o donativo, envie o comprovativo de pagamento para o nosso e-mail para confirmarmos a sua contribuição.</string>
+    <string name="open_email">Abrir E-mail</string>
+    <string name="thank_you">Obrigado pelo seu apoio!</string>
+    <string name="thank_you_desc">Cada donativo nos motiva a continuar a desenvolver ferramentas educativas de qualidade.</string>
+
+    <!-- About -->
+    <string name="about_title">Saber Mais</string>
+    <string name="about_app_title">Sobre a Aplicação</string>
+    <string name="about_dev_title">Sobre o Desenvolvedor</string>
+    <string name="mission_title">Nossa Missão</string>
+
+    <!-- Share -->
+    <string name="share_text">📚 Teste Online - Plataforma de Avaliação\n\nPrepare-se com 95 questões de múltipla escolha, cronômetro e gabarito detalhado!\n\nhttps://testeonline.com</string>
+    <string name="share_result_text">🎓 Teste Online - Resultado\n\n%1$s obteve %2$s%% (%3$d/%4$d questões corretas)!\n\nExperimenta também o Teste Online:\nhttps://testeonline.com</string>
+    <string name="share_via">Compartilhar via</string>
+
+    <!-- Permissions -->
+    <string name="notification_permission_title">Ativar Notificações</string>
+    <string name="notification_permission_desc">Permita notificações para receber atualizações sobre novos testes e conteúdos.</string>
+</resources>

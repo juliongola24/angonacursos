@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#FBFBFE</color>
+    <color name="foreground">#151519</color>
+    <color name="card">#FFFFFF</color>
+    <color name="card_foreground">#151519</color>
+    <color name="primary">#5B3FD9</color>
+    <color name="primary_foreground">#FFFFFF</color>
+    <color name="primary_glow">#7C5DF5</color>
+    <color name="secondary">#3366CC</color>
+    <color name="secondary_foreground">#FFFFFF</color>
+    <color name="muted">#F0F0F5</color>
+    <color name="muted_foreground">#6E6E7A</color>
+    <color name="accent">#A855F0</color>
+    <color name="accent_foreground">#FFFFFF</color>
+    <color name="destructive">#E53E3E</color>
+    <color name="destructive_foreground">#FFFFFF</color>
+    <color name="success">#22C55E</color>
+    <color name="success_foreground">#FFFFFF</color>
+    <color name="warning">#F59E0B</color>
+    <color name="border">#E3E3EA</color>
+    <color name="input_bg">#EBEBF0</color>
+    <color name="ripple_primary">#335B3FD9</color>
+    <color name="gradient_start">#5B3FD9</color>
+    <color name="gradient_end">#7C5DF5</color>
+    <color name="whatsapp">#25D366</color>
+    <color name="facebook">#1877F2</color>
+    <color name="tiktok">#E0446D</color>
+    <color name="transparent">#00000000</color>
+    <color name="shadow_color">#1A5B3FD9</color>
+    <color name="overlay_dark">#CC000000</color>
+</resources>
