@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getResultHistory, clearHistory, ResultRecord } from "@/lib/resultHistory";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Trash2, Trophy, Clock, User } from "lucide-react";
+import { ArrowLeft, Trash2, Trophy, Clock, User, CheckCircle2, XCircle } from "lucide-react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -44,11 +44,10 @@ const Historico = () => {
     return "text-destructive";
   };
 
-  const getScoreEmoji = (pct: string) => {
+  const getScoreIcon = (pct: string) => {
     const n = parseFloat(pct);
-    if (n >= 80) return "🏆";
-    if (n >= 50) return "👏";
-    return "💪";
+    if (n >= 50) return <CheckCircle2 className="w-7 h-7 text-success" />;
+    return <XCircle className="w-7 h-7 text-destructive" />;
   };
 
   return (
@@ -115,9 +114,9 @@ const Historico = () => {
                       </div>
                     </div>
                     <div className="text-right shrink-0">
-                      <span className="text-2xl mr-1">{getScoreEmoji(record.percentage)}</span>
-                      <span className={`text-2xl font-bold ${getScoreColor(record.percentage)}`}>
-                        {record.percentage}%
+                      <span className="mr-1">{getScoreIcon(record.percentage)}</span>
+                       <span className={`text-2xl font-bold ${getScoreColor(record.percentage)}`}>
+                         {record.percentage}%
                       </span>
                       <p className="text-xs text-muted-foreground">
                         {record.correctCount}/{record.totalQuestions}
