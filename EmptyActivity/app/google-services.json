@@ -9,7 +9,26 @@
       "client_info": {
         "mobilesdk_app_id": "1:208313201760:android:21043036a5c7121e087f05",
         "android_client_info": {
-          "package_name": "com.angonurse.anapp"
+          "package_name": "com.angonurse.enfap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx2Qj93QKl5ihSJBJlkMHhmS3skDULuf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208313201760:android:650526c5ff891134087f05",
+        "android_client_info": {
+          "package_name": "com.angonurse.enfapp"
         }
       },
       "oauth_client": [],
