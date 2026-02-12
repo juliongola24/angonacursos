@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:paddingHorizontal="24dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="32dp">
+
+    <!-- Handle bar -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/border"
+        android:layout_marginBottom="20dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/settings"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="@color/foreground"
         android:layout_marginBottom="24dp" />
@@ -20,7 +31,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginBottom="16dp">
+        android:paddingVertical="12dp">
 
         <TextView
             android:layout_width="0dp"
@@ -39,8 +50,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/border"
-        android:layout_marginBottom="16dp" />
+        android:background="@color/border" />
 
     <!-- Sound Effects -->
     <LinearLayout
@@ -48,7 +58,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginBottom="16dp">
+        android:paddingVertical="12dp">
 
         <TextView
             android:layout_width="0dp"
@@ -67,8 +77,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/border"
-        android:layout_marginBottom="16dp" />
+        android:background="@color/border" />
 
     <!-- Background Music -->
     <LinearLayout
@@ -76,7 +85,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginBottom="20dp">
+        android:paddingVertical="12dp">
 
         <TextView
             android:layout_width="0dp"
@@ -99,32 +108,47 @@
         android:layout_marginBottom="20dp" />
 
     <!-- Social Links -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Redes Sociais"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/muted_foreground"
+        android:layout_marginBottom="12dp" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnFacebook"
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:text="@string/follow_facebook"
         android:textAllCaps="false"
-        android:layout_marginBottom="10dp"
-        xmlns:app="http://schemas.android.com/apk/res-auto" />
+        android:layout_marginBottom="8dp"
+        app:icon="@android:drawable/ic_menu_share"
+        app:iconGravity="textStart" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnWhatsapp"
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:text="@string/follow_whatsapp"
         android:textAllCaps="false"
-        android:layout_marginBottom="10dp"
-        xmlns:app="http://schemas.android.com/apk/res-auto" />
+        android:layout_marginBottom="8dp"
+        app:icon="@android:drawable/ic_menu_share"
+        app:iconGravity="textStart" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnTiktok"
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:text="@string/follow_tiktok"
         android:textAllCaps="false"
-        xmlns:app="http://schemas.android.com/apk/res-auto" />
+        app:icon="@android:drawable/ic_menu_share"
+        app:iconGravity="textStart" />
 </LinearLayout>

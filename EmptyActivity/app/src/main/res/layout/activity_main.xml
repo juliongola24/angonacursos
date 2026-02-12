@@ -1,125 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    android:overScrollMode="never">
 
-    <!-- Settings button top-right -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
-
-        <ImageButton
-            android:id="@+id/btnSettings"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="end"
-            android:src="@android:drawable/ic_menu_preferences"
-            android:background="@drawable/bg_card_elevated"
-            android:scaleType="centerInside"
-            android:contentDescription="@string/settings"
-            android:elevation="4dp" />
-    </FrameLayout>
-
-    <!-- Center content -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingHorizontal="24dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Settings button top-right -->
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textSize="42sp"
-            android:textStyle="bold"
-            android:textColor="@color/primary"
-            android:layout_marginBottom="4dp" />
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="end"
+                android:src="@android:drawable/ic_menu_preferences"
+                android:background="@drawable/bg_card_elevated"
+                android:scaleType="centerInside"
+                android:contentDescription="@string/settings"
+                android:elevation="2dp" />
+        </FrameLayout>
+
+        <!-- Center content -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/subtitle"
-            android:textSize="16sp"
-            android:textColor="@color/muted_foreground"
-            android:layout_marginBottom="32dp" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="28dp"
+            android:paddingTop="32dp"
+            android:paddingBottom="24dp">
 
-        <!-- Buttons -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnStartTest"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="@string/start_test"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            android:background="@drawable/bg_gradient_primary"
-            android:textColor="@color/primary_foreground"
-            android:layout_marginBottom="10dp"
-            android:drawableStart="@android:drawable/ic_media_play"
-            android:drawableTint="@color/primary_foreground"
-            android:drawablePadding="8dp"
-            app:backgroundTint="@null"
-            xmlns:app="http://schemas.android.com/apk/res-auto" />
+            <!-- Logo / Icon area -->
+            <TextView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:text="📝"
+                android:textSize="32sp"
+                android:gravity="center"
+                android:background="@drawable/bg_score_badge"
+                android:layout_marginBottom="16dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnContent"
-            style="@style/OutlineButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="@string/content"
-            android:layout_marginBottom="10dp"
-            android:textAllCaps="false" />
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="4dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDonations"
-            style="@style/OutlineButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="@string/donations"
-            android:layout_marginBottom="10dp"
-            android:textAllCaps="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/subtitle"
+                android:textSize="14sp"
+                android:textColor="@color/muted_foreground"
+                android:layout_marginBottom="36dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnHistory"
-            style="@style/OutlineButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="@string/history"
-            android:layout_marginBottom="10dp"
-            android:textAllCaps="false" />
+            <!-- Primary CTA -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStartTest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="56dp"
+                android:text="@string/start_test"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_gradient_primary"
+                android:textColor="@color/primary_foreground"
+                android:layout_marginBottom="12dp"
+                android:paddingVertical="14dp"
+                app:backgroundTint="@null"
+                app:icon="@android:drawable/ic_media_play"
+                app:iconTint="@color/primary_foreground"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAbout"
-            style="@style/OutlineButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="@string/about"
-            android:layout_marginBottom="10dp"
-            android:textAllCaps="false" />
+            <!-- Secondary buttons -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnContent"
+                style="@style/OutlineButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="52dp"
+                android:text="@string/content"
+                android:layout_marginBottom="10dp"
+                android:paddingVertical="12dp"
+                android:textAllCaps="false" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnShare"
-            style="@style/OutlineButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="@string/share"
-            android:layout_marginBottom="16dp"
-            android:textAllCaps="false" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDonations"
+                style="@style/OutlineButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="52dp"
+                android:text="@string/donations"
+                android:layout_marginBottom="10dp"
+                android:paddingVertical="12dp"
+                android:textAllCaps="false" />
 
-        <!-- Info text -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/info_text"
-            android:textSize="13sp"
-            android:textColor="@color/muted_foreground"
-            android:gravity="center" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnHistory"
+                style="@style/OutlineButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="52dp"
+                android:text="@string/history"
+                android:layout_marginBottom="10dp"
+                android:paddingVertical="12dp"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAbout"
+                style="@style/OutlineButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="52dp"
+                android:text="@string/about"
+                android:layout_marginBottom="10dp"
+                android:paddingVertical="12dp"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShare"
+                style="@style/OutlineButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="52dp"
+                android:text="@string/share"
+                android:layout_marginBottom="20dp"
+                android:paddingVertical="12dp"
+                android:textAllCaps="false" />
+
+            <!-- Info text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_text"
+                android:textSize="13sp"
+                android:textColor="@color/muted_foreground"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+        </LinearLayout>
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

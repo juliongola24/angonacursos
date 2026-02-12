@@ -24,6 +24,7 @@ class ExamActivity : AppCompatActivity() {
     private var timer: CountDownTimer? = null
     private lateinit var navAdapter: QuestionNavAdapter
     private var participantName = ""
+    private val optionViews = mutableListOf<TextView>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -119,18 +120,19 @@ class ExamActivity : AppCompatActivity() {
         // Update nav button text
         if (currentIndex == questions.size - 1) {
             binding.btnNext.text = getString(R.string.finish_test)
-            binding.btnNext.setBackgroundResource(R.drawable.bg_gradient_primary)
         } else {
             binding.btnNext.text = getString(R.string.next)
-            binding.btnNext.setBackgroundResource(R.drawable.bg_gradient_primary)
         }
         binding.btnPrevious.isEnabled = currentIndex > 0
         binding.btnPrevious.alpha = if (currentIndex > 0) 1f else 0.5f
 
-        // Build options
+        // Build options - only rebuild if question changed
         val container = binding.optionsContainer
-        container.removeAllViews()
         val selectedAnswer = userAnswers[q.id]
+
+        // Always rebuild for new question (cheap operation, but optimized)
+        container.removeAllViews()
+        optionViews.clear()
 
         for (option in q.options) {
             val letter = option[0].toString()
@@ -138,7 +140,7 @@ class ExamActivity : AppCompatActivity() {
                 text = option
                 textSize = 15f
                 setTextColor(getColor(R.color.foreground))
-                setPadding(48, 42, 48, 42)
+                setPadding(40, 36, 40, 36)
                 setBackgroundResource(
                     if (letter == selectedAnswer) R.drawable.bg_option_selected
                     else R.drawable.bg_option_default
@@ -147,21 +149,46 @@ class ExamActivity : AppCompatActivity() {
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
                 )
-                lp.bottomMargin = 12
+                lp.bottomMargin = 10
                 layoutParams = lp
+                isClickable = true
+                isFocusable = true
+                // Use tag to store the letter for quick lookup
+                tag = letter
                 setOnClickListener {
                     SoundManager.playClick()
                     userAnswers[q.id] = letter
-                    displayQuestion()
+                    // Just update backgrounds instead of rebuilding everything
+                    updateOptionSelection(letter)
+                    updateProgressInfo()
+                    navAdapter.updateState(currentIndex, userAnswers.keys.map { id -> id }.toSet())
                 }
             }
+            optionViews.add(optionView)
             container.addView(optionView)
         }
 
         // Update nav grid
-        navAdapter.updateState(currentIndex, userAnswers.keys.map { id ->
-            id
-        }.toSet())
+        navAdapter.updateState(currentIndex, userAnswers.keys.map { id -> id }.toSet())
+    }
+
+    /** Update only option backgrounds without rebuilding views */
+    private fun updateOptionSelection(selectedLetter: String) {
+        for (view in optionViews) {
+            val letter = view.tag as String
+            view.setBackgroundResource(
+                if (letter == selectedLetter) R.drawable.bg_option_selected
+                else R.drawable.bg_option_default
+            )
+        }
+    }
+
+    /** Update progress text and bar without rebuilding question */
+    private fun updateProgressInfo() {
+        val answered = userAnswers.size
+        val pct = if (questions.isNotEmpty()) (answered * 100 / questions.size) else 0
+        binding.tvProgress.text = getString(R.string.answered_count, answered, questions.size, pct.toString())
+        binding.progressBar.progress = pct
     }
 
     private fun handleSubmit() {
@@ -192,7 +219,6 @@ class ExamActivity : AppCompatActivity() {
             putExtra("percentage", percentage)
             putExtra("correctCount", correctCount)
             putExtra("totalQuestions", questions.size)
-            // Pass answers as serializable
             val answersBundle = Bundle()
             userAnswers.forEach { (id, ans) -> answersBundle.putString(id.toString(), ans) }
             putExtra("answers", answersBundle)
