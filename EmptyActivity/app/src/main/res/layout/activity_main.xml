@@ -25,7 +25,8 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_gravity="end"
-                android:src="@android:drawable/ic_menu_preferences"
+                android:src="@drawable/ic_settings_gear"
+                android:padding="10dp"
                 android:background="@drawable/bg_card_elevated"
                 android:scaleType="centerInside"
                 android:contentDescription="@string/settings"
@@ -43,14 +44,15 @@
             android:paddingBottom="24dp">
 
             <!-- Logo / Icon area -->
-            <TextView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:text="📝"
-                android:textSize="32sp"
-                android:gravity="center"
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@mipmap/ic_launcher_foreground"
+                android:scaleType="centerCrop"
                 android:background="@drawable/bg_score_badge"
-                android:layout_marginBottom="16dp" />
+                android:clipToOutline="true"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/app_name" />
 
             <!-- Title -->
             <TextView
