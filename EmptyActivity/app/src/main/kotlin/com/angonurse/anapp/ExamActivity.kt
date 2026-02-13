@@ -2,7 +2,6 @@ package com.angonurse.anapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -21,7 +20,6 @@ class ExamActivity : AppCompatActivity() {
     private val questions = QuestionData.questions
     private val userAnswers = mutableMapOf<Int, String>()
     private var currentIndex = 0
-    private var timer: CountDownTimer? = null
     private lateinit var navAdapter: QuestionNavAdapter
     private var participantName = ""
     private val optionViews = mutableListOf<TextView>()
@@ -55,26 +53,6 @@ class ExamActivity : AppCompatActivity() {
         }
         binding.rvQuestionNav.layoutManager = GridLayoutManager(this, 5)
         binding.rvQuestionNav.adapter = navAdapter
-
-        // Start timer
-        val totalMs = QuestionData.EXAM_DURATION_MINUTES * 60 * 1000L
-        timer = object : CountDownTimer(totalMs, 1000) {
-            override fun onTick(millisLeft: Long) {
-                val secs = (millisLeft / 1000).toInt()
-                val m = secs / 60
-                val s = secs % 60
-                binding.tvTimer.text = String.format("%02d:%02d", m, s)
-                when {
-                    secs <= 60 -> binding.tvTimer.setBackgroundResource(R.drawable.bg_timer_critical)
-                    secs <= 300 -> binding.tvTimer.setBackgroundResource(R.drawable.bg_timer_warning)
-                    else -> binding.tvTimer.setBackgroundResource(R.drawable.bg_timer_normal)
-                }
-            }
-            override fun onFinish() {
-                Toast.makeText(this@ExamActivity, getString(R.string.time_up), Toast.LENGTH_LONG).show()
-                finishExam()
-            }
-        }.start()
 
         // Start background music
         SoundManager.startBackgroundMusic(this)
@@ -126,11 +104,10 @@ class ExamActivity : AppCompatActivity() {
         binding.btnPrevious.isEnabled = currentIndex > 0
         binding.btnPrevious.alpha = if (currentIndex > 0) 1f else 0.5f
 
-        // Build options - only rebuild if question changed
+        // Build options
         val container = binding.optionsContainer
         val selectedAnswer = userAnswers[q.id]
 
-        // Always rebuild for new question (cheap operation, but optimized)
         container.removeAllViews()
         optionViews.clear()
 
@@ -153,12 +130,10 @@ class ExamActivity : AppCompatActivity() {
                 layoutParams = lp
                 isClickable = true
                 isFocusable = true
-                // Use tag to store the letter for quick lookup
                 tag = letter
                 setOnClickListener {
                     SoundManager.playClick()
                     userAnswers[q.id] = letter
-                    // Just update backgrounds instead of rebuilding everything
                     updateOptionSelection(letter)
                     updateProgressInfo()
                     navAdapter.updateState(currentIndex, userAnswers.keys.map { id -> id }.toSet())
@@ -172,7 +147,6 @@ class ExamActivity : AppCompatActivity() {
         navAdapter.updateState(currentIndex, userAnswers.keys.map { id -> id }.toSet())
     }
 
-    /** Update only option backgrounds without rebuilding views */
     private fun updateOptionSelection(selectedLetter: String) {
         for (view in optionViews) {
             val letter = view.tag as String
@@ -183,7 +157,6 @@ class ExamActivity : AppCompatActivity() {
         }
     }
 
-    /** Update progress text and bar without rebuilding question */
     private fun updateProgressInfo() {
         val answered = userAnswers.size
         val pct = if (questions.isNotEmpty()) (answered * 100 / questions.size) else 0
@@ -206,7 +179,6 @@ class ExamActivity : AppCompatActivity() {
     }
 
     private fun finishExam() {
-        timer?.cancel()
         SoundManager.stopBackgroundMusic()
 
         val correctCount = questions.count { userAnswers[it.id] == it.correctAnswer }
@@ -241,7 +213,6 @@ class ExamActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        timer?.cancel()
         SoundManager.stopBackgroundMusic()
     }
 }
