@@ -49,6 +49,7 @@ class ResultsActivity : AppCompatActivity() {
         binding.btnRestart.setOnClickListener {
             SoundManager.playClick()
             startActivity(Intent(this, ExamActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
             finish()
         }
 
@@ -144,6 +145,7 @@ class ResultsActivity : AppCompatActivity() {
         startActivity(Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         })
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         finish()
     }
 }

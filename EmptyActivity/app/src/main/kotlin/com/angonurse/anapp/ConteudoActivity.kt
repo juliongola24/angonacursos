@@ -41,7 +41,11 @@ class ConteudoActivity : AppCompatActivity() {
         setContentView(binding.root)
         SoundManager.init(this)
 
-        binding.btnBack.setOnClickListener { SoundManager.playClick(); finish() }
+        binding.btnBack.setOnClickListener {
+            SoundManager.playClick()
+            finish()
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        }
         binding.tvTopicCount.text = "${topics.size} temas de estudo"
 
         val dp = resources.displayMetrics.density
@@ -161,5 +165,10 @@ class ConteudoActivity : AppCompatActivity() {
 
             binding.topicsContainer.addView(card)
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 }
