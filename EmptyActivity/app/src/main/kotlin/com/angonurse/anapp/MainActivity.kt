@@ -60,6 +60,10 @@ class MainActivity : AppCompatActivity() {
             SoundManager.playClick()
             shareApp()
         }
+        binding.btnFeedback.setOnClickListener {
+            SoundManager.playClick()
+            sendFeedback()
+        }
         binding.btnSettings.setOnClickListener {
             SoundManager.playClick()
             showSettings()
@@ -73,6 +77,20 @@ class MainActivity : AppCompatActivity() {
                 ActivityCompat.requestPermissions(this,
                     arrayOf(Manifest.permission.POST_NOTIFICATIONS), REQ_NOTIFICATION)
             }
+        }
+    }
+
+    private fun sendFeedback() {
+        val intent = Intent(Intent.ACTION_SENDTO).apply {
+            data = Uri.parse("mailto:")
+            putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.feedback_email)))
+            putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_subject))
+            putExtra(Intent.EXTRA_TEXT, getString(R.string.feedback_body))
+        }
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        } else {
+            Toast.makeText(this, "Nenhum app de e-mail encontrado", Toast.LENGTH_SHORT).show()
         }
     }
 

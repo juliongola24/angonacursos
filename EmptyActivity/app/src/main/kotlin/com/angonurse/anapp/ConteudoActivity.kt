@@ -6,6 +6,8 @@ import android.widget.TextView
 import android.widget.ImageView
 import android.widget.FrameLayout
 import android.view.Gravity
+import android.view.View
+import android.text.TextUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.angonurse.anapp.databinding.ActivityConteudoBinding
@@ -61,13 +63,6 @@ class ConteudoActivity : AppCompatActivity() {
                 )
                 lp.bottomMargin = (10 * dp).toInt()
                 layoutParams = lp
-                foreground = getDrawable(android.R.attr.selectableItemBackground.let {
-                    val attrs = intArrayOf(it)
-                    val ta = obtainStyledAttributes(attrs)
-                    val d = ta.getDrawable(0)
-                    ta.recycle()
-                    return@let 0
-                }.let { android.R.attr.selectableItemBackground })
             }
 
             val inner = LinearLayout(this).apply {
@@ -118,7 +113,7 @@ class ConteudoActivity : AppCompatActivity() {
                 textSize = 12f
                 setTextColor(getColor(R.color.muted_foreground))
                 maxLines = 1
-                ellipsize = android.text.TextUtils.TruncateAt.END
+                ellipsize = TextUtils.TruncateAt.END
             }
 
             textCol.addView(title)
@@ -134,7 +129,6 @@ class ConteudoActivity : AppCompatActivity() {
             inner.addView(iconFrame)
             inner.addView(textCol)
             inner.addView(chevron)
-            card.addView(inner)
 
             // Click to expand/collapse
             var isExpanded = false
@@ -143,7 +137,7 @@ class ConteudoActivity : AppCompatActivity() {
                 textSize = 13f
                 setTextColor(getColor(R.color.muted_foreground))
                 setLineSpacing(0f, 1.4f)
-                visibility = android.view.View.GONE
+                visibility = View.GONE
                 val dp16 = (16 * dp).toInt()
                 setPadding(dp16, 0, dp16, dp16)
             }
@@ -153,20 +147,19 @@ class ConteudoActivity : AppCompatActivity() {
             }
             wrapper.addView(inner)
             wrapper.addView(contentView)
-
-            card.removeAllViews()
             card.addView(wrapper)
 
             card.setOnClickListener {
                 SoundManager.playClick()
                 isExpanded = !isExpanded
-                contentView.visibility = if (isExpanded) android.view.View.VISIBLE else android.view.View.GONE
+                contentView.visibility = if (isExpanded) View.VISIBLE else View.GONE
             }
 
             binding.topicsContainer.addView(card)
         }
     }
 
+    @Suppress("DEPRECATION")
     override fun onBackPressed() {
         super.onBackPressed()
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
