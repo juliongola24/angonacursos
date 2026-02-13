@@ -8,6 +8,7 @@
     <string name="history">Histórico de Resultados</string>
     <string name="about">Saber Mais</string>
     <string name="share">Compartilhar</string>
+    <string name="feedback">Feedback</string>
     <string name="settings">Definições</string>
     <string name="dark_mode">Modo Escuro</string>
     <string name="sound_effects">Efeitos Sonoros</string>
@@ -101,6 +102,11 @@
     <string name="share_text">📚 Teste Online - Plataforma de Avaliação\n\nPrepare-se com 95 questões de múltipla escolha, cronômetro e gabarito detalhado!\n\nhttps://testeonline.com</string>
     <string name="share_result_text">🎓 Teste Online - Resultado\n\n%1$s obteve %2$s%% (%3$d/%4$d questões corretas)!\n\nExperimenta também o Teste Online:\nhttps://testeonline.com</string>
     <string name="share_via">Compartilhar via</string>
+
+    <!-- Feedback -->
+    <string name="feedback_email">angonurse@gmail.com</string>
+    <string name="feedback_subject">Feedback - Teste Online</string>
+    <string name="feedback_body">Olá,\n\nGostaria de partilhar o meu feedback sobre o Teste Online:\n\n</string>
 
     <!-- Permissions -->
     <string name="notification_permission_title">Ativar Notificações</string>
