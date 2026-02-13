@@ -1,38 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/background">
 
-    <!-- Header -->
+    <!-- Gradient Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="8dp"
-        android:background="@color/card"
-        android:elevation="4dp">
+        android:background="@drawable/bg_gradient_header"
+        android:orientation="vertical"
+        android:paddingTop="40dp"
+        android:paddingBottom="24dp"
+        android:paddingHorizontal="20dp">
 
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@android:drawable/ic_menu_revert"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="centerInside"
-            android:contentDescription="@string/back" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="centerInside"
+                android:contentDescription="@string/back" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/donations_title"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_foreground"
+                android:layout_marginStart="12dp" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/donations_title"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/foreground"
-            android:layout_marginStart="8dp" />
+            android:text="Apoie o desenvolvimento"
+            android:textSize="14sp"
+            android:textColor="@color/primary_foreground"
+            android:alpha="0.85"
+            android:layout_marginStart="52dp" />
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -45,102 +62,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
 
-            <!-- Support Message Card -->
+            <!-- Info Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/CardStyle"
-                android:elevation="4dp"
                 android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="24dp"
-                    android:gravity="center">
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:gravity="top">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/ic_heart"
+                        android:layout_marginEnd="14dp"
+                        android:layout_marginTop="2dp"
+                        android:contentDescription="@null" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/support_platform"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/foreground"
-                        android:layout_marginBottom="16dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/support_text_1"
+                        android:layout_weight="1"
+                        android:text="Qualquer valor faz diferença! Com a sua contribuição, conseguimos adicionar mais temas, questões e melhorar a experiência de estudo para milhares de estudantes angolanos."
                         android:textSize="14sp"
                         android:textColor="@color/muted_foreground"
-                        android:lineSpacingMultiplier="1.3"
-                        android:gravity="center"
-                        android:layout_marginBottom="12dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/support_text_2"
-                        android:textSize="14sp"
-                        android:textColor="@color/muted_foreground"
-                        android:lineSpacingMultiplier="1.3"
-                        android:gravity="center"
-                        android:layout_marginBottom="16dp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center"
-                        android:background="@drawable/bg_card_elevated">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/min_donation"
-                            android:textSize="12sp"
-                            android:textColor="@color/muted_foreground" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/min_value"
-                            android:textSize="28sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/any_value_welcome"
-                        android:textSize="13sp"
-                        android:textColor="@color/muted_foreground"
-                        android:layout_marginTop="12dp" />
+                        android:lineSpacingMultiplier="1.4" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-            <!-- How to contribute -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/how_to_contribute"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/foreground"
-                android:layout_marginBottom="12dp" />
 
             <!-- PayPay Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/CardStyle"
-                android:elevation="4dp"
                 android:layout_marginBottom="12dp">
 
                 <LinearLayout
@@ -149,28 +112,53 @@
                     android:orientation="vertical"
                     android:padding="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="PayPay"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/foreground"
-                        android:layout_marginBottom="4dp" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Envie o seu donativo via carteira PayPay"
-                        android:textSize="13sp"
-                        android:textColor="@color/muted_foreground"
-                        android:layout_marginBottom="12dp" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="14dp">
+
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_icon_circle">
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_wallet"
+                                android:contentDescription="@null" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="14dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Carteira PayPay"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/foreground" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Transferência via PayPay"
+                                android:textSize="13sp"
+                                android:textColor="@color/muted_foreground" />
+                        </LinearLayout>
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_copy_field">
 
                         <TextView
                             android:layout_width="0dp"
@@ -180,18 +168,18 @@
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:fontFamily="monospace"
-                            android:textColor="@color/foreground"
-                            android:background="@color/muted"
-                            android:padding="10dp" />
+                            android:textColor="@color/foreground" />
 
-                        <ImageButton
+                        <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnCopyPaypay"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@android:drawable/ic_menu_edit"
-                            android:background="?attr/selectableItemBackgroundBorderless"
-                            android:scaleType="centerInside"
-                            android:contentDescription="@string/copied" />
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="Copiar"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            app:strokeColor="@color/border"
+                            app:cornerRadius="8dp" />
                     </LinearLayout>
 
                     <!-- Multicaixa Express info -->
@@ -199,84 +187,67 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:background="@color/muted"
-                        android:padding="16dp"
+                        android:background="@drawable/bg_copy_field"
                         android:layout_marginTop="12dp">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Também pode doar via Multicaixa Express para a carteira PayPay:"
+                            android:text="Multicaixa Express para PayPay:"
                             android:textSize="13sp"
                             android:textStyle="bold"
                             android:textColor="@color/foreground"
                             android:layout_marginBottom="8dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="1. Abrir o Multicaixa Express\n2. Ir em Transferências/Pagamentos\n3. Escolher Pagamentos por Referência\n4. Preencher os campos:"
-                            android:textSize="13sp"
-                            android:textColor="@color/muted_foreground"
-                            android:lineSpacingMultiplier="1.4"
-                            android:layout_marginBottom="8dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Valor: Valor pretendido"
-                            android:textSize="13sp"
-                            android:textColor="@color/foreground"
-                            android:layout_marginBottom="4dp"
-                            android:paddingStart="16dp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center_vertical"
-                            android:paddingStart="16dp"
                             android:layout_marginBottom="4dp">
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Entidade: 10116"
-                                android:textSize="13sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/foreground" />
-                            <ImageButton
+                            <com.google.android.material.button.MaterialButton
                                 android:id="@+id/btnCopyEntidade"
-                                android:layout_width="36dp"
-                                android:layout_height="36dp"
-                                android:src="@android:drawable/ic_menu_edit"
-                                android:background="?attr/selectableItemBackgroundBorderless"
-                                android:scaleType="centerInside"
-                                android:contentDescription="@string/copied" />
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:text="Copiar"
+                                android:textSize="11sp"
+                                android:textAllCaps="false"
+                                app:strokeColor="@color/border"
+                                app:cornerRadius="8dp" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingStart="16dp">
+                            android:gravity="center_vertical">
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Referência: 943693959"
-                                android:textSize="13sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/foreground" />
-                            <ImageButton
+                            <com.google.android.material.button.MaterialButton
                                 android:id="@+id/btnCopyReferencia"
-                                android:layout_width="36dp"
-                                android:layout_height="36dp"
-                                android:src="@android:drawable/ic_menu_edit"
-                                android:background="?attr/selectableItemBackgroundBorderless"
-                                android:scaleType="centerInside"
-                                android:contentDescription="@string/copied" />
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:text="Copiar"
+                                android:textSize="11sp"
+                                android:textAllCaps="false"
+                                app:strokeColor="@color/border"
+                                app:cornerRadius="8dp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -287,7 +258,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/CardStyle"
-                android:elevation="4dp"
                 android:layout_marginBottom="16dp">
 
                 <LinearLayout
@@ -296,49 +266,74 @@
                     android:orientation="vertical"
                     android:padding="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="KWiK"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/foreground"
-                        android:layout_marginBottom="4dp" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Transfira usando o IBAN da conta KWiK"
-                        android:textSize="13sp"
-                        android:textColor="@color/muted_foreground"
-                        android:layout_marginBottom="12dp" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="14dp">
+
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_icon_circle">
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_bank"
+                                android:contentDescription="@null" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="14dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="IBAN KWiK"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/foreground" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Transferência bancária"
+                                android:textSize="13sp"
+                                android:textColor="@color/muted_foreground" />
+                        </LinearLayout>
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_copy_field">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="AO06042000000000061156412"
-                            android:textSize="14sp"
+                            android:text="AO06.0420.0000.0000.0611.5641.2"
+                            android:textSize="13sp"
                             android:textStyle="bold"
                             android:fontFamily="monospace"
-                            android:textColor="@color/foreground"
-                            android:background="@color/muted"
-                            android:padding="10dp" />
+                            android:textColor="@color/foreground" />
 
-                        <ImageButton
+                        <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnCopyKwik"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@android:drawable/ic_menu_edit"
-                            android:background="?attr/selectableItemBackgroundBorderless"
-                            android:scaleType="centerInside"
-                            android:contentDescription="@string/copied" />
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="Copiar"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            app:strokeColor="@color/border"
+                            app:cornerRadius="8dp" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -348,7 +343,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/CardStyle"
-                android:elevation="4dp"
                 android:layout_marginBottom="16dp">
 
                 <LinearLayout
@@ -357,29 +351,53 @@
                     android:orientation="vertical"
                     android:padding="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/send_receipt"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/foreground"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/receipt_desc"
-                        android:textSize="13sp"
-                        android:textColor="@color/muted_foreground"
-                        android:lineSpacingMultiplier="1.3"
-                        android:layout_marginBottom="12dp" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_icon_circle_green">
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_email"
+                                android:contentDescription="@null" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="14dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/send_receipt"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/foreground" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Envie o comprovativo"
+                                android:textSize="13sp"
+                                android:textColor="@color/muted_foreground" />
+                        </LinearLayout>
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
+                        android:background="@drawable/bg_copy_field"
                         android:layout_marginBottom="12dp">
 
                         <TextView
@@ -390,64 +408,50 @@
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:fontFamily="monospace"
-                            android:textColor="@color/foreground"
-                            android:background="@color/muted"
-                            android:padding="10dp" />
+                            android:textColor="@color/foreground" />
 
-                        <ImageButton
+                        <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnCopyEmail"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@android:drawable/ic_menu_edit"
-                            android:background="?attr/selectableItemBackgroundBorderless"
-                            android:scaleType="centerInside"
-                            android:contentDescription="@string/copied" />
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="Copiar"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            app:strokeColor="@color/border"
+                            app:cornerRadius="8dp" />
                     </LinearLayout>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnOpenEmail"
-                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        style="@style/OutlineButton"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
                         android:text="@string/open_email"
-                        android:textAllCaps="false"
-                        xmlns:app="http://schemas.android.com/apk/res-auto" />
+                        android:textAllCaps="false" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <!-- Thank you -->
-            <androidx.cardview.widget.CardView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/CardStyle"
-                android:elevation="4dp"
-                android:layout_marginBottom="16dp">
+                android:text="Obrigado pelo seu apoio ❤️"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/foreground"
+                android:gravity="center"
+                android:layout_marginBottom="4dp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:gravity="center">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/thank_you"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/foreground"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/thank_you_desc"
-                        android:textSize="13sp"
-                        android:textColor="@color/muted_foreground"
-                        android:gravity="center" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cada contribuição ajuda a manter o Teste Online gratuito"
+                android:textSize="13sp"
+                android:textColor="@color/muted_foreground"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

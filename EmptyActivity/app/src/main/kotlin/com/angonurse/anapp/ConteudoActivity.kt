@@ -1,9 +1,11 @@
 package com.angonurse.anapp
 
 import android.os.Bundle
-import android.text.Html
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.ImageView
+import android.widget.FrameLayout
+import android.view.Gravity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.angonurse.anapp.databinding.ActivityConteudoBinding
@@ -40,70 +42,123 @@ class ConteudoActivity : AppCompatActivity() {
         SoundManager.init(this)
 
         binding.btnBack.setOnClickListener { SoundManager.playClick(); finish() }
+        binding.tvTopicCount.text = "${topics.size} temas de estudo"
+
+        val dp = resources.displayMetrics.density
 
         topics.forEachIndexed { index, topic ->
             val card = CardView(this).apply {
-                radius = 12f * resources.displayMetrics.density
-                cardElevation = 4f * resources.displayMetrics.density
+                radius = 14f * dp
+                cardElevation = 2f * dp
                 setCardBackgroundColor(getColor(R.color.card))
                 val lp = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
                 )
-                lp.bottomMargin = (12 * resources.displayMetrics.density).toInt()
+                lp.bottomMargin = (10 * dp).toInt()
                 layoutParams = lp
+                foreground = getDrawable(android.R.attr.selectableItemBackground.let {
+                    val attrs = intArrayOf(it)
+                    val ta = obtainStyledAttributes(attrs)
+                    val d = ta.getDrawable(0)
+                    ta.recycle()
+                    return@let 0
+                }.let { android.R.attr.selectableItemBackground })
             }
 
             val inner = LinearLayout(this).apply {
-                orientation = LinearLayout.VERTICAL
-                val dp20 = (20 * resources.displayMetrics.density).toInt()
-                setPadding(dp20, dp20, dp20, dp20)
+                orientation = LinearLayout.HORIZONTAL
+                gravity = Gravity.CENTER_VERTICAL
+                val dp16 = (16 * dp).toInt()
+                setPadding(dp16, dp16, dp16, dp16)
             }
 
-            // Badge + Title
-            val titleRow = LinearLayout(this).apply {
-                orientation = LinearLayout.HORIZONTAL
-                gravity = android.view.Gravity.CENTER_VERTICAL
-                val lp = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                )
-                lp.bottomMargin = (12 * resources.displayMetrics.density).toInt()
-                layoutParams = lp
+            // Icon circle with badge number
+            val iconFrame = FrameLayout(this).apply {
+                val size = (48 * dp).toInt()
+                layoutParams = LinearLayout.LayoutParams(size, size).apply {
+                    marginEnd = (14 * dp).toInt()
+                }
+                setBackgroundResource(R.drawable.bg_icon_circle)
             }
 
             val badge = TextView(this).apply {
                 text = "${index + 1}"
-                textSize = 14f
-                setTextColor(getColor(R.color.primary_foreground))
-                val size = (32 * resources.displayMetrics.density).toInt()
-                val lp = LinearLayout.LayoutParams(size, size)
-                lp.marginEnd = (12 * resources.displayMetrics.density).toInt()
-                layoutParams = lp
-                gravity = android.view.Gravity.CENTER
-                setBackgroundResource(R.drawable.bg_score_badge)
+                textSize = 16f
+                setTextColor(getColor(R.color.primary))
+                val flp = FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.WRAP_CONTENT,
+                    FrameLayout.LayoutParams.WRAP_CONTENT
+                )
+                flp.gravity = Gravity.CENTER
+                layoutParams = flp
+                paint.isFakeBoldText = true
+            }
+            iconFrame.addView(badge)
+
+            // Text content
+            val textCol = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL
+                layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
             }
 
             val title = TextView(this).apply {
                 text = topic.title
-                textSize = 16f
+                textSize = 15f
                 setTextColor(getColor(R.color.foreground))
                 paint.isFakeBoldText = true
             }
 
-            titleRow.addView(badge)
-            titleRow.addView(title)
+            val subtitle = TextView(this).apply {
+                text = topic.content.split("\n").first()
+                textSize = 12f
+                setTextColor(getColor(R.color.muted_foreground))
+                maxLines = 1
+                ellipsize = android.text.TextUtils.TruncateAt.END
+            }
 
-            val content = TextView(this).apply {
+            textCol.addView(title)
+            textCol.addView(subtitle)
+
+            // Chevron
+            val chevron = ImageView(this).apply {
+                val size = (20 * dp).toInt()
+                layoutParams = LinearLayout.LayoutParams(size, size)
+                setImageResource(R.drawable.ic_chevron_right)
+            }
+
+            inner.addView(iconFrame)
+            inner.addView(textCol)
+            inner.addView(chevron)
+            card.addView(inner)
+
+            // Click to expand/collapse
+            var isExpanded = false
+            val contentView = TextView(this).apply {
                 text = topic.content
                 textSize = 13f
                 setTextColor(getColor(R.color.muted_foreground))
                 setLineSpacing(0f, 1.4f)
+                visibility = android.view.View.GONE
+                val dp16 = (16 * dp).toInt()
+                setPadding(dp16, 0, dp16, dp16)
             }
 
-            inner.addView(titleRow)
-            inner.addView(content)
-            card.addView(inner)
+            val wrapper = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL
+            }
+            wrapper.addView(inner)
+            wrapper.addView(contentView)
+
+            card.removeAllViews()
+            card.addView(wrapper)
+
+            card.setOnClickListener {
+                SoundManager.playClick()
+                isExpanded = !isExpanded
+                contentView.visibility = if (isExpanded) android.view.View.VISIBLE else android.view.View.GONE
+            }
+
             binding.topicsContainer.addView(card)
         }
     }
