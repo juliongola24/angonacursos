@@ -34,22 +34,27 @@ class MainActivity : AppCompatActivity() {
         binding.btnStartTest.setOnClickListener {
             SoundManager.playClick()
             startActivity(Intent(this, ExamActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
         binding.btnContent.setOnClickListener {
             SoundManager.playClick()
             startActivity(Intent(this, ConteudoActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
         binding.btnDonations.setOnClickListener {
             SoundManager.playClick()
             startActivity(Intent(this, DonativosActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
         binding.btnHistory.setOnClickListener {
             SoundManager.playClick()
             startActivity(Intent(this, HistoryActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
         binding.btnAbout.setOnClickListener {
             SoundManager.playClick()
             startActivity(Intent(this, AboutActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
         binding.btnShare.setOnClickListener {
             SoundManager.playClick()

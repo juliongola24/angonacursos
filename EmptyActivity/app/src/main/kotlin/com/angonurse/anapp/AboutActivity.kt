@@ -14,6 +14,15 @@ class AboutActivity : AppCompatActivity() {
         setContentView(binding.root)
         SoundManager.init(this)
 
-        binding.btnBack.setOnClickListener { SoundManager.playClick(); finish() }
+        binding.btnBack.setOnClickListener {
+            SoundManager.playClick()
+            finish()
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 }

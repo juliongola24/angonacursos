@@ -20,7 +20,11 @@ class DonativosActivity : AppCompatActivity() {
         setContentView(binding.root)
         SoundManager.init(this)
 
-        binding.btnBack.setOnClickListener { SoundManager.playClick(); finish() }
+        binding.btnBack.setOnClickListener {
+            SoundManager.playClick()
+            finish()
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        }
 
         binding.btnCopyPaypay.setOnClickListener { SoundManager.playClick(); copyToClipboard("923 456 789") }
         binding.btnCopyEntidade.setOnClickListener { SoundManager.playClick(); copyToClipboard("10116") }
@@ -36,7 +40,11 @@ class DonativosActivity : AppCompatActivity() {
             try { startActivity(intent) } catch (e: Exception) {
                 Toast.makeText(this, "Nenhum app de e-mail encontrado", Toast.LENGTH_SHORT).show()
             }
-        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 
     private fun copyToClipboard(text: String) {

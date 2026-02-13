@@ -20,7 +20,11 @@ class HistoryActivity : AppCompatActivity() {
         setContentView(binding.root)
         SoundManager.init(this)
 
-        binding.btnBack.setOnClickListener { SoundManager.playClick(); finish() }
+        binding.btnBack.setOnClickListener {
+            SoundManager.playClick()
+            finish()
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        }
 
         loadHistory()
 
@@ -40,8 +44,14 @@ class HistoryActivity : AppCompatActivity() {
         binding.btnGoToTest.setOnClickListener {
             SoundManager.playClick()
             startActivity(Intent(this, ExamActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
             finish()
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 
     private fun loadHistory() {

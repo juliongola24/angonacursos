@@ -196,6 +196,7 @@ class ExamActivity : AppCompatActivity() {
             putExtra("answers", answersBundle)
         }
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         finish()
     }
 
