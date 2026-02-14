@@ -58,4 +58,7 @@ dependencies {
 
     // Gson para serialização JSON (histórico)
     implementation("com.google.code.gson:gson:2.10.1")
+
+    // Markwon — Markdown nativo sem WebView
+    implementation("io.noties.markwon:core:4.6.2")
 }

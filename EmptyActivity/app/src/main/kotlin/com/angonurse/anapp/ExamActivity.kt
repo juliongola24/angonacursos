@@ -10,14 +10,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.angonurse.anapp.adapter.QuestionNavAdapter
-import com.angonurse.anapp.data.QuestionData
+import com.angonurse.anapp.data.ExamRepo
 import com.angonurse.anapp.databinding.ActivityExamBinding
 import com.angonurse.anapp.util.ResultHistory
 import com.angonurse.anapp.util.SoundManager
 
 class ExamActivity : AppCompatActivity() {
     private lateinit var binding: ActivityExamBinding
-    private val questions = QuestionData.questions
+    private val questions = ExamRepo.questions
     private val userAnswers = mutableMapOf<Int, String>()
     private var currentIndex = 0
     private lateinit var navAdapter: QuestionNavAdapter

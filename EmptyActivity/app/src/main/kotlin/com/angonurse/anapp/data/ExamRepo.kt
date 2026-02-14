@@ -1,6 +1,11 @@
 package com.angonurse.anapp.data
 
-object QuestionData {
+/**
+ * Repositório centralizado para as perguntas do exame.
+ * Facilita a expansão futura — basta adicionar novas questões à lista.
+ */
+object ExamRepo {
+
     const val EXAM_DURATION_MINUTES = 60
 
     val questions: List<Question> by lazy {
@@ -19,7 +24,7 @@ object QuestionData {
 
         val letters = listOf("a", "b", "c", "d", "e", "f")
         val generated = (6..95).map { i ->
-            val correctIdx = (i * 7 + 3) % 6 // deterministic "random"
+            val correctIdx = (i * 7 + 3) % 6
             Question(
                 id = i,
                 question = "Questão $i: Escolha a alternativa correta para esta pergunta de múltipla escolha.",
