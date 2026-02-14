@@ -1,47 +1,33 @@
 package com.angonurse.anapp
 
 import android.os.Bundle
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.ImageView
-import android.widget.FrameLayout
 import android.view.Gravity
 import android.view.View
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.angonurse.anapp.data.ConteudoRepo
 import com.angonurse.anapp.databinding.ActivityConteudoBinding
 import com.angonurse.anapp.util.SoundManager
+import io.noties.markwon.Markwon
 
 class ConteudoActivity : AppCompatActivity() {
     private lateinit var binding: ActivityConteudoBinding
-
-    private data class Topic(val title: String, val content: String)
-
-    private val topics = listOf(
-        Topic("Anatomia e Fisiologia Humana",
-            "Estudo detalhado dos sistemas do corpo humano.\n\n• Sistema Nervoso — central e periférico\n• Sistema Cardiovascular — coração, vasos sanguíneos\n• Sistema Respiratório — mecânica ventilatória\n• Sistema Digestivo — digestão mecânica e química\n• Sistema Urinário — filtração glomerular\n• Sistema Endócrino — eixos hormonais\n• Sistema Musculoesquelético — tipos de articulações\n• Sistema Linfático — imunidade inata e adaptativa"),
-        Topic("Farmacologia e Terapêutica",
-            "Estudo das classes de medicamentos e farmacocinética.\n\n• Farmacocinética — absorção, distribuição, metabolismo (ADME)\n• Farmacodinâmica — receptores, agonistas, antagonistas\n• Anti-infecciosos — antibióticos, antifúngicos\n• Analgésicos — AINEs, opióides, escala da OMS\n• Fármacos Cardiovasculares — anti-hipertensores, diuréticos\n• Interacções Medicamentosas\n• Cuidados de Enfermagem — os 9 certos"),
-        Topic("Enfermagem Clínica e Cirúrgica",
-            "Cuidados pré, intra e pós-operatórios.\n\n• Avaliação Pré-operatória — checklist cirúrgico\n• Sinais Vitais — PA, FC, FR, temperatura, SpO₂\n• Gestão da Dor — escalas EVA, Wong-Baker\n• Cuidados com Feridas — cicatrização, pensos\n• Prevenção de IACS — técnica asséptica\n• Drenos e Sondas — tipos e cuidados\n• Complicações Pós-operatórias — hemorragia, TVP"),
-        Topic("Saúde Materno-Infantil",
-            "Assistência à mulher grávida e ao recém-nascido.\n\n• Assistência Pré-natal — consultas, sinais de alarme\n• Trabalho de Parto — fases, partograma\n• Cuidados ao Recém-nascido — Apgar, triagem neonatal\n• Aleitamento Materno — técnicas, vantagens\n• Vacinação Infantil — calendário vacinal angolano\n• Crescimento e Desenvolvimento — marcos, curvas\n• Patologias Pediátricas — diarreia, pneumonia, malária"),
-        Topic("Saúde Pública e Epidemiologia",
-            "Determinantes de saúde e vigilância epidemiológica.\n\n• Epidemiologia — incidência, prevalência\n• Indicadores de Saúde — mortalidade infantil\n• Doenças Transmissíveis — malária, TB, VIH/SIDA\n• Doenças Não Transmissíveis — hipertensão, diabetes\n• Promoção da Saúde — educação sanitária\n• Vigilância Epidemiológica — notificação obrigatória\n• Programas Nacionais — PAV, PNCT"),
-        Topic("Microbiologia e Parasitologia",
-            "Microrganismos patogénicos e infecções relevantes.\n\n• Bacteriologia — Gram-positivas e negativas\n• Virologia — VIH, hepatites, Ébola\n• Parasitologia — Plasmodium, helmintas\n• Micologia — Candida, dermatófitos\n• Diagnóstico Laboratorial — coloração de Gram\n• Controlo de Infecções — esterilização, biossegurança\n• Ciclos de Transmissão — vectores, prevenção"),
-        Topic("Ética e Deontologia em Saúde",
-            "Princípios éticos da prática profissional.\n\n• Bioética — autonomia, beneficência, justiça\n• Consentimento Informado — requisitos legais\n• Sigilo Profissional — confidencialidade\n• Direitos do Paciente — dignidade, privacidade\n• Código Deontológico — deveres profissionais\n• Dilemas Éticos — fim de vida, recusa de tratamento\n• Relação Terapêutica — comunicação empática"),
-        Topic("Primeiros Socorros e Emergências",
-            "Suporte básico de vida e emergências.\n\n• Suporte Básico de Vida — cadeia de sobrevivência\n• RCP — compressões torácicas, DEA\n• Abordagem ABCDE — via aérea, respiração, circulação\n• Hemorragias — classificação, hemostase\n• Fracturas — tipos, talas, imobilização\n• Queimaduras — classificação, regra dos 9\n• Intoxicações — descontaminação, antídotos")
-    )
+    private lateinit var markwon: Markwon
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityConteudoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         SoundManager.init(this)
+
+        markwon = Markwon.create(this)
+
+        val topics = ConteudoRepo.topics
 
         binding.btnBack.setOnClickListener {
             SoundManager.playClick()
@@ -72,7 +58,7 @@ class ConteudoActivity : AppCompatActivity() {
                 setPadding(dp16, dp16, dp16, dp16)
             }
 
-            // Icon circle with badge number
+            // Icon circle with emoji
             val iconFrame = FrameLayout(this).apply {
                 val size = (48 * dp).toInt()
                 layoutParams = LinearLayout.LayoutParams(size, size).apply {
@@ -82,16 +68,14 @@ class ConteudoActivity : AppCompatActivity() {
             }
 
             val badge = TextView(this).apply {
-                text = "${index + 1}"
-                textSize = 16f
-                setTextColor(getColor(R.color.primary))
+                text = topic.icon
+                textSize = 20f
                 val flp = FrameLayout.LayoutParams(
                     FrameLayout.LayoutParams.WRAP_CONTENT,
                     FrameLayout.LayoutParams.WRAP_CONTENT
                 )
                 flp.gravity = Gravity.CENTER
                 layoutParams = flp
-                paint.isFakeBoldText = true
             }
             iconFrame.addView(badge)
 
@@ -109,7 +93,7 @@ class ConteudoActivity : AppCompatActivity() {
             }
 
             val subtitle = TextView(this).apply {
-                text = topic.content.split("\n").first()
+                text = topic.summary
                 textSize = 12f
                 setTextColor(getColor(R.color.muted_foreground))
                 maxLines = 1
@@ -130,17 +114,18 @@ class ConteudoActivity : AppCompatActivity() {
             inner.addView(textCol)
             inner.addView(chevron)
 
-            // Click to expand/collapse
+            // Markdown content view (rendered by Markwon)
             var isExpanded = false
             val contentView = TextView(this).apply {
-                text = topic.content
-                textSize = 13f
-                setTextColor(getColor(R.color.muted_foreground))
-                setLineSpacing(0f, 1.4f)
+                textSize = 14f
+                setTextColor(getColor(R.color.foreground))
+                setLineSpacing(0f, 1.35f)
                 visibility = View.GONE
                 val dp16 = (16 * dp).toInt()
-                setPadding(dp16, 0, dp16, dp16)
+                setPadding(dp16, (8 * dp).toInt(), dp16, dp16)
             }
+            // Pre-render markdown into the TextView
+            markwon.setMarkdown(contentView, topic.markdownContent)
 
             val wrapper = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL
