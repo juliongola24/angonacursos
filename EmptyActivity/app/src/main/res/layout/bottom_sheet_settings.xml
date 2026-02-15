@@ -433,11 +433,15 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- === Feedback Section === -->
+            <!-- === Check for Updates === -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/btnCheckUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/CardStyle">
+                style="@style/CardStyle"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -454,18 +458,36 @@
                             android:layout_width="22dp"
                             android:layout_height="22dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_email"
+                            android:src="@drawable/ic_download"
                             android:contentDescription="@null" />
                     </FrameLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Feedback"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/foreground"
-                        android:layout_marginStart="14dp" />
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="14dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Verificar Actualizações"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/foreground" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Procurar nova versão do app"
+                            android:textSize="13sp"
+                            android:textColor="@color/muted_foreground" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="@null" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>

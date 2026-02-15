@@ -138,6 +138,10 @@ class MainActivity : AppCompatActivity() {
         sheetBinding.btnTiktok.setOnClickListener {
             SoundManager.playClick()
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://tiktok.com/@angonurse")))
+        sheetBinding.btnCheckUpdate.setOnClickListener {
+            SoundManager.playClick()
+            dialog.dismiss()
+            UpdateChecker.checkManual(this)
         }
         dialog.show()
     }
