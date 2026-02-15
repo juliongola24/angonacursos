@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.angonurse.anapp.adapter.ResultDetailAdapter
-import com.angonurse.anapp.data.QuestionData
+import com.angonurse.anapp.data.ExamRepo
 import com.angonurse.anapp.databinding.ActivityResultsBinding
 import com.angonurse.anapp.util.SoundManager
 import java.io.File
@@ -41,7 +41,7 @@ class ResultsActivity : AppCompatActivity() {
         binding.tvCorrectCount.text = getString(R.string.correct_of_total, correctCount, totalQuestions)
 
         // Detailed results
-        val adapter = ResultDetailAdapter(QuestionData.questions, userAnswers)
+        val adapter = ResultDetailAdapter(ExamRepo.questions, userAnswers)
         binding.rvResultDetails.layoutManager = LinearLayoutManager(this)
         binding.rvResultDetails.isNestedScrollingEnabled = false
         binding.rvResultDetails.adapter = adapter
@@ -72,7 +72,7 @@ class ResultsActivity : AppCompatActivity() {
     private fun generatePdf() {
         try {
             val doc = PdfDocument()
-            val questions = QuestionData.questions
+            val questions = ExamRepo.questions
             var pageNum = 1
             var y = 60f
             val pageWidth = 595
