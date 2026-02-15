@@ -63,6 +63,44 @@ object UpdateChecker {
         }.start()
     }
 
+    /** Verificação manual — mostra feedback ao utilizador mesmo se estiver actualizado. */
+    fun checkManual(context: Context) {
+        Toast.makeText(context, "A verificar actualizações…", Toast.LENGTH_SHORT).show()
+        Thread {
+            try {
+                val json = fetchJson(VERSION_URL)
+                val activity = context as? androidx.appcompat.app.AppCompatActivity ?: return@Thread
+
+                if (json == null) {
+                    activity.runOnUiThread {
+                        Toast.makeText(context, "Não foi possível verificar. Verifique a sua conexão.", Toast.LENGTH_LONG).show()
+                    }
+                    return@Thread
+                }
+
+                val remote = Gson().fromJson(json, RemoteVersion::class.java)
+                val currentCode = context.packageManager
+                    .getPackageInfo(context.packageName, 0)
+                    .let {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) it.longVersionCode.toInt()
+                        else @Suppress("DEPRECATION") it.versionCode
+                    }
+
+                activity.runOnUiThread {
+                    if (remote.versionCode > currentCode) {
+                        showUpdateDialog(context, remote)
+                    } else {
+                        Toast.makeText(context, "✅ O app já está actualizado!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (_: Exception) {
+                (context as? androidx.appcompat.app.AppCompatActivity)?.runOnUiThread {
+                    Toast.makeText(context, "Erro ao verificar actualizações.", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }.start()
+    }
+
     private fun fetchJson(url: String): String? {
         val conn = URL(url).openConnection() as HttpURLConnection
         conn.connectTimeout = 8_000
