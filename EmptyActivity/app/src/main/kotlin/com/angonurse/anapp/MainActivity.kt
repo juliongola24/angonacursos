@@ -16,6 +16,7 @@ import com.angonurse.anapp.databinding.ActivityMainBinding
 import com.angonurse.anapp.databinding.BottomSheetSettingsBinding
 import com.angonurse.anapp.util.PrefsManager
 import com.angonurse.anapp.util.SoundManager
+import com.angonurse.anapp.util.UpdateChecker
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +31,9 @@ class MainActivity : AppCompatActivity() {
 
         SoundManager.init(this)
         requestNotificationPermission()
+
+        // Verificar actualizações
+        UpdateChecker.check(this)
 
         binding.btnStartTest.setOnClickListener {
             SoundManager.playClick()
