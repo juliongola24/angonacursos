@@ -11,472 +11,526 @@ data class Topic(
 object ConteudoRepo {
 
     val topics: List<Topic> = listOf(
+
+        // 1. Coproparasitologia
         Topic(
             id = 1,
-            title = "Anatomia e Fisiologia Humana",
+            title = "Coproparasitologia",
             icon = "🧬",
-            summary = "Estudo detalhado dos sistemas do corpo humano.",
+            summary = "Coprologia é a ciência que estuda as fezes",
             markdownContent = """
-# Anatomia e Fisiologia Humana
+# Coproparasitologia
 
-> *Estudo detalhado dos sistemas do corpo humano e suas funções vitais.*
+## Conceito de Coprologia
+Coprologia é a ciência que estuda as fezes humanas e animais, permitindo identificar alterações fisiológicas, metabólicas e a presença de parasitas ou microrganismos. É essencial para diagnósticos laboratoriais e vigilância epidemiológica.
 
----
+## Conceito de Parasitologia
+Parasitologia é o estudo dos parasitas, organismos que vivem à custa de outros seres vivos, causando doenças. Engloba protozoários, helmintos e ectoparasitas, analisando seu ciclo de vida, patogenicidade e formas de transmissão.
 
-## Sistema Nervoso
-O sistema nervoso divide-se em **central** (encéfalo e medula espinhal) e **periférico** (nervos cranianos e espinhais).
+## Importância do estudo das fezes
+O exame de fezes permite diagnosticar infecções intestinais, parasitoses, distúrbios digestivos, alterações bioquímicas e hematológicas. Auxilia também na avaliação do estado nutricional e no monitoramento de terapias.
 
-- **Neurónios** — unidade funcional do sistema nervoso
-- **Sinapses** — transmissão de impulsos nervosos
-- **Arco reflexo** — resposta involuntária a estímulos
+## Formação das fezes
+As fezes se formam no intestino grosso, a partir da absorção de água e sais do quimo. A motilidade intestinal transforma o conteúdo em massa fecal, composta por resíduos alimentares, bactérias, células epiteliais descamadas e secreções digestivas.
 
-## Sistema Cardiovascular
-Responsável pelo transporte de **oxigénio**, nutrientes e resíduos metabólicos.
+## Característica fisiológica das fezes
+As fezes normais possuem cor marrom devido à bilirrubina, odor característico, consistência moldável, forma cilíndrica e pH ligeiramente ácido.
 
-- **Coração** — 4 câmaras, ciclo cardíaco
-- **Vasos sanguíneos** — artérias, veias, capilares
-- **Circulação** — pulmonar e sistémica
+## Principais componentes bioquímicos encontrados nas fezes
+Incluem água, fibras alimentares, proteínas, lipídios, carboidratos não digeridos, sais minerais, enzimas digestivas e microrganismos simbióticos.
 
-## Sistema Respiratório
-Garante as trocas gasosas entre o organismo e o meio externo.
+## Colheita, transporte e preservação de amostra
+A amostra deve ser coletada em recipiente limpo, sem contato com urina ou água. O transporte deve ser imediato ou a amostra preservada em conservantes específicos, mantendo a integridade dos parasitas e estruturas celulares.
 
-- **Mecânica ventilatória** — inspiração e expiração
-- **Hematose** — troca gasosa alveolar
-- **Volumes pulmonares** — capacidade vital, volume residual
+## Exame químico e microscópico das fezes
+O exame químico detecta sangue oculto, gorduras e pH. O exame microscópico identifica ovos, cistos e larvas de parasitas, além de elementos celulares e bactérias patogénicas.
 
-## Sistema Digestivo
-Responsável pela **digestão mecânica e química** dos alimentos.
+## Estudo dos protozoários
+Protozoários intestinais mais comuns incluem *Giardia lamblia*, *Entamoeba histolytica* e *Cryptosporidium spp.*. Analisam-se morfologia, ciclo de vida, transmissibilidade e impacto clínico.
 
-- **Boca → Esófago → Estômago** — digestão inicial
-- **Intestino delgado** — absorção de nutrientes
-- **Intestino grosso** — absorção de água, formação de fezes
+## Estudo dos platelmintos
+Platelmintos, como tênias e trematódeos, são analisados quanto a ovos e segmentos eliminados nas fezes. A identificação permite diagnóstico e escolha adequada de terapêutica antiparasitária.
 
-## Sistema Urinário
-Filtra o sangue e elimina resíduos metabólicos.
-
-- **Filtração glomerular** — nefrão como unidade funcional
-- **Reabsorção tubular** — glicose, aminoácidos, água
-- **Equilíbrio hidro-electrolítico** — regulação do pH
-
-## Sistema Endócrino
-Sistema de comunicação por **hormonas** que regulam funções corporais.
-
-- **Eixos hormonais** — hipotálamo-hipófise-órgão alvo
-- **Tiróide** — T3, T4, metabolismo
-- **Pâncreas** — insulina, glucagon
-
-## Sistema Musculoesquelético
-Suporte estrutural e locomoção do corpo.
-
-- **Tipos de articulações** — sinoviais, fibrosas, cartilagíneas
-- **Músculos** — esqueléticos, lisos, cardíaco
-- **Ossos** — tipos, composição, remodelação
-
-## Sistema Linfático
-Defesa imunológica e drenagem de líquidos intersticiais.
-
-- **Imunidade inata** — barreiras físicas, fagócitos
-- **Imunidade adaptativa** — linfócitos T e B, anticorpos
-- **Órgãos linfóides** — timo, baço, gânglios
+## Características gerais
+O estudo coproparasitológico é essencial para a saúde pública, prevenção de epidemias e orientação de terapias individualizadas, sendo uma ferramenta fundamental em laboratórios de análises clínicas.
             """.trimIndent()
         ),
 
+        // 2. Imunologia
         Topic(
             id = 2,
-            title = "Farmacologia e Terapêutica",
-            icon = "💊",
-            summary = "Estudo das classes de medicamentos e farmacocinética.",
+            title = "Imunologia",
+            icon = "🛡️",
+            summary = "Imunologia é a ciência que estuda o sistema imunitário",
             markdownContent = """
-# Farmacologia e Terapêutica
+# Imunologia
 
-> *Compreender os mecanismos de acção dos fármacos e a sua aplicação clínica.*
+## Conceitos de Imunologia
+Imunologia é a ciência que estuda o sistema imunitário, seus componentes, mecanismos de defesa e respostas a agentes infecciosos, células anormais ou substâncias estranhas.
 
----
+## Imunidade
+Imunidade é a capacidade do organismo de reconhecer e neutralizar agentes estranhos, evitando doenças. Pode ser natural ou adquirida, ativa ou passiva.
 
-## Farmacocinética — ADME
+## Funções do Sistema Imunológico
+- Defesa contra patógenos
+- Remoção de células neoplásicas
+- Reconhecimento de substâncias estranhas
+- Memória imunológica
 
-O percurso do fármaco no organismo segue quatro etapas:
+## Imunidade Inata e Adquirida
+A inata é imediata, não específica, formada por barreiras físicas, células fagocíticas e mediadores químicos. A adquirida é específica, envolve linfócitos T e B e produz anticorpos.
 
-1. **Absorção** — passagem do fármaco para a corrente sanguínea
-2. **Distribuição** — transporte para os tecidos-alvo
-3. **Metabolismo** — biotransformação hepática (citocromo P450)
-4. **Excreção** — eliminação renal, hepática, pulmonar
+## Características das Imunidades
+- Especificidade
+- Diversidade
+- Memória
+- Tolerância a células próprias
 
-## Farmacodinâmica
+## Principais componentes da Imunidade Inata
+- Fagócitos: neutrófilos e macrófagos
+- Barreiras físicas: pele e mucosas
+- Mediadores químicos: citocinas, proteínas do complemento
 
-Estudo do **efeito do fármaco** no organismo.
+## Principais componentes da Imunidade Adquirida
+- Linfócitos T e B
+- Anticorpos (IgG, IgM, IgA, IgE, IgD)
+- Células apresentadoras de antígeno (APCs)
 
-- **Receptores** — proteínas-alvo dos fármacos
-- **Agonistas** — activam o receptor
-- **Antagonistas** — bloqueiam o receptor
-- **Dose-resposta** — curva sigmoide, ED50
+## Sistema de Complemento
+Conjunto de proteínas plasmáticas que auxiliam na lise de células estranhas, opsonização e inflamação.
 
-## Anti-infecciosos
+## Antigénios
+Substâncias capazes de induzir resposta imunológica. Incluem proteínas, polissacarídeos e lipídios de patógenos, células e vacinas.
 
-| Classe | Exemplos | Mecanismo |
-|--------|----------|-----------|
-| **Antibióticos** | Amoxicilina, Ciprofloxacina | Inibição da parede celular |
-| **Antifúngicos** | Fluconazol, Anfotericina B | Alteração da membrana fúngica |
-| **Antivirais** | Aciclovir, Oseltamivir | Inibição da replicação viral |
+## Determinantes Antigénicos
+Regiões específicas do antigénio que são reconhecidas por anticorpos ou receptores de células T.
 
-## Analgésicos
+## Imunogenicidade
+Capacidade de um antigénio induzir resposta imunitária.
 
-- **AINEs** — ibuprofeno, diclofenac (inibição COX)
-- **Opióides** — morfina, tramadol (receptores μ)
-- **Escala da OMS** — 3 degraus para controlo da dor
+## Tipos de Antigénios
+- Exógenos: provenientes do exterior
+- Endógenos: produzidos pelo próprio organismo
+- Autoantigénios: do próprio organismo, mas reconhecidos como estranhos em autoimunidade
 
-## Fármacos Cardiovasculares
+## Antigénios dos grupos sanguíneos
+Determinantes de sistemas ABO e Rh, importantes para transfusões e compatibilidade hemática.
 
-- **Anti-hipertensores** — IECAs, ARAs, bloqueadores dos canais de cálcio
-- **Diuréticos** — tiazídicos, da ansa, poupadores de potássio
-- **Anticoagulantes** — heparina, varfarina
+## Imunoglobulinas
+Proteínas produzidas pelos linfócitos B que reconhecem e neutralizam antigénios específicos.
 
-## Cuidados de Enfermagem
+## Resposta primária e secundária na elaboração de anticorpos
+Primária: lenta, IgM predominante; Secundária: rápida, IgG predominante, memória imunológica.
 
-> **Os 9 Certos da Administração de Medicamentos:**
-> 1. Paciente certo
-> 2. Medicamento certo
-> 3. Dose certa
-> 4. Via certa
-> 5. Hora certa
-> 6. Registo certo
-> 7. Orientação certa
-> 8. Forma certa
-> 9. Resposta certa
+## Hipersensibilidade
+Resposta exagerada ou inadequada do sistema imunitário a antígenos, podendo ser imediata ou retardada.
+
+## Diagnóstico das doenças sexualmente transmissíveis
+Inclui testes sorológicos, detecção de antígenos, PCR e exames clínicos direcionados.
             """.trimIndent()
         ),
 
+        // 3. Hematologia
         Topic(
             id = 3,
-            title = "Enfermagem Clínica e Cirúrgica",
-            icon = "🏥",
-            summary = "Cuidados pré, intra e pós-operatórios.",
+            title = "Hematologia",
+            icon = "🩸",
+            summary = "Hematologia é o estudo do sangue, suas células e funções fisiológicas.",
             markdownContent = """
-# Enfermagem Clínica e Cirúrgica
+# Hematologia
 
-> *Cuidados de enfermagem nas fases pré, intra e pós-operatórias.*
+## Conceito, Composição e Função
+Hematologia é o estudo do sangue, suas células e funções fisiológicas. O sangue é composto por plasma, eritrócitos, leucócitos e plaquetas, desempenhando transporte de gases, nutrientes, defesa e coagulação.
 
----
+## Hematopoiese pré e pós-natal
+Processo de formação das células sanguíneas. Pré-natal: fígado e baço; Pós-natal: medula óssea, principalmente esterno e pelve.
 
-## Avaliação Pré-operatória
+## Eritrócito: Tamanho, Forma, Cor e Composição
+Células anucleadas, bicôncavas, 7–8 μm, cor avermelhada por hemoglobina, transportam O₂ e CO₂.
 
-- **Checklist cirúrgico** — protocolo de segurança da OMS
-- **Anamnese** — antecedentes, alergias, medicação
-- **Exames** — hemograma, coagulação, ECG
-- **Jejum** — mínimo 6–8 horas
+## Função Respiratória do Eritrócito
+Hemoglobina transporta O₂ dos pulmões para tecidos e CO₂ do metabolismo celular para eliminação.
 
-## Sinais Vitais
+## Valores Normais e Variações
+Homens: 4,5–5,9 milhões/μL; Mulheres: 4,1–5,1 milhões/μL. Variações: fisiológicas (altitude, gestação) e patológicas (anemias, policitemia).
 
-| Parâmetro | Valores Normais |
-|-----------|----------------|
-| **PA** | 120/80 mmHg |
-| **FC** | 60–100 bpm |
-| **FR** | 12–20 cpm |
-| **Temperatura** | 36–37.5°C |
-| **SpO₂** | 95–100% |
+## Volume Globular
+Proporção do sangue ocupada por eritrócitos (hematócrito). Determinação: macrométodo e micrométodo. Valores normais: 40–54% homens, 37–47% mulheres. Possíveis erros: má mistura, anticoagulante inadequado.
 
-## Gestão da Dor
+## Contagem Global de Eritrócitos
+Contagem direta ou automatizada; avaliação da concentração de células, usada para diagnosticar anemias e policitemia.
 
-Escalas de avaliação:
-- **EVA** — Escala Visual Analógica (0–10)
-- **Wong-Baker** — faces para crianças
-- **FLACC** — para neonatos e lactentes
+## Contagem de Reticulócitos
+Avalia eritropoiese recente. Material: frotis, corantes supravital. Valores normais: 0,5–2,5% do total de eritrócitos.
 
-## Cuidados com Feridas
+## Anemias
+Deficiência de eritrócitos ou hemoglobina. Classificação etiológica: ferropénica, megaloblástica, hemolítica; segundo resposta medular: regenerativa ou não regenerativa.
 
-- **Cicatrização** — 1ª, 2ª e 3ª intenção
-- **Pensos** — húmidos, secos, alginatos, hidrogéis
-- **Técnica asséptica** — limpeza de dentro para fora
+## Anemia Ferropénica
+Causada por défice de ferro, alterações laboratoriais: microcitose, hipocromia, baixa ferritina.
 
-## Drenos e Sondas
+## Anemia Megaloblástica
+Défice de vitamina B12 ou ácido fólico; eritrocitos aumentados, hipersegmentação de neutrófilos, baixa maturação medular.
 
-- **Drenos** — Penrose, Jackson-Pratt, tórax
-- **Sondas** — nasogástrica, vesical (Foley)
-- **Cuidados** — fixação, débito, permeabilidade
+## Anemia Hemolítica
+Destruição precoce de eritrócitos; icterícia, aumento de LDH e bilirrubina indireta.
 
-## Complicações Pós-operatórias
-
-- **Hemorragia** — sinais de choque hipovolémico
-- **TVP** — trombose venosa profunda, sinal de Homans
-- **Infecção** — sinais flogísticos, febre >38.5°C
-- **Atelectasia** — exercícios respiratórios, espirometria
+## Policitemia
+Aumento de eritrócitos; hematócrito elevado, risco de trombose.
             """.trimIndent()
         ),
 
+        // 4. Microbiologia
         Topic(
             id = 4,
-            title = "Saúde Materno-Infantil",
-            icon = "👶",
-            summary = "Assistência à mulher grávida e ao recém-nascido.",
+            title = "Microbiologia",
+            icon = "🔬",
+            summary = "Classificação Geral dos Microrganismos",
             markdownContent = """
-# Saúde Materno-Infantil
+# Microbiologia
 
-> *Assistência integral à mulher no ciclo gravídico-puerperal e cuidados ao recém-nascido.*
+## Classificação Geral dos Microrganismos
+Inclui bactérias, vírus, fungos, protozoários e helmintos.
 
----
+## Nomenclatura dos Microrganismos
+Seguindo regras de binomial: gênero + espécie, conforme Código Internacional de Nomenclatura.
 
-## Assistência Pré-natal
+## Bactérias: Conceito e Estrutura
+Unicelulares, procarióticas, parede celular, membrana, citoplasma, ribossomos. Movimentam-se por flagelos.
 
-- **Consultas** — mínimo 8 consultas (OMS)
-- **Exames** — hemograma, tipagem, serologias, ecografia
-- **Sinais de alarme** — hemorragia, edema, cefaleias intensas
+## Classificação e Taxonomia
+Gram-positivas e Gram-negativas; aerobias, anaerobias; cocos, bacilos, espirilos.
 
-## Trabalho de Parto
+## Metabolismo
+Fonte de energia: fototróficos ou quimiotróficos; carbono: autotróficos ou heterotróficos.
 
-Fases do parto:
-1. **Dilatação** — contracções regulares, dilatação cervical
-2. **Expulsão** — nascimento do bebé
-3. **Dequitadura** — saída da placenta
+## Reprodução
+Bipartição, conjugação, transformação e transdução.
 
-> **Partograma** — registo gráfico da evolução do trabalho de parto
+## Importância das Bactérias
+Papel na digestão, síntese de vitaminas, patogenicidade e biotecnologia.
 
-## Cuidados ao Recém-nascido
+## Vírus
+Agentes subcelulares, DNA ou RNA, parasitismo intracelular obrigatório, replicação específica ao hospedeiro.
 
-- **Índice de Apgar** — avaliação ao 1º e 5º minuto
-- **Triagem neonatal** — teste do pezinho
-- **Cuidados imediatos** — aquecimento, aspiração, clampagem
+## Ciclo Viral
+Adsorção, penetração, replicação, montagem e liberação.
 
-## Aleitamento Materno
-
-- **Técnicas** — pega correcta, posicionamento
-- **Vantagens** — imunológicas, nutricionais, vínculo afectivo
-- **Contra-indicações** — VIH, medicamentos específicos
-
-## Vacinação Infantil
-
-Calendário vacinal angolano inclui:
-- **BCG** — nascimento
-- **VPO/VIP** — pólio
-- **Pentavalente** — DPT + HepB + Hib
-- **Sarampo** — 9 meses
-
-## Patologias Pediátricas Comuns
-
-- **Diarreia** — TRO, plano de tratamento A/B/C
-- **Pneumonia** — classificação AIDI, antibioterapia
-- **Malária** — ACT, prevenção com mosquiteiros
+## Amostras em Bacteriologia
+Coleta deve ser estéril, transporte correto, conservação adequada para viabilidade.
             """.trimIndent()
         ),
 
+        // 5. Urinologia
         Topic(
             id = 5,
-            title = "Saúde Pública e Epidemiologia",
-            icon = "📊",
-            summary = "Determinantes de saúde e vigilância epidemiológica.",
+            title = "Urinologia",
+            icon = "🚰",
+            summary = "Estudo dos rins, formação da urina...",
             markdownContent = """
-# Saúde Pública e Epidemiologia
+# Urinologia
 
-> *Estudo dos determinantes de saúde, prevenção de doenças e vigilância epidemiológica.*
+## Os Rins: Sistema Primário
+Órgãos responsáveis pela filtração do sangue, produção de urina, manutenção de equilíbrio hídrico e eletrolítico.
 
----
+## Formação da Urina
+Filtração glomerular, reabsorção tubular e secreção. Urina primária transformada em urina definitiva no túbulo renal.
 
-## Conceitos Epidemiológicos
+## Colheita de Amostra de Urina
+Urina deve ser coletada de forma asséptica, preferencialmente meia-manhã. Uso de recipiente limpo, preservação adequada.
 
-- **Incidência** — casos novos / população em risco
-- **Prevalência** — casos existentes / população total
-- **Mortalidade** — óbitos / população
-- **Letalidade** — óbitos / casos confirmados
+## Exame Sumário de Urina
+Avaliação física: cor, odor, aspecto, volume.  
+Exame químico: pH, densidade, proteínas, glicose, bilirrubina, corpos cetónicos.  
+Exame microscópico: células epiteliais, leucócitos, eritrócitos, cristais, cilindros.
 
-## Indicadores de Saúde
+## Urocultura
+Avalia crescimento bacteriano, identifica patógenos e determina sensibilidade a antibióticos.
 
-| Indicador | Significado |
-|-----------|------------|
-| **Taxa de mortalidade infantil** | Óbitos <1 ano / nascidos vivos × 1000 |
-| **Esperança de vida** | Anos médios de vida esperados |
-| **Taxa de natalidade** | Nascimentos / população × 1000 |
+## Urina de 24, 12 e 8 Horas
+Coleta seriada para dosagem de substâncias metabólicas e função renal.
 
-## Doenças Transmissíveis
+## Exame Físico e Químico
+Observa-se cor, odor, turbidez, volume, pH e densidade. Testes químicos podem ser feitos com tiras reativas ou métodos laboratoriais.
 
-- **Malária** — *Plasmodium falciparum*, transmissão por *Anopheles*
-- **Tuberculose** — *Mycobacterium tuberculosis*, DOTS
-- **VIH/SIDA** — prevenção, TARV, adesão terapêutica
-
-## Doenças Não Transmissíveis
-
-- **Hipertensão arterial** — factores de risco, monitorização
-- **Diabetes mellitus** — tipo 1 e 2, HbA1c
-- **Cancro** — rastreio, prevenção primária
-
-## Promoção da Saúde
-
-- **Educação sanitária** — mudança de comportamentos
-- **Saneamento básico** — água potável, eliminação de resíduos
-- **Prevenção** — primária, secundária, terciária
-
-## Programas Nacionais de Saúde
-
-- **PAV** — Programa Alargado de Vacinação
-- **PNCT** — Programa Nacional de Controlo da Tuberculose
-- **PNLP** — Programa Nacional de Luta contra o Paludismo
+## Sedimento Urinário
+Preparação e análise microscópica de elementos celulares, cilindros e cristais para diagnóstico clínico.
             """.trimIndent()
         ),
+        // Parte 2 – Tópicos 6 a 10
 
-        Topic(
-            id = 6,
-            title = "Microbiologia e Parasitologia",
-            icon = "🔬",
-            summary = "Microrganismos patogénicos e infecções relevantes.",
-            markdownContent = """
-# Microbiologia e Parasitologia
+// 6. Bioquímica Clínica
+Topic(
+    id = 6,
+    title = "Bioquímica Clínica",
+    icon = "🧪",
+    summary = "Bioquímica clínica estuda substâncias químicas no corpo humano...",
+    markdownContent = """
+# Bioquímica Clínica
 
-> *Estudo dos microrganismos causadores de doenças e mecanismos de controlo de infecções.*
+## Definição e Importância
+Bioquímica clínica estuda substâncias químicas no corpo humano, suas alterações patológicas e indicadores diagnósticos, auxiliando no tratamento e monitoramento de doenças.
 
----
+## Métodos Analíticos
+- Gravimétricos: pesagem de substâncias após reação química.
+- Turbidimétricos: medição de turbidez causada por precipitados.
+- Colorimétricos: intensidade de cor proporcional à concentração.
+- Gasométricos: determinação de gases sanguíneos.
 
-## Bacteriologia
+## Proteínas do Soro e LCR
+Determinação qualitativa e quantitativa de albumina e globulinas, usando métodos turbidimétricos, gravimétricos, colorimétricos e eletroforese.
 
-- **Gram-positivas** — *Staphylococcus*, *Streptococcus*
-- **Gram-negativas** — *E. coli*, *Klebsiella*, *Pseudomonas*
-- **Coloração de Gram** — método de identificação rápida
-- **Resistência antimicrobiana** — MRSA, bactérias MDR
+## Método de Biuret
+Fundamento: reação do cobre com ligações peptídicas. Permite dosagem total de proteínas no soro.
 
-## Virologia
+## Verde de Bromocresol
+Usado para avaliar albumina e globulinas. Medição colorimétrica e cálculos proporcionais.
 
-- **VIH** — retrovírus, destruição de CD4
-- **Hepatites** — A (feco-oral), B e C (sangue)
-- **Ébola** — febre hemorrágica, alta letalidade
-- **COVID-19** — SARS-CoV-2, medidas de prevenção
+## Provas Qualitativas de Frações Proteicas
+Identificação de proteínas específicas como imunoglobulinas e proteínas de fase aguda.
 
-## Parasitologia
+## Eletroforese
+Separação de proteínas por mobilidade elétrica. Permite fracionamento em albumina, α, β e γ-globulinas.
 
-- **Plasmodium** — ciclo de vida, malária
-- **Helmintas** — *Ascaris*, *Ancylostoma*, *Schistosoma*
-- **Protozoários** — *Giardia*, *Entamoeba*, *Trypanosoma*
+## Curvas de Calibração
+Criação de padrões de concentração conhecidos para quantificação de analitos.
 
-## Micologia
+## Ureia e Metabolismo da Glicose
+Determinação da ureia, fundamentos, valores normais, causas de erro. Revisão do metabolismo da glicose, glicogénio e glicólise, regulação e implicações clínicas.
 
-- **Candida** — candidíase oral e vaginal
-- **Dermatófitos** — tinhas, onicomicose
-- **Fungos oportunistas** — *Aspergillus*, *Cryptococcus*
+## Principais Causas de Alteração da Glicose
+Diabetes mellitus, hipoglicemia, distúrbios hormonais e efeitos farmacológicos.
+    """.trimIndent()
+),
 
-## Controlo de Infecções
+// 7. Covid-19
+Topic(
+    id = 7,
+    title = "Covid-19",
+    icon = "🦠",
+    summary = "Doença respiratória causada pelo vírus SARS-CoV-2...",
+    markdownContent = """
+# Covid-19
 
-> **Cadeia de transmissão:**
-> Agente → Reservatório → Porta de saída → Modo de transmissão → Porta de entrada → Hospedeiro
+## Conceito
+Doença respiratória causada pelo vírus SARS-CoV-2, podendo variar de assintomática a grave.
 
-- **Esterilização** — autoclave, calor seco
-- **Desinfecção** — álcool 70%, hipoclorito
-- **Biossegurança** — EPIs, precauções padrão
-            """.trimIndent()
-        ),
+## Etiologia
+Causada por um coronavírus de RNA, altamente contagioso, transmitido por gotículas respiratórias, contato e aerossóis.
 
-        Topic(
-            id = 7,
-            title = "Ética e Deontologia em Saúde",
-            icon = "⚖️",
-            summary = "Princípios éticos da prática profissional.",
-            markdownContent = """
-# Ética e Deontologia em Saúde
+## Quadro Clínico
+Febre, tosse seca, cansaço, dor de garganta, anosmia, dispneia em casos graves.
 
-> *Princípios éticos fundamentais que orientam a prática profissional de enfermagem.*
+## Classificação
+- Leve: sintomas respiratórios sem dificuldade.
+- Moderada: pneumonia sem hipóxia grave.
+- Grave: insuficiência respiratória, necessidade de oxigênio.
+- Crítica: SDRA, choque séptico, falência de órgãos.
 
----
+## Critérios de Diagnóstico
+Exame PCR, antígeno, sorologia, histórico clínico e epidemiológico.
 
-## Princípios da Bioética
+## Complicações
+SDRA, trombose, miocardite, falência renal, sepse.
 
-Os quatro pilares fundamentais:
+## Conduta
+Isolamento, suporte sintomático, oxigenoterapia, anticoagulação quando indicada, monitoramento clínico.
 
-1. **Autonomia** — respeito pela decisão do paciente
-2. **Beneficência** — agir em benefício do paciente
-3. **Não-maleficência** — *primum non nocere* (primeiro, não causar dano)
-4. **Justiça** — distribuição equitativa dos recursos de saúde
+## Prognóstico
+Variável; dependente de idade, comorbidades, resposta imunológica e tratamento precoce.
+    """.trimIndent()
+),
 
-## Consentimento Informado
+// 8. Eritrograma
+Topic(
+    id = 8,
+    title = "Eritrograma",
+    icon = "🩸",
+    summary = "Estudo dos hematométricos, avaliação...",
+    markdownContent = """
+# Eritrograma
 
-- **Requisitos** — informação completa, compreensão, voluntariedade
-- **Capacidade** — avaliação da competência do paciente
-- **Documentação** — formulário escrito, assinatura
+## Avaliação Quantitativa
+Determinação da concentração de eritrócitos por microlitro de sangue, hematócrito e hemoglobina.
 
-## Sigilo Profissional
+## Avaliação Qualitativa
+Observação de tamanho (microcítico, macrocítico), forma (anisocitose, poiquilocitose), coloração (hipocrômicos ou normocrômicos) e inclusões eritrocitárias.
 
-> *"O enfermeiro deve guardar segredo profissional sobre os factos de que tenha conhecimento no exercício da sua profissão."*
+## Índices Hematométricos
+- VCM (Volume Corpuscular Médio)
+- HCM (Hemoglobina Corpuscular Média)
+- CHCM (Concentração de Hemoglobina Corpuscular Média)
 
-- **Confidencialidade** — protecção dos dados do paciente
-- **Excepções** — ordem judicial, doenças de notificação obrigatória
+## Interpretação Clínica
+Auxilia no diagnóstico de anemias, policitemias e distúrbios hematológicos variados.
+    """.trimIndent()
+),
 
-## Direitos do Paciente
+// 9. Leucograma
+Topic(
+    id = 9,
+    title = "Leucograma",
+    icon = "⚪",
+    summary = "Estudo do Leucograma e suas avaliações.",
+    markdownContent = """
+# Leucograma
 
-- **Dignidade** — tratamento respeitoso
-- **Privacidade** — durante exames e procedimentos
-- **Informação** — sobre diagnóstico e tratamento
-- **Recusa** — direito de recusar tratamento
+## Avaliação Quantitativa
+Contagem total de leucócitos no sangue, útil para identificar leucocitose ou leucopenia.
 
-## Código Deontológico
+## Avaliação Qualitativa
+Análise morfológica dos leucócitos, presença de formas imaturas, segmentação de neutrófilos e linfócitos atípicos.
 
-- **Deveres** — competência, actualização, respeito
-- **Proibições** — discriminação, negligência
-- **Responsabilidade** — disciplinar, civil, penal
+## Fórmula Leucocitária
+Percentual de cada tipo celular (neutrófilos, linfócitos, monócitos, eosinófilos e basófilos).
 
-## Dilemas Éticos
+## Importância Clínica
+Diagnóstico de infecções, inflamações, imunodeficiências e desordens hematológicas.
 
-- **Fim de vida** — cuidados paliativos vs. obstinação terapêutica
-- **Recusa de tratamento** — respeito pela autonomia
-- **Alocação de recursos** — critérios de priorização
-            """.trimIndent()
-        ),
+## Interpretação dos Resultados
+Comparação com valores normais, análise do padrão celular e correlação clínica.
+    """.trimIndent()
+),
 
-        Topic(
-            id = 8,
-            title = "Primeiros Socorros e Emergências",
-            icon = "🚑",
-            summary = "Suporte básico de vida e emergências.",
-            markdownContent = """
-# Primeiros Socorros e Emergências
+// 10. Plaquetograma
+Topic(
+    id = 10,
+    title = "Plaquetograma",
+    icon = "🟣",
+    summary = "Estudo da Plaquetograma e suas avaliações.",
+    markdownContent = """
+# Plaquetograma
 
-> *Procedimentos de emergência e suporte básico de vida para salvar vidas.*
+## Avaliação Quantitativa e Qualitativa
+Contagem de plaquetas e análise morfológica para detectar trombocitopenia ou trombocitose.
 
----
+## Coagulograme
+Avaliação da função plaquetária e fatores de coagulação.
 
-## Suporte Básico de Vida (SBV)
+## Factores de Coagulação
+Identificação de deficiências ou disfunções de fatores VIII, IX, X, V e II, essenciais para hemostasia.
 
-**Cadeia de sobrevivência:**
-1. Reconhecimento precoce e pedido de ajuda
-2. RCP precoce
-3. Desfibrilhação precoce
-4. Suporte avançado de vida
+## Importância Clínica
+Prevenção de hemorragias, monitoramento de terapias anticoagulantes e avaliação de risco trombótico.
 
-## Reanimação Cardiopulmonar (RCP)
+## Hemóstase e Coagulação
+Estudo integrado da fase vascular, plaquetária e plasmática da coagulação sanguínea.
 
-- **Compressões torácicas** — 30:2, profundidade 5–6 cm
-- **Frequência** — 100–120 compressões/minuto
-- **DEA** — Desfibrilhador Externo Automático, ritmos desfibrilháveis
+## Interpretação dos Resultados
+Integra dados quantitativos e qualitativos para orientar diagnóstico e tratamento.
+    """.trimIndent()
+),
+// Parte 3 – Tópicos 11 a 15
 
-> ⚠️ **Não interromper compressões por mais de 10 segundos!**
+// 11. Poiquilocitose Eritrocitária
+Topic(
+    id = 11,
+    title = "Poiquilocitose Eritrocitária",
+    icon = "🔴",
+    summary = "Alterações morfológicas na forma dos eritrócitos, indicando desordens hematológicas.",
+    markdownContent = """
+# Poiquilocitose Eritrocitária
 
-## Abordagem ABCDE
+## Conceito
+Alterações morfológicas na forma dos eritrócitos, indicando desordens hematológicas.
 
-| Letra | Significado | Acção |
-|-------|------------|-------|
-| **A** | *Airway* | Permeabilizar via aérea |
-| **B** | *Breathing* | Avaliar respiração, O₂ |
-| **C** | *Circulation* | Controlar hemorragias, acessos |
-| **D** | *Disability* | Escala de Glasgow, pupilas |
-| **E** | *Exposure* | Exposição, prevenir hipotermia |
+## Importância Clínica
+Presente em anemias diversas (ferropénica, megaloblástica, hemolítica) e patologias hereditárias, como talassemia.
 
-## Hemorragias
+## Interpretação dos Resultados
+Avaliação de formas anormais: ovalócitos, esferócitos, eliptócitos, dacriócitos, entre outros, correlacionando com quadro clínico.
+    """.trimIndent()
+),
 
-- **Classificação** — classes I a IV (por volume perdido)
-- **Hemostase** — compressão directa, torniquete (último recurso)
-- **Sinais de choque** — taquicardia, hipotensão, palidez
+// 12. Hemoglobinas Normais
+Topic(
+    id = 12,
+    title = "Hemoglobinas Normais",
+    icon = "🩸",
+    summary = "Estudo das Hemoglobinas e Interpretação de resultados",
+    markdownContent = """
+# Hemoglobinas Normais
 
-## Fracturas
+## Tipos
+- HbA (α2β2): principal no adulto.
+- HbA2 (α2δ2): presente em pequenas proporções.
+- HbF (α2γ2): predominante no feto, normalmente <1% no adulto.
 
-- **Tipos** — abertas vs. fechadas, completas vs. incompletas
-- **Imobilização** — talas, triângulo, posição anatómica
-- **Sinais** — dor, deformidade, crepitação, edema
+## Interpretação dos Resultados
+Valores fora da faixa normal podem indicar hemoglobinopatias ou distúrbios eritrocitários.
+    """.trimIndent()
+),
 
-## Queimaduras
+// 13. Hemoglobinopatias
+Topic(
+    id = 13,
+    title = "Hemoglobinopatias",
+    icon = "🧬",
+    summary = "Estudo das Hemoglobinopatias.",
+    markdownContent = """
+# Hemoglobinopatias
 
-- **Graus** — 1º (eritema), 2º (flictenas), 3º (escara)
-- **Regra dos 9** — estimativa da área corporal queimada
-- **Tratamento** — arrefecimento, cobrir, fluidoterapia
+## Drepanocitose (Anemia Falciforme)
+Mutação genética causando HbS; eritrócitos em foice, fragilidade celular, risco de crises vaso-oclusivas.
 
-## Intoxicações
+## Talassemias
+Deficiência na produção de cadeias globínicas α ou β; anemia microcítica e variabilidade clínica.
 
-- **Descontaminação** — lavagem gástrica, carvão activado
-- **Antídotos** — naloxona (opióides), atropina (organofosforados)
-- **Monitorização** — sinais vitais, nível de consciência
-            """.trimIndent()
-        )
-    )
+## Diagnóstico
+Eletroforese de hemoglobina, HPLC, testes genéticos, exame clínico e hematológico.
+
+## Interpretação dos Resultados
+Identificação de tipos de hemoglobina anormais e determinação da gravidade clínica.
+    """.trimIndent()
+),
+
+// 14. Factores de Virulência Microbianos e Estratégias de Escape
+Topic(
+    id = 14,
+    title = "Factores de Virulência Microbianos",
+    icon = "🦠",
+    summary = "Mecanismos que permitem aos microrganismos causar doença e evadir a resposta imunológica.",
+    markdownContent = """
+# Factores de Virulência Microbianos e Estratégias de Escape
+
+## Conceito
+Mecanismos que permitem aos microrganismos causar doença e evadir a resposta imunológica.
+
+## Principais Factores
+- Andesinas e toxinas: danificam células e tecidos.
+- Enzimas: degradam barreiras teciduais e imunológicas.
+- Resistência ao complemento: inibe lise celular mediada por proteínas do sistema complemento.
+- Escape à fagocitose: inibição da ingestão ou sobrevivência intracelular.
+- Parasitismo intracelular: replicação protegida dentro de células hospedeiras.
+- Escape ao sistema imunológico: variação antigénica, mimetismo molecular.
+
+## Importância Clínica
+Conhecimento fundamental para diagnóstico, prevenção, desenvolvimento de vacinas e terapias antimicrobianas.
+    """.trimIndent()
+),
+
+// 15. Causas e Consequências da Infecção
+Topic(
+    id = 15,
+    title = "Causas e Consequências da Infecção",
+    icon = "🧫",
+    summary = "Causas, Consequências e Importância Clínica.",
+    markdownContent = """
+# Causas e Consequências da Infecção
+
+## Causas
+- Microorganismos patogénicos: bactérias, vírus, fungos e parasitas.
+- Condições do hospedeiro: imunodeficiência, doenças crónicas, higiene deficiente.
+- Fatores ambientais: saneamento, clima, contaminação alimentar ou hídrica.
+
+## Consequências
+- Locais: inflamação, necrose tecidual, abscessos.
+- Sistémicas: febre, choque séptico, falência de órgãos.
+- Alterações laboratoriais: leucocitose, elevação de marcadores inflamatórios, alterações bioquímicas e hematológicas.
+
+## Importância Clínica
+Avaliação integrada de fatores causais e resposta do organismo permite diagnóstico, tratamento e prevenção de complicações.
+    """.trimIndent()
+)
+)
 }
