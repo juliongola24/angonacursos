@@ -85,7 +85,7 @@ class ResultsActivity : AppCompatActivity() {
             }
             val boldPaint = android.graphics.Paint(paint).apply { isFakeBoldText = true; textSize = 18f }
 
-            canvas.drawText("EXAME DE FARMÁCIA - GABARITO", 140f, y, boldPaint)
+            canvas.drawText("EXAME DE FISIOTERAPIA - GABARITO", 120f, y, boldPaint)
             y += 30f
             paint.textSize = 12f
             canvas.drawText("Participante: $participantName", 40f, y, paint)

@@ -12,651 +12,525 @@ object ConteudoRepo {
 
     val topics: List<Topic> = listOf(
 
-        // 1. Normas de Boas Práticas de Armazenamento e Dispensação
+        // 1. Conceitos Básicos de Fisioterapia
         Topic(
             id = 1,
-            title = "Boas Práticas de Armazenamento e Dispensação",
-            icon = "📦",
-            summary = "Normas que garantem a qualidade dos medicamentos desde o armazenamento até a dispensação.",
+            title = "Conceitos Básicos de Fisioterapia",
+            icon = "🏃",
+            summary = "Definição, objectivos, áreas de actuação e princípios fundamentais da Fisioterapia.",
             markdownContent = """
-# Normas de Boas Práticas de Armazenamento e Dispensação de Medicamentos
+# Conceitos Básicos de Fisioterapia
 
-## Conceitos
+## Definição
 
-As Boas Práticas de Armazenamento (BPA) compreendem o conjunto de normas e procedimentos técnicos que asseguram a manutenção da qualidade, segurança e eficácia dos medicamentos durante todo o período de estocagem. Envolvem o controlo rigoroso de temperatura, humidade, luminosidade, ventilação e organização física do espaço.
+A Fisioterapia é a ciência da saúde que estuda, diagnostica, previne e trata os distúrbios cinético-funcionais do corpo humano. Utiliza recursos físicos como movimento, calor, frio, electricidade, luz e água para promover a recuperação funcional, aliviar a dor e restaurar a qualidade de vida do paciente.
 
-As Boas Práticas de Dispensação (BPD) referem-se ao conjunto de acções e orientações que o profissional farmacêutico deve seguir no momento de entregar o medicamento ao paciente. Incluem a verificação da prescrição médica, conferência do medicamento, orientação sobre o uso correcto, possíveis efeitos adversos e interacções medicamentosas.
+O fisioterapeuta é o profissional habilitado a avaliar, diagnosticar e tratar alterações do movimento humano, actuando em todas as fases da vida — desde o neonato até ao idoso — com abordagem tanto preventiva quanto curativa.
 
-O objectivo principal destas normas é garantir que o medicamento chegue ao paciente em condições ideais de uso, preservando suas propriedades farmacológicas e minimizando riscos à saúde.
+## Objectivos da Fisioterapia
 
-## Classificação
+Os principais objectivos incluem a reabilitação funcional do paciente, a prevenção de incapacidades, a promoção da saúde e do bem-estar, a melhoria da qualidade de vida, o alívio da dor, a manutenção e recuperação da amplitude de movimento articular, o fortalecimento muscular e a reeducação postural.
 
-As Boas Práticas podem ser classificadas em diversas categorias conforme a etapa da cadeia farmacêutica.
+## Áreas de Actuação
 
-As práticas de armazenamento incluem o controlo ambiental com monitorização contínua de temperatura e humidade, a organização física que envolve estantes, prateleiras e câmaras frias devidamente identificadas, o controlo de validade com sistema FEFO (First Expire, First Out) onde o primeiro a vencer é o primeiro a sair, e a segregação de produtos que separa medicamentos termolábeis, controlados, inflamáveis e de uso geral.
+A Fisioterapia actua em diversas áreas especializadas: Fisioterapia Respiratória e Cardíaca, Fisioterapia Traumato-Ortopédica, Fisioterapia Neurológica, Fisioterapia Desportiva, Fisioterapia Dermatofuncional, Fisioterapia em Terapia Intensiva, Fisioterapia Materno-Infantil, Fisioterapia Geriátrica, Fisioterapia do Trabalho e Fisioterapia Neuromuscular.
 
-As práticas de dispensação englobam a dispensação ambulatorial destinada a pacientes externos com prescrição médica, a dispensação hospitalar voltada para pacientes internados conforme prescrição do corpo clínico, a dispensação de medicamentos controlados que segue legislação específica com escrituração em livros de registo, e a dispensação por dose unitária onde cada dose é individualizada e identificada por paciente.
+## Princípios Fundamentais
 
-## Diferenças
-
-O armazenamento foca na conservação do produto, garantindo condições ambientais adequadas, rastreabilidade e organização do stock. A dispensação foca na entrega segura ao paciente, incluindo orientação farmacêutica, verificação de dose e posologia, e acompanhamento terapêutico.
-
-Enquanto o armazenamento é um processo logístico e técnico que ocorre na retaguarda da farmácia, a dispensação é um acto clínico e assistencial que ocorre no contacto directo com o paciente. Ambos são complementares e indispensáveis para a qualidade do serviço farmacêutico.
+A prática fisioterapêutica baseia-se na avaliação cinético-funcional completa do paciente, na elaboração de um plano terapêutico individualizado, na aplicação de técnicas baseadas em evidência científica, na reavaliação periódica dos resultados e na alta fisioterapêutica quando os objectivos são alcançados. O fisioterapeuta deve respeitar a autonomia do paciente, actuar de forma ética e manter-se actualizado cientificamente.
             """.trimIndent()
         ),
 
-        // 2. Formas Farmacêuticas e Vias de Administração
+        // 2. Fisioterapia Respiratória e Cardíaca
         Topic(
             id = 2,
-            title = "Formas Farmacêuticas e Vias de Administração",
-            icon = "💊",
-            summary = "Classificação das formas farmacêuticas e vias de administração de medicamentos.",
+            title = "Fisioterapia Respiratória e Cardíaca",
+            icon = "🫁",
+            summary = "Insuficiência Cardíaca, DPOC e Insuficiência Respiratória: abordagem fisioterapêutica.",
             markdownContent = """
-# Formas Farmacêuticas e Vias de Administração de Medicamentos
+# Fisioterapia Respiratória e Cardíaca
 
-## Conceito
+## Insuficiência Cardíaca (IC)
 
-Forma farmacêutica é o estado final em que o medicamento se apresenta para ser administrado ao paciente. Resulta da combinação do princípio activo com excipientes, conferindo ao fármaco características adequadas de estabilidade, biodisponibilidade e aceitação pelo paciente.
+A Insuficiência Cardíaca é a incapacidade do coração de bombear sangue suficiente para suprir as necessidades metabólicas do organismo. Manifesta-se com dispneia, fadiga, edema periférico e intolerância ao exercício.
 
-A via de administração é o caminho pelo qual o medicamento é introduzido no organismo, determinando a velocidade de absorção, a distribuição e o início da acção terapêutica.
+A fisioterapia na IC visa melhorar a capacidade funcional e a qualidade de vida. Os recursos incluem exercícios aeróbicos de baixa a moderada intensidade, treino de resistência muscular periférica, exercícios respiratórios para melhorar a ventilação, técnicas de conservação de energia e educação do paciente sobre auto-cuidado. A reabilitação cardíaca é dividida em fases: fase hospitalar (I), fase ambulatorial precoce (II), fase ambulatorial tardia (III) e fase de manutenção (IV).
 
-## Classificação
+## Doença Pulmonar Obstrutiva Crónica (DPOC)
 
-As formas farmacêuticas sólidas incluem comprimidos que são preparações obtidas por compressão de pós, cápsulas que são invólucros de gelatina contendo pó ou líquido, drágeas que são comprimidos revestidos com camadas de açúcar ou polímeros, pós para uso oral ou tópico, grânulos e pastilhas.
+A DPOC é uma doença prevenível e tratável caracterizada por limitação persistente do fluxo aéreo, geralmente progressiva, associada a resposta inflamatória crónica das vias aéreas e dos pulmões a partículas e gases nocivos. Inclui a bronquite crónica e o enfisema pulmonar.
 
-As formas farmacêuticas líquidas englobam soluções que são misturas homogéneas de soluto e solvente, xaropes que são soluções aquosas com alta concentração de açúcar, suspensões que são dispersões de partículas sólidas em meio líquido, emulsões que são dispersões de dois líquidos imiscíveis, elixires que são soluções hidroalcoólicas adoçadas, e gotas.
+A fisioterapia respiratória na DPOC inclui técnicas de desobstrução brônquica como drenagem postural, percussão torácica e vibração, reeducação diafragmática, exercícios de expansão pulmonar, treino de resistência muscular inspiratória, exercícios aeróbicos adaptados e orientação sobre uso correcto de inaladores.
 
-As formas farmacêuticas semi-sólidas compreendem pomadas que são preparações de consistência mole para aplicação cutânea, cremes que são emulsões semi-sólidas, géis que são preparações semi-sólidas transparentes, pastas que são pomadas com alta concentração de pós, e supositórios para administração rectal.
+## Insuficiência Respiratória (IR)
 
-As formas farmacêuticas especiais incluem aerossóis e sprays para inalação, adesivos transdérmicos para libertação controlada através da pele, e injectáveis que são soluções estéreis para administração parenteral.
+A Insuficiência Respiratória ocorre quando o sistema respiratório não consegue manter a troca gasosa adequada. Pode ser do tipo I (hipoxémica) com PaO2 inferior a 60 mmHg, ou tipo II (hipercápnica) com PaCO2 superior a 50 mmHg.
 
-As vias de administração classificam-se em via oral que é a mais comum e conveniente, via sublingual com absorção rápida pela mucosa bucal, via rectal para pacientes com dificuldade de deglutição, via tópica ou cutânea para acção local na pele, via parenteral que inclui intravenosa com acção imediata, intramuscular com absorção moderada e subcutânea com absorção lenta, via inalatória para acção directa nos pulmões, e via oftálmica, nasal e auricular para acção localizada.
-
-## Diferenças
-
-As formas sólidas apresentam maior estabilidade e facilidade de transporte, enquanto as líquidas permitem ajuste preciso de dose e são mais adequadas para crianças e idosos. A via oral é não invasiva mas tem absorção variável, enquanto a via intravenosa garante biodisponibilidade de 100% mas requer técnica asséptica e profissional habilitado.
+A abordagem fisioterapêutica inclui oxigenoterapia, ventilação não invasiva com CPAP ou BiPAP, manobras de higiene brônquica, posicionamento terapêutico para optimizar a relação ventilação-perfusão, aspiração de secreções quando necessário, e mobilização precoce conforme tolerância do paciente.
             """.trimIndent()
         ),
 
-        // 3. Prazo de Validade dos Medicamentos
+        // 3. Fisioterapia Traumato-Ortopédica
         Topic(
             id = 3,
-            title = "Prazo de Validade dos Medicamentos",
-            icon = "📅",
-            summary = "Conceito, tempo de validade e importância do prazo de validade dos medicamentos.",
+            title = "Fisioterapia Traumato-Ortopédica",
+            icon = "🦴",
+            summary = "Fracturas, entorses, luxações, sub-luxações e factores de risco de doenças traumáticas.",
             markdownContent = """
-# Prazo de Validade dos Medicamentos
+# Fisioterapia Traumato-Ortopédica
 
-## Conceito
+## Fracturas
 
-O prazo de validade é o período durante o qual o medicamento mantém suas características de qualidade, segurança e eficácia, desde que armazenado nas condições especificadas pelo fabricante. Após este prazo, não há garantia de que o medicamento mantenha suas propriedades terapêuticas originais.
+Fractura é a perda total ou parcial da continuidade de um osso. Pode resultar de trauma directo, indirecto, por fadiga ou patológica. Os sinais clínicos incluem dor intensa, edema, deformidade, crepitação e impotência funcional.
 
-É determinado através de estudos de estabilidade realizados pelo fabricante, que avaliam a degradação do princípio activo, alterações físicas, químicas e microbiológicas ao longo do tempo. A data de validade é impressa na embalagem do medicamento e representa o último dia em que o produto pode ser utilizado com segurança.
+A classificação quanto à origem inclui fracturas traumáticas causadas por impacto mecânico, fracturas patológicas decorrentes de doenças que enfraquecem o osso como osteoporose ou tumores, e fracturas por stress ou fadiga resultantes de sobrecarga repetitiva.
 
-## Tempo de Validade
+A fisioterapia nas fracturas actua na fase de imobilização com exercícios isométricos e mobilização das articulações adjacentes, e na fase pós-imobilização com recuperação da amplitude de movimento, fortalecimento muscular progressivo e treino funcional.
 
-O tempo de validade varia conforme a natureza do medicamento, a forma farmacêutica e as condições de armazenamento. Medicamentos sólidos como comprimidos e cápsulas geralmente possuem validade entre dois e cinco anos quando armazenados em temperatura ambiente controlada.
+## Entorse
 
-Medicamentos líquidos como xaropes e soluções tendem a ter validade mais curta, geralmente entre um e três anos, pois são mais susceptíveis a degradação química e contaminação microbiológica. Após a abertura do frasco, a validade pode ser significativamente reduzida.
+A entorse é a lesão dos ligamentos de uma articulação causada por um movimento brusco que ultrapassa a amplitude normal. Classifica-se em grau I (estiramento sem ruptura), grau II (ruptura parcial) e grau III (ruptura total). O tratamento fisioterapêutico inclui crioterapia, compressão, elevação, exercícios proprioceptivos e fortalecimento.
 
-Vacinas e medicamentos biológicos possuem prazos de validade específicos e frequentemente requerem refrigeração entre dois e oito graus Celsius. Insulinas, por exemplo, têm validade limitada após abertura do frasco, geralmente de 28 dias em temperatura ambiente.
+## Luxação e Sub-Luxação
 
-Medicamentos manipulados têm validade definida pela farmácia de manipulação, geralmente mais curta que a dos industrializados, variando de 30 dias a seis meses conforme a formulação.
+A luxação é o deslocamento completo das superfícies articulares, perdendo todo o contacto entre si. A sub-luxação é o deslocamento parcial, mantendo algum contacto articular. Ambas requerem redução e posterior reabilitação fisioterapêutica com recuperação da mobilidade, estabilidade articular e fortalecimento muscular periarticular.
 
-## Importância
+## Factores de Risco de Doenças Traumáticas
 
-A observância do prazo de validade é fundamental para a segurança do paciente. Medicamentos vencidos podem apresentar redução da potência terapêutica, tornando o tratamento ineficaz. Em alguns casos, a degradação química pode gerar subprodutos tóxicos prejudiciais à saúde.
-
-O controlo do prazo de validade é uma responsabilidade directa do farmacêutico e constitui parte essencial das Boas Práticas de Armazenamento. A utilização do sistema FEFO garante que os medicamentos com validade mais próxima sejam dispensados primeiro, reduzindo perdas e garantindo a qualidade do tratamento.
-
-A dispensação de medicamentos vencidos constitui infracção sanitária grave, sujeitando o estabelecimento a penalidades legais e comprometendo a confiança do paciente no serviço farmacêutico.
+Os principais factores incluem sedentarismo, obesidade, osteoporose, idade avançada, práticas desportivas sem preparação adequada, acidentes de trânsito, condições laborais inadequadas, uso de calçado impróprio, pisos irregulares e falta de equipamento de protecção individual.
             """.trimIndent()
         ),
 
-        // 4. Sistemas de Distribuição de Medicamentos
+        // 4. Fisioterapia Endócrina
         Topic(
             id = 4,
-            title = "Sistemas de Distribuição de Medicamentos",
-            icon = "🏥",
-            summary = "Classificação, vantagens, desvantagens e fluxograma dos sistemas de distribuição.",
+            title = "Fisioterapia Endócrina",
+            icon = "💆",
+            summary = "Drenagem linfática e massagem terapêutica na prática fisioterapêutica.",
             markdownContent = """
-# Sistemas de Distribuição de Medicamentos
+# Fisioterapia Endócrina
 
-## Classificação
+## Drenagem Linfática
 
-O sistema colectivo consiste na distribuição de medicamentos por unidade de internamento, onde a farmácia envia grandes quantidades de medicamentos para cada sector, que são armazenados em armários ou carros de medicação. A enfermagem é responsável pela preparação e administração individual.
+A drenagem linfática manual (DLM) é uma técnica fisioterapêutica que consiste em manobras suaves, rítmicas e lentas que estimulam o sistema linfático a reabsorver o excesso de líquido intersticial. É indicada para linfedemas, edemas pós-operatórios, edemas pós-traumáticos, insuficiência venosa crónica e lipedema.
 
-O sistema individualizado distribui medicamentos por paciente, com base na prescrição médica. A farmácia prepara e identifica os medicamentos para cada paciente individualmente, geralmente para um período de 24 horas.
+A técnica segue princípios fundamentais: pressão suave e constante, movimentos lentos e rítmicos, direcção centrípeta (das extremidades para o centro), e abertura prévia dos gânglios linfáticos proximais antes de drenar os distais. As contra-indicações incluem infecções agudas, trombose venosa profunda, insuficiência cardíaca descompensada, neoplasias activas e erisipela.
 
-O sistema de dose unitária é o mais avançado e seguro. Cada dose é preparada, embalada e identificada individualmente pela farmácia, pronta para administração directa ao paciente. Os medicamentos são distribuídos para um período determinado, geralmente 24 horas.
+## Massagem Terapêutica
 
-O sistema misto combina dois ou mais sistemas, sendo comum a utilização do sistema individualizado para a maioria dos medicamentos e do sistema colectivo para medicamentos de urgência e de uso comum.
+A massagem terapêutica é a aplicação sistemática de pressão e movimento sobre os tecidos moles do corpo com finalidade terapêutica. Os efeitos fisiológicos incluem aumento da circulação sanguínea e linfática, redução da tensão muscular, alívio da dor, libertação de endorfinas, melhoria da flexibilidade e promoção do relaxamento.
 
-## Vantagens e Desvantagens
+As principais técnicas incluem deslizamento superficial (effleurage), amassamento (pétrissage), fricção profunda, percussão (tapotement) e vibração. Cada técnica tem indicações específicas e é seleccionada conforme a avaliação e objectivos terapêuticos.
 
-O sistema colectivo tem como vantagens a simplicidade operacional e menor necessidade de pessoal na farmácia. Suas desvantagens incluem maior risco de erros de medicação, desperdício elevado, dificuldade de controlo do stock e impossibilidade de rastreamento por paciente.
-
-O sistema individualizado oferece melhor controlo do stock, redução de desperdício e maior segurança na administração. Contudo, exige mais recursos humanos na farmácia e maior tempo de preparação.
-
-O sistema de dose unitária proporciona a máxima segurança para o paciente com redução significativa de erros de medicação, melhor controlo de custos, rastreabilidade completa e optimização do trabalho da enfermagem. Suas desvantagens são o custo inicial elevado de implantação, necessidade de equipamentos específicos e maior número de profissionais farmacêuticos.
-
-## Fluxograma
-
-O fluxo operacional do sistema de dose unitária segue as seguintes etapas: recepção da prescrição médica pela farmácia, análise farmacêutica da prescrição verificando doses, interacções e duplicidades, separação e embalagem individualizada dos medicamentos, identificação de cada dose com dados do paciente, dispensação ao sector de internamento, administração pela equipa de enfermagem, e por fim o registo e devolução de doses não administradas à farmácia.
+A massagem é indicada para contracturas musculares, dor crónica, fibromialgia, stress e ansiedade, reabilitação pós-lesão desportiva e melhoria da circulação em pacientes acamados.
             """.trimIndent()
         ),
 
-        // 5. Tipos de Inventários
+        // 5. Fisioterapia Neurológica
         Topic(
             id = 5,
-            title = "Tipos de Inventários",
-            icon = "📋",
-            summary = "Classificação, vantagens e desvantagens dos diferentes tipos de inventários farmacêuticos.",
+            title = "Fisioterapia Neurológica",
+            icon = "🧠",
+            summary = "Paralisia Infantil, Hidrocefalia, AVC e Sequelas de AVC.",
             markdownContent = """
-# Tipos de Inventários
+# Fisioterapia Neurológica
 
-## Classificação
+## Paralisia Infantil (Poliomielite)
 
-O inventário geral ou periódico consiste na contagem completa de todos os itens do stock em um momento específico, geralmente realizado anualmente ou semestralmente. Requer paralisação parcial ou total das actividades da farmácia durante sua execução.
+A poliomielite é uma doença viral que afecta os neurónios motores do corno anterior da medula espinal, causando paralisia flácida assimétrica, principalmente nos membros inferiores. A fisioterapia actua na prevenção de deformidades, fortalecimento da musculatura remanescente, estimulação neuromuscular, prescrição de órteses e treino de marcha com ou sem auxiliares.
 
-O inventário rotativo ou cíclico realiza contagens parciais de forma contínua ao longo do ano, dividindo os itens em grupos que são contados em períodos diferentes. Permite manter as operações normais durante o processo.
+## Hidrocefalia
 
-O inventário permanente ou contínuo utiliza sistemas informatizados para manter o controlo do stock em tempo real, registando cada entrada e saída de medicamentos automaticamente. Exige infraestrutura tecnológica adequada.
+A hidrocefalia é o acúmulo excessivo de líquido cefalorraquidiano nos ventrículos cerebrais, causando aumento da pressão intracraniana. Em crianças, manifesta-se com aumento do perímetro cefálico, fontanela tensa e atraso no desenvolvimento neuropsicomotor.
 
-O inventário por amostragem selecciona aleatoriamente uma parcela representativa dos itens para contagem, sendo utilizado para verificação pontual da exactidão dos registos.
+A fisioterapia na hidrocefalia foca na estimulação do desenvolvimento motor, posicionamento adequado, prevenção de deformidades, exercícios de controlo cefálico, exercícios de equilíbrio e coordenação, e orientação aos cuidadores.
 
-## Vantagens e Desvantagens
+## Acidente Vascular Cerebral (AVC)
 
-O inventário geral oferece visão completa do stock e identifica todas as discrepâncias de uma só vez. Porém, exige interrupção das actividades, mobiliza grande número de funcionários e consome tempo considerável.
+O AVC é a interrupção do fluxo sanguíneo cerebral, podendo ser isquémico (por obstrução) ou hemorrágico (por ruptura vascular). As sequelas incluem hemiplegia ou hemiparesia, alterações de sensibilidade, afasia, disfagia, alterações cognitivas e espasticidade.
 
-O inventário rotativo permite continuidade das operações, detecção precoce de problemas e distribuição do esforço ao longo do tempo. A desvantagem é que nunca se tem uma visão total simultânea do stock e requer planeamento cuidadoso.
+## Sequelas de AVC
 
-O inventário permanente proporciona controlo em tempo real, tomada de decisão ágil e redução de perdas. Suas desvantagens incluem o custo de implementação tecnológica e a dependência de sistemas informáticos.
-
-O inventário por amostragem é rápido e económico, ideal para verificações de rotina. Contudo, pode não detectar problemas em itens que não foram amostrados.
+As sequelas de AVC requerem reabilitação intensiva e prolongada. A fisioterapia inclui mobilização passiva e activa, exercícios de fortalecimento, treino de equilíbrio e marcha, reeducação funcional das actividades de vida diária, controlo da espasticidade com alongamentos e posicionamento, estimulação sensorial e terapia de restrição e indução do movimento (TRIM). O objectivo é maximizar a independência funcional e a qualidade de vida do paciente.
             """.trimIndent()
         ),
 
-        // 6. Concentração de Fármacos e Diluição de Soluções
+        // 6. Fisioterapia em Doentes Queimados
         Topic(
             id = 6,
-            title = "Concentração de Fármacos e Diluição",
-            icon = "🧪",
-            summary = "Conceito, tipos de concentrações e métodos de diluição de soluções farmacêuticas.",
+            title = "Fisioterapia em Doentes Queimados",
+            icon = "🔥",
+            summary = "Prevenção de contraturas e tratamento de equimoses em pacientes queimados.",
             markdownContent = """
-# Concentração de Fármacos e Diluição de Soluções
+# Fisioterapia em Doentes Queimados
 
-## Conceito
+## Prevenção de Contraturas
 
-A concentração de um fármaco expressa a quantidade de soluto (princípio activo) presente em determinada quantidade de solvente ou solução. É um parâmetro fundamental na preparação de medicamentos, pois determina directamente a dose terapêutica e a eficácia do tratamento.
+As contraturas são uma das complicações mais frequentes e limitantes em pacientes queimados. Resultam do processo cicatricial que tende a encurtar os tecidos, principalmente em áreas articulares. A prevenção é fundamental e começa precocemente.
 
-A diluição é o processo de redução da concentração de uma solução através da adição de solvente, sem alterar a quantidade absoluta de soluto presente. É uma prática rotineira na farmácia hospitalar para adequação de doses e preparação de medicamentos intravenosos.
+As estratégias fisioterapêuticas para prevenção de contraturas incluem posicionamento adequado e anti-deformidade com talas e órteses, mobilização articular passiva e activa precoce, alongamentos suaves e progressivos, uso de malhas compressivas para controlo da cicatrização hipertrófica, e hidroterapia para facilitar o movimento em ambiente aquático.
 
-## Diferentes Tipos de Concentrações
+O posicionamento anti-contractura varia conforme a localização da queimadura: pescoço em extensão, ombro em abdução de 90 graus, cotovelo em extensão, punho em posição neutra ou ligeira extensão, mãos em posição funcional, quadril em extensão e abdução, e joelho em extensão.
 
-A concentração percentual peso/volume (p/v) expressa a quantidade em gramas de soluto em 100 mililitros de solução. Por exemplo, soro fisiológico a 0,9% contém 0,9 gramas de cloreto de sódio em cada 100 mililitros.
+## Equimoses
 
-A concentração percentual peso/peso (p/p) expressa a quantidade em gramas de soluto em 100 gramas de preparação. É utilizada principalmente em formas semi-sólidas como pomadas e cremes.
+As equimoses são extravasamentos de sangue nos tecidos subcutâneos resultantes de trauma nos vasos sanguíneos. Nos pacientes queimados, podem ocorrer associadas ao trauma inicial ou como complicação dos procedimentos terapêuticos.
 
-A concentração percentual volume/volume (v/v) expressa o volume de soluto em 100 mililitros de solução. Utilizada para líquidos miscíveis como o álcool etílico a 70%.
-
-A concentração em miligramas por mililitro (mg/mL) é amplamente utilizada em medicamentos injectáveis. Expressa directamente a quantidade do fármaco por unidade de volume.
-
-A concentração molar expressa o número de moles de soluto por litro de solução. É utilizada em análises laboratoriais e preparações de reagentes.
-
-A concentração em unidades internacionais por mililitro (UI/mL) é utilizada para fármacos biológicos como insulina e heparina.
-
-## Métodos de Diluição de Soluções
-
-A diluição simples consiste na adição de solvente a uma solução concentrada. Utiliza-se a fórmula C1 x V1 = C2 x V2, onde C1 é a concentração inicial, V1 o volume inicial, C2 a concentração final desejada e V2 o volume final.
-
-A diluição seriada realiza diluições sucessivas a partir de uma solução-mãe, obtendo concentrações progressivamente menores. É utilizada em testes de sensibilidade a antibióticos e preparações laboratoriais.
-
-A reconstituição é o processo de adição de diluente a um medicamento liofilizado (em pó) para obtenção de uma solução ou suspensão pronta para uso. Deve-se respeitar o tipo e volume de diluente especificado pelo fabricante.
+O tratamento fisioterapêutico das equimoses inclui crioterapia nas primeiras 48 horas para reduzir o edema e a hemorragia, seguida de termoterapia para promover a reabsorção do hematoma. A drenagem linfática manual, ultrassom terapêutico em modo pulsado e exercícios suaves para estimular a circulação também são utilizados. A abordagem deve ser cuidadosa, respeitando o estado da pele e dos tecidos adjacentes.
             """.trimIndent()
         ),
 
-        // 7. Condições de Armazenamento
+        // 7. Fisioterapia em Doentes Amputados
         Topic(
             id = 7,
-            title = "Condições de Armazenamento de Medicamentos",
-            icon = "🌡️",
-            summary = "Condições e diferentes intervalos de temperatura para armazenamento de medicamentos.",
+            title = "Fisioterapia em Doentes Amputados",
+            icon = "🦿",
+            summary = "Níveis de amputação, protetização, próteses, órteses e controlo da dor.",
             markdownContent = """
-# Condições de Armazenamento de Medicamentos
+# Fisioterapia em Doentes Amputados
 
-## Condições e Diferentes Intervalos de Temperatura
+## Nível de Amputação
 
-O armazenamento adequado de medicamentos é essencial para manter a qualidade, segurança e eficácia dos produtos farmacêuticos. As condições ambientais devem ser rigorosamente controladas e monitorizadas.
+O nível de amputação é determinado pela condição vascular, extensão da lesão e potencial funcional de reabilitação. Nos membros inferiores, os níveis incluem amputação de dedos, transmetatarsiana, transtibial (abaixo do joelho), desarticulação do joelho, transfemoral (acima do joelho), desarticulação do quadril e hemipelvectomia. Nos membros superiores incluem amputação de dedos, transmetacarpal, transradial (abaixo do cotovelo), desarticulação do cotovelo, transumeral (acima do cotovelo) e desarticulação do ombro.
 
-A temperatura ambiente controlada corresponde ao intervalo entre 15°C e 30°C. A maioria dos medicamentos sólidos como comprimidos, cápsulas e drágeas são armazenados nestas condições. É fundamental que o ambiente possua climatização adequada, especialmente em regiões tropicais.
+## Fase de Protetização
 
-A temperatura de refrigeração situa-se entre 2°C e 8°C. Medicamentos termolábeis como vacinas, insulinas, alguns antibióticos reconstituídos, colírios e determinados medicamentos biológicos requerem esta faixa de temperatura. A cadeia de frio deve ser mantida ininterruptamente.
+A fase de protetização compreende a preparação do coto para receber a prótese. Inclui o controlo do edema com enfaixamento adequado, dessensibilização do coto, fortalecimento muscular do membro residual e contralateral, exercícios de equilíbrio e transferências, e moldagem cónica do coto. O enfaixamento em oito é fundamental para modelar o coto de forma cónica e facilitar a adaptação à prótese.
 
-O congelamento corresponde a temperaturas iguais ou inferiores a 0°C, sendo necessário para alguns produtos biológicos, plasmas e determinadas vacinas. Nem todos os medicamentos suportam congelamento, podendo haver perda de eficácia.
+## Próteses e Órteses
 
-A temperatura fresca situa-se entre 8°C e 15°C. Alguns supositórios e determinadas formulações semi-sólidas podem requerer esta faixa de temperatura.
+As próteses substituem total ou parcialmente um membro amputado, devolvendo função e estética. As órteses são dispositivos externos que auxiliam, corrigem ou suportam uma estrutura corporal existente. A selecção depende do nível de amputação, condição física, objectivos funcionais e condições socioeconómicas do paciente.
 
-Além da temperatura, a humidade relativa do ar deve ser mantida entre 40% e 70% para evitar degradação dos medicamentos. Humidade excessiva pode causar amolecimento de cápsulas, dissolução prematura de comprimidos e crescimento microbiológico.
+## Recursos Fisioterapêuticos no Controlo da Dor
 
-A protecção da luz é necessária para medicamentos fotossensíveis que devem ser armazenados em embalagens opacas ou âmbar e em locais protegidos da luz directa.
-
-A ventilação adequada garante a circulação de ar no ambiente de armazenamento, prevenindo acumulação de calor e humidade. Os medicamentos devem ser mantidos afastados de paredes e do chão, sobre estrados ou prateleiras.
-
-A monitorização contínua das condições de armazenamento deve ser realizada com termómetros e higrómetros calibrados, com registos periódicos documentados. Qualquer desvio das condições especificadas deve ser investigado e corrigido imediatamente.
+A dor no membro fantasma é uma experiência dolorosa referida ao membro ausente. Os recursos fisioterapêuticos incluem estimulação eléctrica nervosa transcutânea (TENS), terapia em espelho, dessensibilização do coto, massagem do coto, crioterapia, termoterapia, técnicas de relaxamento, biofeedback e exercícios activos. A abordagem deve ser multimodal e individualizada.
             """.trimIndent()
         ),
 
-        // 8. Objectivos e Principais Actividades da Farmácia Hospitalar
+        // 8. Doenças Degenerativas
         Topic(
             id = 8,
-            title = "Farmácia Hospitalar: Objectivos e Actividades",
-            icon = "🏨",
-            summary = "Objectivos e principais actividades da farmácia hospitalar.",
+            title = "Doenças Degenerativas",
+            icon = "🦷",
+            summary = "Osteoporose, Reumatologia e Escoliose: abordagem fisioterapêutica.",
             markdownContent = """
-# Objectivos e Principais Actividades da Farmácia Hospitalar
+# Doenças Degenerativas
 
-## Objectivos
+## Osteoporose
 
-A farmácia hospitalar tem como objectivo principal garantir o uso racional, seguro e eficaz dos medicamentos dentro do ambiente hospitalar. Visa promover a assistência farmacêutica integral ao paciente internado e ambulatorial, contribuindo para a melhoria da qualidade assistencial.
+A osteoporose é uma doença metabólica óssea caracterizada pela diminuição da densidade mineral óssea e deterioração da microarquitectura do tecido ósseo, aumentando a fragilidade e o risco de fracturas. Afecta principalmente mulheres na pós-menopausa e idosos.
 
-Os objectivos específicos incluem assegurar o abastecimento contínuo de medicamentos e produtos de saúde com qualidade e custo adequado, promover o uso racional de medicamentos através de informação e educação, participar activamente nas decisões terapêuticas junto à equipa multidisciplinar, desenvolver e implementar políticas de farmacovigilância, contribuir para o controlo de infecções hospitalares através da gestão de antimicrobianos, e garantir o cumprimento das normas regulatórias e legais relacionadas a medicamentos.
+A fisioterapia na osteoporose inclui exercícios de impacto controlado como caminhada e subir escadas, exercícios de fortalecimento muscular com carga progressiva, exercícios de equilíbrio e propriocepção para prevenção de quedas, reeducação postural, orientação sobre actividades de vida diária seguras e exercícios aquáticos. Os exercícios de flexão da coluna devem ser evitados pelo risco de fracturas vertebrais por compressão.
 
-## Principais Actividades
+## Reumatologia
 
-A selecção de medicamentos envolve a participação na elaboração e actualização da lista de medicamentos essenciais do hospital, baseada em critérios de eficácia, segurança, custo e necessidade da população assistida.
+As doenças reumatológicas englobam um conjunto de condições que afectam articulações, ossos, músculos, tendões e ligamentos. A artrite reumatóide, a osteoartrose e o lúpus são exemplos comuns.
 
-A programação e aquisição compreende o planeamento das compras com base no consumo histórico, sazonalidade, perfil epidemiológico e disponibilidade orçamental, garantindo o abastecimento contínuo sem excessos.
+A fisioterapia reumatológica visa reduzir a dor e a inflamação, manter e melhorar a amplitude de movimento, fortalecer a musculatura periarticular, proteger as articulações, manter a capacidade funcional e orientar sobre economia articular. Os recursos incluem cinesioterapia, hidroterapia, termoterapia, crioterapia e electroterapia.
 
-O armazenamento e controlo de stock incluem a recepção, conferência, armazenamento adequado, controlo de validade e inventário periódico de todos os medicamentos e produtos de saúde.
+## Escoliose
 
-A distribuição de medicamentos abrange todos os sistemas de distribuição, desde o colectivo até o de dose unitária, conforme a estrutura e recursos do hospital.
+A escoliose é o desvio lateral da coluna vertebral associado a rotação dos corpos vertebrais. Pode ser estrutural (com alteração anatómica) ou funcional (postural, sem alteração óssea). Classifica-se pelo ângulo de Cobb em leve (até 20 graus), moderada (20 a 40 graus) e grave (acima de 40 graus).
 
-A dispensação inclui a análise da prescrição médica, orientação ao paciente e equipa de saúde, e acompanhamento farmacoterapêutico.
-
-A farmácia clínica envolve a actuação directa do farmacêutico junto ao paciente e equipa de saúde, realizando conciliação medicamentosa, monitorização terapêutica e intervenções farmacêuticas.
-
-A manipulação e preparação de medicamentos inclui a produção de formulações magistrais, preparo de nutrição parenteral, quimioterapia antineoplásica e reconstituição de medicamentos injectáveis em condições assépticas.
-
-O ensino e pesquisa envolvem a formação de estudantes e residentes, desenvolvimento de protocolos clínicos e participação em ensaios clínicos.
+A fisioterapia na escoliose inclui exercícios de alongamento e fortalecimento muscular assimétrico, reeducação postural global (RPG), método Schroth, exercícios de estabilização da coluna, uso de órteses (coletes) quando indicado e orientação postural para actividades diárias.
             """.trimIndent()
         ),
 
-        // 9. Uso Combinado de Medicamentos
+        // 9. Fisioterapia no Síndrome de Imobilismo
         Topic(
             id = 9,
-            title = "Uso Combinado de Medicamentos",
-            icon = "💉",
-            summary = "Vantagens e desvantagens do uso combinado de medicamentos.",
+            title = "Fisioterapia no Síndrome de Imobilismo",
+            icon = "🛏️",
+            summary = "Complicações da imobilização prolongada e intervenção fisioterapêutica precoce.",
             markdownContent = """
-# Uso Combinado de Medicamentos
+# Fisioterapia no Síndrome de Imobilismo
 
-## Conceito
+## Definição
 
-O uso combinado de medicamentos, também denominado politerapia ou associação medicamentosa, consiste na utilização simultânea de dois ou mais fármacos para o tratamento de uma ou mais condições clínicas. Esta prática é comum na medicina moderna, especialmente no tratamento de doenças crónicas e complexas.
+O síndrome de imobilismo é o conjunto de alterações fisiológicas decorrentes da restrição prolongada ao leito ou da inactividade física. Afecta múltiplos sistemas orgânicos e pode ocorrer em pacientes hospitalizados, idosos acamados, pós-operatórios prolongados e pacientes em unidades de terapia intensiva.
 
-## Vantagens
+## Complicações da Imobilização Prolongada
 
-O sinergismo terapêutico ocorre quando a combinação de fármacos produz efeito superior à soma dos efeitos individuais, permitindo o uso de doses menores de cada medicamento com consequente redução de efeitos adversos.
+No sistema musculoesquelético ocorre atrofia muscular (perda de 1 a 3% de massa muscular por dia de repouso), rigidez articular, contraturas, osteoporose por desuso e diminuição da força muscular.
 
-A ampliação do espectro de acção é particularmente importante no tratamento de infecções polimicrobianas, onde a associação de antibióticos permite cobrir diferentes agentes patogénicos simultaneamente.
+No sistema cardiovascular ocorrem hipotensão ortostática, aumento da frequência cardíaca em repouso, diminuição do volume de ejecção, estase venosa e risco aumentado de trombose venosa profunda e embolia pulmonar.
 
-A prevenção de resistência microbiana é uma vantagem crucial na terapia anti-infecciosa. A combinação de antimicrobianos dificulta o desenvolvimento de resistência bacteriana, como no esquema tríplice para tuberculose.
+No sistema respiratório ocorre diminuição da capacidade vital, acúmulo de secreções, atelectasia, pneumonia hipostática e redução da eficiência da tosse.
 
-A redução de efeitos adversos pode ser alcançada quando doses menores de cada fármaco são utilizadas na combinação, mantendo a eficácia terapêutica com menor toxicidade individual.
+No sistema tegumentar há risco elevado de úlceras de pressão, especialmente nas proeminências ósseas como sacro, calcâneos, trocânteres e escápulas.
 
-O tratamento de comorbidades permite abordar simultaneamente múltiplas condições clínicas, como hipertensão arterial e diabetes mellitus, com esquemas terapêuticos optimizados.
+## Intervenção Fisioterapêutica
 
-A melhoria da adesão ao tratamento pode ser alcançada com formulações de dose fixa combinada, reduzindo o número de comprimidos diários.
-
-## Desvantagens
-
-O aumento do risco de interacções medicamentosas é proporcional ao número de fármacos utilizados. Interacções podem resultar em aumento da toxicidade, redução da eficácia ou efeitos imprevisíveis.
-
-O aumento de efeitos adversos ocorre quando os fármacos partilham perfis de toxicidade semelhantes, podendo resultar em efeitos cumulativos prejudiciais ao paciente.
-
-O maior custo do tratamento é uma consequência directa da utilização de múltiplos medicamentos, impactando tanto o paciente quanto o sistema de saúde.
-
-A dificuldade de adesão ao tratamento pode ocorrer quando o esquema terapêutico é complexo, com múltiplos horários e condições de administração diferentes.
-
-A dificuldade na identificação de reacções adversas aumenta com o número de medicamentos, tornando mais complexa a determinação do fármaco responsável por um efeito indesejado.
+A mobilização precoce é a principal estratégia de prevenção e tratamento. Inclui mudanças de decúbito a cada duas horas, exercícios passivos e activos no leito, sedestação progressiva, ortostatismo assistido, deambulação precoce, exercícios respiratórios, posicionamento adequado com uso de almofadas e coxins, e estimulação neuromuscular eléctrica quando indicada.
             """.trimIndent()
         ),
 
-        // 10. Gestão de Stocks
+        // 10. Interpretação dos Exames Complementares
         Topic(
             id = 10,
-            title = "Gestão de Stocks",
-            icon = "📊",
-            summary = "Seguimentos, stock máximo e mínimo, roturas e rotatividade de itens.",
+            title = "Interpretação dos Exames Complementares",
+            icon = "🔬",
+            summary = "Exames laboratoriais e imagiológicos relevantes para a prática fisioterapêutica.",
             markdownContent = """
-# Gestão de Stocks
+# Interpretação dos Exames Complementares
 
-## Seguimentos de Gestão de Stock
+## Exames Laboratoriais
 
-A gestão de stocks farmacêuticos envolve um conjunto integrado de processos que visam garantir a disponibilidade contínua de medicamentos com qualidade e custos adequados. Os principais seguimentos incluem o planeamento da demanda, a programação de compras, o controlo de entradas e saídas, a monitorização de validades e o acompanhamento de indicadores de desempenho.
+O fisioterapeuta deve saber interpretar exames laboratoriais que influenciam a conduta terapêutica. O hemograma completo avalia os glóbulos vermelhos (anemia pode limitar exercício), glóbulos brancos (leucocitose sugere infecção) e plaquetas (trombocitopenia aumenta risco de sangramento).
 
-O planeamento da demanda baseia-se na análise do consumo histórico, perfil epidemiológico da população assistida, sazonalidade de doenças e introdução de novos protocolos terapêuticos.
+A gasometria arterial é fundamental na fisioterapia respiratória, avaliando pH (normal: 7,35-7,45), PaO2 (normal: 80-100 mmHg), PaCO2 (normal: 35-45 mmHg) e saturação de O2 (normal acima de 95%). Alterações indicam insuficiência respiratória e orientam a ventiloterapia.
 
-A programação de compras define as quantidades a adquirir, os prazos de entrega e os fornecedores, considerando os níveis de stock definidos e a capacidade de armazenamento.
+Os marcadores inflamatórios como VHS e PCR indicam processos inflamatórios activos, importantes em pacientes reumatológicos. A creatinoquinase (CK) eleva-se em lesões musculares. A glicemia é relevante em pacientes diabéticos durante o exercício.
 
-## Stock Máximo e Mínimo
+## Exames Imagiológicos
 
-O stock mínimo, também chamado ponto de ressuprimento, é a quantidade abaixo da qual se deve providenciar nova aquisição para evitar ruptura no abastecimento. É calculado considerando o consumo médio diário multiplicado pelo tempo de ressuprimento (prazo entre o pedido e a entrega).
+A radiografia convencional é o exame de primeira linha para avaliar fracturas, desvios ósseos, escoliose e alterações articulares degenerativas. O fisioterapeuta utiliza-a para planear a reabilitação pós-fractura e avaliar alinhamento articular.
 
-O stock máximo é a quantidade máxima de produto que deve ser mantida em armazém, considerando a capacidade de armazenamento, o custo de manutenção do stock e o risco de perdas por validade. É calculado somando o stock mínimo ao lote de compra.
+A tomografia computadorizada fornece imagens detalhadas em cortes transversais, útil para avaliação de lesões complexas, hérnias discais e patologias intracranianas.
 
-O ponto de pedido é o nível de stock que, ao ser atingido, desencadeia um novo processo de aquisição. Deve considerar o tempo de ressuprimento e uma margem de segurança.
+A ressonância magnética é o exame de eleição para avaliação de tecidos moles como músculos, ligamentos, tendões, meniscos e disco intervertebral. Não utiliza radiação ionizante.
 
-## Consequências de Rotura de Stock
-
-A rotura de stock de medicamentos tem consequências graves para a assistência ao paciente. Pode resultar na interrupção de tratamentos em curso, substituição por alternativas menos eficazes ou mais caras, aumento do tempo de internamento, agravamento do quadro clínico e, em casos extremos, risco de morte.
-
-Para a instituição, a rotura gera custos adicionais com compras de emergência a preços superiores, desgaste da imagem institucional, insatisfação dos profissionais de saúde e possíveis implicações legais.
-
-## Rotatividade de Itens
-
-A rotatividade ou giro de stock mede a frequência com que o stock é renovado em determinado período. Itens de alta rotatividade são aqueles consumidos rapidamente e repostos com frequência, enquanto itens de baixa rotatividade permanecem mais tempo armazenados.
-
-O índice de rotatividade é calculado dividindo o consumo total do período pelo stock médio. Um índice elevado indica boa gestão, com menor capital imobilizado e menor risco de perdas.
-
-## Principais Seguimentos de Gestão de Stock
-
-Os seguimentos essenciais incluem a recepção e conferência de medicamentos verificando quantidade, qualidade, validade e conformidade com o pedido. O registo de entradas e saídas deve ser realizado em sistema informatizado. O controlo de validades utiliza o sistema FEFO. A realização de inventários periódicos confronta os registos com o stock físico. A análise de indicadores como taxa de ruptura, giro de stock e custo de armazenamento orienta a tomada de decisão. E a avaliação de fornecedores considera prazo de entrega, qualidade e preço.
+A ecografia musculoesquelética permite avaliação dinâmica em tempo real de tendões, músculos e articulações, sendo útil para guiar procedimentos e avaliar lesões musculares e tendinosas.
             """.trimIndent()
         ),
 
-        // 11. Classificação ABC
+        // 11. Critérios de Admissão nos Serviços de Fisioterapia
         Topic(
             id = 11,
-            title = "Classificação ABC dos Produtos Farmacêuticos",
-            icon = "📈",
-            summary = "Classificação ABC, cálculos de stock e causas de rotura.",
+            title = "Critérios de Admissão nos Serviços de Fisioterapia",
+            icon = "📋",
+            summary = "Critérios para admissão, avaliação inicial e alta nos serviços de Fisioterapia.",
             markdownContent = """
-# Classificação ABC dos Produtos Farmacêuticos e sua Importância na Redução de Custos
+# Critérios de Admissão dos Pacientes nos Serviços de Fisioterapia
 
-## Conceito
+## Critérios de Admissão
 
-A classificação ABC, também conhecida como análise de Pareto aplicada à gestão farmacêutica, é uma ferramenta que categoriza os itens do stock conforme seu impacto financeiro. Baseia-se no princípio de que uma pequena parcela dos itens representa a maior parte do valor investido.
+A admissão nos serviços de fisioterapia requer encaminhamento médico ou avaliação directa pelo fisioterapeuta, conforme a legislação vigente. Os critérios incluem presença de défice funcional, limitação da mobilidade, dor que interfere nas actividades diárias, alteração respiratória com indicação de fisioterapia, pré ou pós-operatório com indicação de reabilitação, condição neurológica com comprometimento motor e risco de complicações da imobilização.
 
-Os itens da classe A representam aproximadamente 20% dos itens do stock, mas correspondem a cerca de 80% do valor financeiro total. Requerem controlo rigoroso, negociações frequentes com fornecedores e monitorização contínua.
+## Avaliação Inicial
 
-Os itens da classe B representam cerca de 30% dos itens e 15% do valor financeiro. Recebem controlo intermediário, com revisões periódicas.
+A avaliação cinético-funcional é obrigatória na admissão e inclui anamnese detalhada com história clínica e queixas principais, exame físico com avaliação da postura, amplitude de movimento, força muscular (escala de 0 a 5), sensibilidade, reflexos, equilíbrio e marcha. Devem ser aplicadas escalas validadas como a Escala Visual Analógica (EVA) para dor, Escala de Ashworth para espasticidade, Índice de Barthel para funcionalidade e a Medida de Independência Funcional (MIF).
 
-Os itens da classe C representam aproximadamente 50% dos itens mas apenas 5% do valor financeiro. Podem ter controlo mais simplificado, com reposições menos frequentes.
+## Plano Terapêutico
 
-## Cálculos de Stock Máximo e Mínimo
+Com base na avaliação, o fisioterapeuta elabora um plano terapêutico individualizado com objectivos a curto, médio e longo prazo, selecção de técnicas e recursos, frequência e duração das sessões e critérios de reavaliação.
 
-O stock mínimo é calculado pela fórmula: Stock Mínimo = Consumo Médio Mensal (CMM) multiplicado pelo Tempo de Ressuprimento (TR) em meses. Por exemplo, se o CMM de um antibiótico é de 500 unidades e o TR é de 1 mês, o stock mínimo será de 500 unidades.
+## Critérios de Alta
 
-O stock máximo é calculado pela fórmula: Stock Máximo = Stock Mínimo + Lote de Compra. O lote de compra pode ser definido como o CMM multiplicado pelo intervalo entre pedidos.
-
-O ponto de pedido é calculado pela fórmula: Ponto de Pedido = Stock Mínimo + (CMM multiplicado pelo Tempo de Ressuprimento), adicionando uma margem de segurança para itens críticos.
-
-## Causas de Rotura de Stock e suas Consequências
-
-As causas de rotura incluem planeamento inadequado com subestimação do consumo, atrasos na entrega por parte dos fornecedores, falhas no registo de entradas e saídas, aumento inesperado da demanda por surtos epidémicos, problemas na qualidade de lotes recebidos que levam a devoluções, e restrições orçamentais que limitam as aquisições.
-
-As consequências incluem comprometimento da assistência ao paciente, necessidade de substituições terapêuticas nem sempre equivalentes, custos elevados com aquisições de emergência, desgaste da relação com a equipa clínica e possíveis desfechos clínicos desfavoráveis.
+A alta fisioterapêutica é dada quando os objectivos terapêuticos são alcançados, quando não há mais ganho funcional esperado, quando o paciente atinge a máxima independência funcional possível, ou quando há contra-indicação para continuidade do tratamento.
             """.trimIndent()
         ),
 
-        // 12. Sistema de Estocagem
+        // 12. Fisioterapia na U.T.I
         Topic(
             id = 12,
-            title = "Sistema de Estocagem de Produtos Farmacêuticos",
-            icon = "🗄️",
-            summary = "Métodos e critérios de organização para estocagem de produtos farmacêuticos.",
+            title = "Fisioterapia na U.T.I",
+            icon = "🏨",
+            summary = "Ventilação mecânica, intubação orotraqueal, desintubação e gasometria.",
             markdownContent = """
-# Sistema de Estocagem de Produtos Farmacêuticos
+# Fisioterapia na Unidade de Terapia Intensiva
 
-## Conceito
+## Ventilação Mecânica
 
-O sistema de estocagem compreende o conjunto de métodos, equipamentos e procedimentos utilizados para organizar e manter os medicamentos e produtos farmacêuticos de forma ordenada, segura e acessível no ambiente de armazenamento.
+A ventilação mecânica é o suporte ventilatório oferecido por um equipamento que substitui total ou parcialmente a função respiratória do paciente. Pode ser invasiva (através de tubo endotraqueal ou traqueostomia) ou não invasiva (por máscara facial ou nasal).
 
-## Métodos de Organização
+Os modos ventilatórios principais incluem ventilação controlada a volume (VCV), ventilação controlada a pressão (PCV), ventilação com suporte de pressão (PSV), ventilação mandatória intermitente sincronizada (SIMV) e pressão positiva contínua nas vias aéreas (CPAP). O fisioterapeuta participa no ajuste de parâmetros, no desmame ventilatório e na prevenção de complicações.
 
-A organização alfabética dispõe os medicamentos por ordem alfabética do nome genérico ou denominação comum internacional (DCI). Facilita a localização rápida dos produtos e é indicada para farmácias com grande variedade de itens.
+## Intubação Orotraqueal
 
-A organização por forma farmacêutica agrupa os medicamentos conforme sua apresentação: sólidos orais, líquidos orais, injectáveis, tópicos, entre outros. Facilita o controlo de condições específicas de armazenamento.
+A intubação orotraqueal consiste na inserção de um tubo endotraqueal pela boca até a traqueia para estabelecer uma via aérea artificial. O fisioterapeuta auxilia no posicionamento do paciente, na verificação da pressão do cuff e na fixação do tubo.
 
-A organização por grupo terapêutico ou farmacológico agrupa medicamentos com acção farmacológica semelhante, como anti-hipertensivos, antibióticos, anti-inflamatórios. Facilita a gestão clínica e a identificação de alternativas terapêuticas.
+## Desintubação (Extubação)
 
-A organização por ordem de chegada (FIFO) ou por validade (FEFO) prioriza a dispensação dos itens que chegaram primeiro ou que vencem primeiro, respectivamente. O sistema FEFO é o mais recomendado para medicamentos.
+A desintubação é a retirada do tubo endotraqueal quando o paciente reúne condições para respirar espontaneamente. Os critérios incluem resolução ou melhoria da causa da intubação, nível de consciência adequado, reflexo de tosse presente, oxigenação satisfatória, capacidade de manter ventilação espontânea e estabilidade hemodinâmica. O fisioterapeuta participa do teste de respiração espontânea e da assistência pós-extubação.
 
-## Equipamentos e Infraestrutura
+## Gasometria Arterial
 
-As estantes e prateleiras devem ser de material resistente, lavável e que não acumule poeira. Os medicamentos devem ficar afastados pelo menos 10 centímetros do chão e 50 centímetros do tecto.
-
-As câmaras frias e refrigeradores farmacêuticos mantêm temperatura entre 2°C e 8°C para medicamentos termolábeis. Devem possuir alarme de temperatura e registo contínuo.
-
-Os armários de segurança são utilizados para medicamentos controlados e de alto custo, com acesso restrito e chave exclusiva.
-
-Os estrados e paletes são utilizados para armazenamento de grandes volumes, mantendo os produtos afastados do chão e facilitando a limpeza e a ventilação.
-
-## Boas Práticas de Estocagem
-
-A sinalização adequada identifica cada área de armazenamento com etiquetas legíveis contendo nome do produto, concentração, forma farmacêutica e validade. A separação de medicamentos com nomes ou embalagens semelhantes (medicamentos look-alike e sound-alike) previne erros de dispensação. A manutenção de registos de temperatura e humidade permite rastrear condições de armazenamento. A limpeza regular do ambiente de estocagem previne contaminação e infestação por pragas.
+A gasometria é o exame que analisa os gases e o equilíbrio ácido-base do sangue arterial. Valores normais: pH 7,35-7,45; PaO2 80-100 mmHg; PaCO2 35-45 mmHg; HCO3 22-26 mEq/L; SaO2 acima de 95%. A interpretação orienta a conduta do fisioterapeuta na ventiloterapia e no ajuste dos parâmetros ventilatórios.
             """.trimIndent()
         ),
 
-        // 13. Uso Racional de Medicamentos
+        // 13. Ética e Deontologia da Carreira de Fisioterapia
         Topic(
             id = 13,
-            title = "Uso Racional de Medicamentos",
+            title = "Ética e Deontologia da Fisioterapia",
             icon = "⚖️",
-            summary = "Conceito e importância do uso racional de medicamentos.",
+            summary = "Princípios éticos, deveres e responsabilidades do fisioterapeuta.",
             markdownContent = """
-# Uso Racional de Medicamentos
+# Ética e Deontologia da Carreira de Fisioterapia
 
-## Conceito
+## Princípios Éticos Fundamentais
 
-Segundo a Organização Mundial da Saúde (OMS), o uso racional de medicamentos ocorre quando os pacientes recebem medicamentos apropriados para suas condições clínicas, em doses adequadas às suas necessidades individuais, por um período adequado e ao menor custo para si e para a comunidade.
+A prática da Fisioterapia é regida por princípios éticos que norteiam a conduta profissional. O princípio da beneficência obriga o fisioterapeuta a agir em benefício do paciente, buscando sempre o melhor resultado terapêutico. O princípio da não maleficência impõe a obrigação de não causar dano ao paciente.
 
-O uso racional envolve a prescrição correcta pelo médico, a dispensação adequada pelo farmacêutico, a administração correcta pelo paciente ou profissional de saúde e o acompanhamento dos resultados terapêuticos.
+O princípio da autonomia reconhece o direito do paciente de tomar decisões informadas sobre o seu tratamento. O fisioterapeuta deve informar o paciente sobre a sua condição, opções de tratamento, riscos e benefícios, e respeitar a sua decisão. O princípio da justiça exige tratamento equitativo e justo a todos os pacientes, sem discriminação.
 
-Os critérios para o uso racional incluem a indicação correcta baseada em evidência científica, a escolha do medicamento mais adequado considerando eficácia, segurança, conveniência e custo, a dose e via de administração apropriadas para cada paciente, a duração adequada do tratamento, e a ausência de contra-indicações para o paciente em questão.
+## Deveres do Fisioterapeuta
 
-## Importância
+O fisioterapeuta deve manter sigilo profissional sobre informações do paciente, actuar com competência técnica e científica, manter-se actualizado através de formação contínua, respeitar os limites de sua competência profissional, encaminhar o paciente a outros profissionais quando necessário, elaborar registo adequado de todos os procedimentos e respeitar os colegas e demais profissionais de saúde.
 
-O uso irracional de medicamentos é um problema global de saúde pública. A OMS estima que mais de metade de todos os medicamentos são prescritos, dispensados ou vendidos de forma inadequada, e que metade dos pacientes não os toma correctamente.
+## Responsabilidades Profissionais
 
-A automedicação inadequada pode mascarar sintomas de doenças graves, causar reacções adversas, promover resistência antimicrobiana e resultar em intoxicações medicamentosas.
+O fisioterapeuta é responsável pela avaliação, diagnóstico cinético-funcional, prescrição e execução do plano terapêutico. Deve documentar adequadamente todos os procedimentos, manter a confidencialidade das informações do paciente e responder civil, penal e eticamente pelos seus actos profissionais.
 
-O uso excessivo de antibióticos é uma das principais causas de resistência antimicrobiana, considerada pela OMS como uma das maiores ameaças à saúde global. A prescrição racional de antimicrobianos é essencial para preservar a eficácia destes medicamentos.
+## Código Deontológico
 
-A polimedicação, especialmente em idosos, aumenta o risco de interacções medicamentosas, reacções adversas e erros de medicação. A revisão periódica da farmacoterapia pelo farmacêutico contribui para optimizar o tratamento.
-
-O papel do farmacêutico no uso racional inclui a análise de prescrições, a orientação ao paciente sobre o uso correcto dos medicamentos, a identificação e resolução de problemas relacionados a medicamentos, e a promoção de educação em saúde na comunidade.
-
-A implementação de protocolos clínicos, formulários terapêuticos e comissões de farmácia e terapêutica são estratégias institucionais fundamentais para promover o uso racional de medicamentos em hospitais e serviços de saúde.
+O código deontológico regula as relações do fisioterapeuta com os pacientes, colegas, instituições e sociedade. Estabelece normas de conduta, define infracções éticas e prevê sanções disciplinares para o exercício irregular da profissão.
             """.trimIndent()
         ),
 
-        // 14. Farmacovigilância
+        // 14. Fisioterapia Musculoesquelética
         Topic(
             id = 14,
-            title = "Farmacovigilância",
-            icon = "🔍",
-            summary = "Conceitos básicos, importância e reacções adversas a medicamentos.",
+            title = "Fisioterapia Musculoesquelética",
+            icon = "💪",
+            summary = "Posicionamento, alongamento muscular e mobilização articular.",
             markdownContent = """
-# Farmacovigilância
+# Fisioterapia Musculoesquelética
 
-## Conceitos Básicos
+## Princípios Básicos do Posicionamento
 
-A farmacovigilância é a ciência e as actividades relacionadas com a detecção, avaliação, compreensão e prevenção de efeitos adversos ou quaisquer outros problemas relacionados com medicamentos. É definida pela OMS como o conjunto de processos destinados a monitorar a segurança dos medicamentos após sua comercialização.
+O posicionamento adequado do paciente é fundamental para prevenir complicações da imobilidade, promover conforto, facilitar a função respiratória e prevenir deformidades. Os princípios incluem alinhamento corporal adequado, distribuição uniforme de pressão, protecção de proeminências ósseas, manutenção de posturas funcionais e mudanças de decúbito regulares.
 
-A reacção adversa a medicamento (RAM) é qualquer resposta nociva e não intencional a um medicamento, que ocorre em doses normalmente utilizadas para profilaxia, diagnóstico ou tratamento. Difere de efeito colateral, que é um efeito previsível e relacionado à acção farmacológica do medicamento.
+As posições básicas incluem decúbito dorsal (supino), decúbito ventral (prono), decúbito lateral direito e esquerdo, posição de Fowler (semi-sentado) e posição sentada. Cada posição tem indicações, contra-indicações e cuidados específicos que o fisioterapeuta deve conhecer.
 
-O evento adverso é qualquer ocorrência médica desfavorável que se apresenta durante o tratamento com um medicamento, sem necessariamente ter relação causal estabelecida com o mesmo.
+## Alongamento Muscular
 
-## Importância
+O alongamento muscular é a técnica que visa aumentar o comprimento dos tecidos moles encurtados, recuperando ou mantendo a flexibilidade. Pode ser estático (manter a posição por 15 a 30 segundos), dinâmico (movimentos controlados de amplitude progressiva) ou através de facilitação neuromuscular proprioceptiva (FNP) que combina contracção isométrica com alongamento.
 
-A farmacovigilância é fundamental porque os ensaios clínicos realizados antes da comercialização dos medicamentos envolvem um número limitado de pacientes, por período limitado e em condições controladas. Reacções adversas raras, de longo prazo ou que ocorrem em populações específicas podem só ser detectadas após o uso amplo do medicamento na prática clínica.
+Os benefícios incluem aumento da amplitude de movimento, prevenção de lesões musculares, melhoria da postura, redução da tensão muscular e aumento da flexibilidade. Deve ser realizado após aquecimento prévio e respeitando o limiar de dor do paciente.
 
-A notificação espontânea de reacções adversas pelos profissionais de saúde é a base do sistema de farmacovigilância. Cada profissional tem a responsabilidade de notificar suspeitas de reacções adversas às autoridades sanitárias competentes.
+## Mobilização Articular
 
-A farmacovigilância contribui para a tomada de decisões regulatórias como retirada de medicamentos do mercado, alteração de bulas, restrição de indicações e adição de advertências de segurança.
+A mobilização articular consiste em movimentos passivos, acessórios ou fisiológicos, aplicados pelo fisioterapeuta sobre as superfícies articulares para restaurar ou manter a mobilidade. Classifica-se em graus de I a IV segundo Maitland, conforme a amplitude e resistência aplicada.
 
-## Reacções Adversas
-
-As reacções do tipo A (augmented) são previsíveis, dose-dependentes e relacionadas à acção farmacológica do medicamento. São as mais comuns e geralmente menos graves. Exemplos incluem hipoglicemia por insulina e sangramento por anticoagulantes.
-
-As reacções do tipo B (bizarre) são imprevisíveis, não dose-dependentes e não relacionadas à acção farmacológica. São menos comuns mas potencialmente mais graves. Incluem reacções alérgicas, anafilaxia e reacções idiossincrásicas.
-
-As reacções do tipo C (chronic) estão relacionadas ao uso prolongado do medicamento, como a nefropatia por analgésicos e a osteoporose por corticosteróides.
-
-As reacções do tipo D (delayed) manifestam-se tardiamente, mesmo após a descontinuação do medicamento. Incluem teratogenicidade e carcinogenicidade.
-
-O papel do farmacêutico na farmacovigilância inclui a identificação e documentação de reacções adversas, a notificação às autoridades competentes, a orientação ao paciente sobre sinais de alerta e a implementação de medidas preventivas.
+A mobilização é indicada para hipomobilidade articular, dor articular, rigidez pós-imobilização e aderências articulares. As contra-indicações incluem fracturas não consolidadas, artrite séptica, instabilidade articular significativa e tumores ósseos.
             """.trimIndent()
         ),
 
-        // 15. Papel da Farmácia no Controlo das Infecções Hospitalares
+        // 15. Fisioterapia Materno-Infantil
         Topic(
             id = 15,
-            title = "Farmácia no Controlo das Infecções Hospitalares",
-            icon = "🧫",
-            summary = "Papel da farmácia hospitalar no controlo e prevenção de infecções hospitalares.",
+            title = "Fisioterapia Materno-Infantil",
+            icon = "👶",
+            summary = "Desenvolvimento motor, actividade reflexa, avaliação em neonatologia e pediatria.",
             markdownContent = """
-# Papel da Farmácia no Controlo das Infecções Hospitalares
+# Fisioterapia Materno-Infantil
 
-## Conceito
+## Movimento Espontâneo e Coordenações Sensório-Motoras
 
-As infecções hospitalares, também denominadas infecções associadas aos cuidados de saúde, são infecções adquiridas durante a permanência do paciente no ambiente hospitalar, que não estavam presentes ou em incubação no momento da admissão.
+O desenvolvimento motor do recém-nascido e lactente inicia-se com movimentos espontâneos que progressivamente se tornam mais organizados e intencionais. As coordenações sensório-motoras resultam da integração entre os sistemas sensorial e motor, permitindo ao bebé explorar o ambiente e desenvolver habilidades funcionais progressivamente mais complexas.
 
-A farmácia hospitalar desempenha papel fundamental no controlo destas infecções através da gestão racional de antimicrobianos, participação na comissão de controlo de infecção hospitalar (CCIH) e implementação de programas de stewardship de antimicrobianos.
+A estimulação adequada nos primeiros meses de vida é crucial para o desenvolvimento das conexões neuronais e a formação de padrões motores normais.
 
-## Actividades da Farmácia no Controlo de Infecções
+## Evolução Normal da Motricidade e Suas Variações
 
-A gestão de antimicrobianos (antimicrobial stewardship) é a actividade central da farmácia no controlo de infecções. Consiste na implementação de estratégias para optimizar o uso de antibióticos, antifúngicos e antivirais, garantindo eficácia terapêutica e minimizando o desenvolvimento de resistência.
+O desenvolvimento motor segue uma sequência previsível: controlo cefálico (2-4 meses), rolar (4-6 meses), sentar sem apoio (6-9 meses), arrastar e gatinhar (8-10 meses), ficar em pé com apoio (9-12 meses) e marcha independente (12-18 meses). Variações individuais são normais dentro de faixas etárias específicas.
 
-A análise de prescrições de antimicrobianos inclui a verificação da indicação, dose, via de administração, duração do tratamento e adequação ao perfil de sensibilidade microbiológica. O farmacêutico deve intervir quando identificar uso inadequado.
+O fisioterapeuta deve conhecer os marcos do desenvolvimento motor para identificar atrasos e intervir precocemente.
 
-A elaboração e actualização de protocolos de profilaxia antimicrobiana cirúrgica define os antimicrobianos recomendados, o momento de administração e a duração da profilaxia para cada tipo de procedimento cirúrgico.
+## Actividade Reflexa e Reacções
 
-O controlo de germicidas e saneantes envolve a selecção, padronização e controlo de qualidade dos desinfectantes e anti-sépticos utilizados no hospital.
+Os reflexos primitivos são respostas motoras automáticas presentes ao nascimento que devem desaparecer progressivamente. Incluem o reflexo de Moro (sobressalto), preensão palmar e plantar, reflexo tónico cervical assimétrico, reflexo de sucção e marcha automática. A persistência além do período esperado sugere disfunção neurológica.
 
-A preparação de soluções anti-sépticas e desinfectantes em condições adequadas garante a concentração e eficácia dos produtos utilizados na prevenção de infecções.
+As reacções posturais incluem as reacções de endireitamento, protecção e equilíbrio, que se desenvolvem progressivamente e permitem o controlo postural contra a gravidade.
 
-A monitorização do consumo de antimicrobianos através de indicadores como DDD (Dose Diária Definida) por 1000 pacientes-dia permite avaliar tendências de uso e identificar oportunidades de intervenção.
+## Avaliação em Neonatologia e Pediatria
 
-A participação na comissão de controlo de infecção hospitalar permite ao farmacêutico contribuir com conhecimento sobre farmacocinética, farmacodinâmica e padrões de resistência para a tomada de decisões institucionais.
-
-A educação continuada dos profissionais de saúde sobre uso racional de antimicrobianos e medidas de prevenção de infecções é uma actividade permanente da farmácia hospitalar.
+A avaliação fisioterapêutica do neonato e da criança inclui avaliação da idade gestacional, tónus muscular, postura, reflexos primitivos, movimentos espontâneos, resposta aos estímulos sensoriais e marcos do desenvolvimento. Instrumentos como a Escala de Alberta, o Teste de Denver e a Escala de Bayley são utilizados para avaliação padronizada do desenvolvimento motor.
             """.trimIndent()
         ),
 
-        // 16. Requisitos para Viabilizar uma Farmácia Hospitalar
+        // 16. Fisioterapia Neuromuscular
         Topic(
             id = 16,
-            title = "Requisitos para Farmácia Hospitalar",
-            icon = "🏗️",
-            summary = "Requisitos estruturais, humanos e organizacionais para uma farmácia hospitalar.",
+            title = "Fisioterapia Neuromuscular",
+            icon = "⚡",
+            summary = "Sistema Nervoso Central e Periférico, neurónios, unidade motora e sua função.",
             markdownContent = """
-# Requisitos para Viabilizar uma Farmácia Hospitalar
+# Fisioterapia Neuromuscular
 
-## Requisitos Estruturais
+## Conceito
 
-A farmácia hospitalar deve dispor de área física adequada e suficiente para realizar todas as suas actividades. As áreas essenciais incluem a área de recepção e conferência de medicamentos, a área de armazenamento geral com condições ambientais controladas, a área de armazenamento refrigerado com câmaras frias ou refrigeradores farmacêuticos, a área de armazenamento de medicamentos controlados com segurança reforçada, a área de dispensação com balcão de atendimento e sistema informatizado, a sala de manipulação e preparo de medicamentos, a sala limpa para preparações estéreis quando aplicável, o escritório administrativo para gestão e documentação, e vestiários para funcionários.
+A Fisioterapia Neuromuscular é a área especializada que avalia e trata distúrbios do sistema nervoso e muscular que afectam o movimento e a função. Actua em condições como neuropatias periféricas, miopatias, doenças do neurónio motor, esclerose múltipla, síndrome de Guillain-Barré e distrofias musculares.
 
-As instalações devem possuir iluminação adequada, ventilação ou climatização, piso lavável e resistente, paredes lisas e de fácil limpeza, e protecção contra entrada de insectos e roedores.
+## Introdução e Fundamentos do Sistema Nervoso
 
-## Requisitos de Recursos Humanos
+O sistema nervoso é responsável pela integração, coordenação e controlo de todas as funções do organismo. Recebe informações sensoriais do ambiente interno e externo, processa-as e gera respostas motoras adequadas. É a base anatómica e fisiológica de toda a reabilitação neuromuscular.
 
-A farmácia hospitalar deve contar com farmacêutico responsável técnico devidamente habilitado e inscrito no conselho profissional. O quadro de pessoal deve incluir farmacêuticos clínicos para actividades assistenciais, técnicos de farmácia para actividades operacionais, auxiliares para tarefas de apoio e pessoal administrativo.
+## Sistema Nervoso Central (SNC)
 
-A qualificação e formação contínua da equipa são essenciais para garantir a qualidade dos serviços prestados. Devem ser implementados programas de educação permanente abrangendo actualização técnica, biossegurança e humanização do atendimento.
+O SNC é composto pelo encéfalo (cérebro, cerebelo e tronco encefálico) e pela medula espinal. O cérebro é responsável pelas funções superiores como pensamento, memória e controlo motor voluntário. O cerebelo coordena os movimentos e o equilíbrio. O tronco encefálico controla funções vitais como respiração e frequência cardíaca. A medula espinal conduz informações entre o encéfalo e o corpo e integra reflexos espinais.
 
-## Requisitos Organizacionais
+## Sistema Nervoso Periférico (SNP)
 
-A farmácia hospitalar deve possuir um organograma definido com linhas de responsabilidade claras. Os procedimentos operacionais padrão (POPs) devem ser elaborados, implementados e periodicamente revisados para todas as actividades.
+O SNP é constituído pelos nervos cranianos (12 pares) e nervos espinais (31 pares), que conectam o SNC aos órgãos, músculos e receptores sensoriais. Divide-se em sistema nervoso somático (voluntário) e sistema nervoso autónomo (involuntário, com divisões simpática e parassimpática).
 
-O sistema informatizado de gestão farmacêutica deve permitir o controlo de stock em tempo real, o rastreamento de lotes e validades, a emissão de relatórios de consumo e a integração com o sistema de prescrição electrónica do hospital.
+## Neurónio, Tipos e Unidade Motora
 
-A documentação completa de todas as actividades, incluindo registos de temperatura, registos de dispensação, notas de recepção e registos de não-conformidades, é obrigatória para fins de rastreabilidade e auditoria.
+O neurónio é a célula funcional do sistema nervoso, composto por corpo celular, dendrites e axónio. Os neurónios sensoriais (aferentes) transmitem informações dos receptores ao SNC. Os neurónios motores (eferentes) transmitem comandos do SNC aos músculos. Os interneurónios fazem a conexão entre neurónios dentro do SNC.
 
-## Requisitos Legais
-
-A farmácia hospitalar deve possuir alvará de funcionamento emitido pela autoridade sanitária competente, licença de funcionamento actualizada e cumprir toda a legislação vigente relativa a medicamentos, incluindo normas para medicamentos controlados, produtos termolábeis e medicamentos experimentais.
+A unidade motora é o conjunto formado por um neurónio motor alfa e todas as fibras musculares que ele inerva. É a unidade funcional do controlo motor. O recrutamento de unidades motoras segue o princípio do tamanho: unidades menores são recrutadas primeiro para movimentos finos, e unidades maiores são adicionadas para movimentos que exigem maior força.
             """.trimIndent()
         ),
 
-        // 17. Interacções Medicamentosas
+        // 17. Fisioterapia em Ortoprotesia
         Topic(
             id = 17,
-            title = "Interacções Medicamentosas",
-            icon = "⚠️",
-            summary = "Conceito, classificação, vantagens e desvantagens das interacções medicamentosas.",
+            title = "Fisioterapia em Ortoprotesia",
+            icon = "🦾",
+            summary = "Resumo histórico, definição e aplicação de órteses e próteses.",
             markdownContent = """
-# Interacções Medicamentosas
+# Fisioterapia em Ortoprotesia
 
-## Conceito
+## Resumo Histórico, Definição, Objectivos, Indicação e Importância
 
-Interacção medicamentosa é a modificação do efeito de um fármaco pela administração prévia ou concomitante de outro fármaco, alimento, bebida ou agente químico ambiental. Pode resultar em aumento ou diminuição da eficácia terapêutica, ou no aparecimento de efeitos adversos inesperados.
+A ortoprotesia tem raízes históricas que remontam às civilizações antigas. Os egípcios já utilizavam dispositivos auxiliares rudimentares. Com o avanço da medicina e tecnologia, as órteses e próteses evoluíram significativamente em materiais, design e funcionalidade.
 
-As interacções podem ocorrer entre medicamento e medicamento (as mais comuns e clinicamente relevantes), entre medicamento e alimento (como a interacção entre varfarina e vitamina K), entre medicamento e fitoterapêutico (como a interacção entre hipericão e contraceptivos orais), e entre medicamento e exames laboratoriais (interferência nos resultados analíticos).
+As órteses são dispositivos externos aplicados ao corpo para suportar, alinhar, prevenir ou corrigir deformidades, proteger estruturas lesionadas e melhorar a função. Os objectivos incluem imobilização, estabilização articular, descarga de peso, correcção de deformidades e assistência ao movimento.
 
-## Classificação
+As indicações incluem fracturas em tratamento conservador, pós-operatório ortopédico, deformidades congénitas ou adquiridas, lesões nervosas periféricas, doenças neuromusculares e insuficiência articular.
 
-As interacções farmacocinéticas alteram a absorção, distribuição, metabolismo ou excreção do fármaco. Na absorção, podem modificar o pH gástrico, a motilidade intestinal ou formar complexos insolúveis. Na distribuição, competem por ligação às proteínas plasmáticas. No metabolismo, podem inibir ou induzir as enzimas hepáticas do citocromo P450. Na excreção, podem alterar o pH urinário ou competir pela secreção tubular renal.
+## Órtese para Coluna Vertebral
 
-As interacções farmacodinâmicas alteram o efeito do fármaco no local de acção, sem modificar sua concentração plasmática. Podem ser sinérgicas quando potencializam o efeito, como a associação de dois anti-hipertensivos. Podem ser antagónicas quando reduzem ou anulam o efeito, como a administração de naloxona para reverter sobredosagem de opióides.
+Os coletes cervico-toraco-lombares são órteses que estabilizam e limitam o movimento de segmentos da coluna vertebral. Os coletes cervicais (colar de Philadelphia, colar cervical macio) limitam a mobilidade cervical. Os coletes toraco-lombares (colete de Jewett, colete de Boston, TLSO) estabilizam a coluna torácica e lombar, sendo indicados em fracturas vertebrais estáveis, pós-operatório de cirurgia da coluna e escoliose.
 
-As interacções farmacêuticas, também chamadas incompatibilidades, ocorrem antes da administração ao paciente, geralmente durante a preparação ou mistura de medicamentos intravenosos. Podem resultar em precipitação, mudança de cor ou inactivação do fármaco.
+## Aplicação de Prótese
 
-Quanto à gravidade, as interacções classificam-se em graves quando representam risco de vida ou dano significativo e devem ser evitadas, moderadas quando podem causar deterioração clínica e requerem monitorização, e leves quando têm efeito clínico limitado e geralmente não requerem intervenção.
+A prótese precoce é aplicada nas primeiras semanas após a amputação, mesmo antes da cicatrização completa do coto, visando suporte psicológico e treino de marcha precoce. A prótese pós-operatória é aplicada imediatamente após a cirurgia, com gesso ou dispositivo rígido removível. A prótese temporária é utilizada na fase de protetização intermediária, permitindo adaptação progressiva antes da prótese definitiva.
 
-## Vantagens
-
-As interacções benéficas podem ser utilizadas terapeuticamente. O sinergismo permite associar fármacos para obter melhor resposta clínica com doses menores. O antagonismo é utilizado terapeuticamente em situações de intoxicação ou sobredosagem. A redução de efeitos adversos pode ser alcançada pela associação de fármacos protectores.
-
-## Desvantagens
-
-As interacções prejudiciais podem resultar em perda de eficácia terapêutica, toxicidade aumentada, efeitos adversos graves, aumento do tempo de internamento e maior morbimortalidade. A complexidade da identificação de interacções aumenta com o número de medicamentos prescritos, exigindo vigilância farmacêutica constante.
-
-O papel do farmacêutico é fundamental na identificação, prevenção e gestão de interacções medicamentosas, utilizando bases de dados actualizadas, análise crítica das prescrições e comunicação efectiva com a equipa médica.
+A selecção da prótese depende do nível de amputação, condição do coto, idade, nível de actividade, motivação do paciente e disponibilidade de recursos.
             """.trimIndent()
         ),
 
-        // 18. Papel do Farmacêutico na Comissão de Farmácia e Terapêutica
+        // 18. Recurso em Fisioterapia
         Topic(
             id = 18,
-            title = "Farmacêutico na Comissão de Farmácia e Terapêutica",
-            icon = "👨‍⚕️",
-            summary = "Papel e contribuições do farmacêutico na comissão de farmácia e terapêutica.",
+            title = "Recursos em Fisioterapia",
+            icon = "🔌",
+            summary = "Diatermia por ondas curtas, radiofrequência, calor nos tecidos e electrodos.",
             markdownContent = """
-# Papel do Farmacêutico na Comissão de Farmácia e Terapêutica
+# Recursos em Fisioterapia
 
-## Conceito
+## Diatermia por Ondas Curtas
 
-A Comissão de Farmácia e Terapêutica (CFT) é um órgão consultivo e deliberativo do hospital, de carácter multidisciplinar, responsável por assessorar a direcção clínica e administrativa nas questões relacionadas à selecção, uso e política de medicamentos da instituição. É composta por médicos, farmacêuticos, enfermeiros e outros profissionais de saúde.
+A diatermia por ondas curtas é um recurso electroterapêutico que utiliza correntes de alta frequência (27,12 MHz) para produzir aquecimento profundo nos tecidos. O calor é gerado pela conversão de energia electromagnética em energia térmica nos tecidos biológicos.
 
-## Funções da CFT
+Os efeitos terapêuticos incluem aumento do fluxo sanguíneo local, aumento da extensibilidade do colagénio, alívio da dor, redução do espasmo muscular, aceleração dos processos de reparação tecidual e aumento do metabolismo celular. É indicada para contraturas musculares, rigidez articular, tendinites crónicas, bursites, artrose e dor crónica.
 
-A elaboração e actualização do Formulário Terapêutico institucional é a principal actividade da CFT. O formulário lista os medicamentos padronizados pela instituição, seleccionados com base em critérios de eficácia comprovada, segurança, qualidade e custo-efectividade.
+As contra-indicações incluem implantes metálicos na área de tratamento, marca-passo cardíaco, gestação, neoplasias, tromboflebite aguda, hemorragias, áreas com sensibilidade alterada e febre.
 
-A análise de solicitações de inclusão e exclusão de medicamentos do formulário envolve a avaliação crítica de evidências científicas, análise farmacoeconómica e consideração das necessidades clínicas da instituição.
+## Absorção de Energia de Radiofrequência
 
-A elaboração de protocolos clínicos e directrizes terapêuticas padroniza condutas para as condições clínicas mais prevalentes, promovendo o uso racional de medicamentos e a uniformidade no tratamento.
+A absorção de energia de radiofrequência pelos tecidos depende das propriedades eléctricas dos mesmos. Tecidos com alto teor de água e electrólitos como músculo e sangue absorvem mais energia e aquecem mais rapidamente. Tecidos com baixo teor de água como gordura e osso absorvem menos energia.
 
-A análise de informações sobre reacções adversas e interacções medicamentosas permite a tomada de decisões sobre restrições de uso, alertas de segurança e actualizações de protocolos.
+## Produção de Calor nos Tecidos
 
-## Papel Específico do Farmacêutico
+O aquecimento dos tecidos pela diatermia ocorre por dois mecanismos: campo condensador (método capacitivo) que aquece predominantemente tecidos superficiais ricos em água, e campo de indução (método indutivo) que aquece tecidos mais profundos como músculos. A elevação da temperatura terapêutica situa-se entre 40°C e 45°C.
 
-O farmacêutico actua como membro técnico fundamental da CFT, contribuindo com conhecimento especializado em farmacologia, farmacoterapia, farmacovigilância e farmacoeconómica.
+## Tipos de Electrodos
 
-Na selecção de medicamentos, o farmacêutico elabora pareceres técnicos comparando alternativas terapêuticas quanto à eficácia, segurança, farmacocinética e custo. Realiza análises de custo-efectividade e custo-minimização para fundamentar as decisões.
-
-Na promoção do uso racional, o farmacêutico desenvolve e implementa programas de educação continuada sobre farmacoterapia baseada em evidências, promove a adesão aos protocolos institucionais e monitora indicadores de uso de medicamentos.
-
-Na farmacovigilância institucional, o farmacêutico coordena a notificação de reacções adversas, analisa os dados colectados e propõe medidas preventivas e correctivas.
-
-Na gestão de informações, o farmacêutico mantém actualizada a base de dados de medicamentos, elabora boletins informativos sobre novos medicamentos e alertas de segurança, e responde a consultas técnicas da equipa de saúde.
-
-Na análise de consumo e custos, o farmacêutico apresenta dados sobre padrões de utilização de medicamentos, tendências de consumo e impacto financeiro, subsidiando decisões administrativas e clínicas.
-
-A participação activa do farmacêutico na CFT é essencial para garantir que as decisões sobre medicamentos sejam baseadas em evidências científicas, contribuindo para a segurança do paciente e a sustentabilidade financeira da instituição.
+Os electrodos utilizados na diatermia incluem electrodos de placa (capacitivos), que são discos metálicos colocados em ambos os lados da área de tratamento, e electrodos de bobina (indutivos) como o monode e o cabo, que geram campo magnético. A selecção e posicionamento dos electrodos determinam a profundidade e distribuição do aquecimento nos tecidos.
             """.trimIndent()
         )
     )
