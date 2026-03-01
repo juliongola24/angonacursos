@@ -357,17 +357,111 @@ object UpdateChecker {
         }
     }
 
+    private var progressDialog: AlertDialog? = null
+    private var progressBar: ProgressBar? = null
+    private var progressText: TextView? = null
+    private var progressPercent: TextView? = null
+
+    private fun showDownloadProgress(context: Context) {
+        val dp = context.resources.displayMetrics.density
+
+        val root = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            gravity = Gravity.CENTER_HORIZONTAL
+            setPadding((24 * dp).toInt(), (24 * dp).toInt(), (24 * dp).toInt(), (24 * dp).toInt())
+        }
+
+        val icon = ImageView(context).apply {
+            setImageResource(R.mipmap.ic_launcher_foreground)
+            layoutParams = LinearLayout.LayoutParams((64 * dp).toInt(), (64 * dp).toInt()).apply {
+                gravity = Gravity.CENTER_HORIZONTAL
+                bottomMargin = (12 * dp).toInt()
+            }
+        }
+        root.addView(icon)
+
+        val title = TextView(context).apply {
+            text = "A Transferir Actualização"
+            textSize = 18f
+            typeface = Typeface.DEFAULT_BOLD
+            gravity = Gravity.CENTER
+            setTextColor(ContextCompat.getColor(context, R.color.text_primary))
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply { bottomMargin = (4 * dp).toInt() }
+        }
+        root.addView(title)
+
+        val subtitle = TextView(context).apply {
+            text = "Por favor, aguarde…"
+            textSize = 13f
+            gravity = Gravity.CENTER
+            setTextColor(ContextCompat.getColor(context, R.color.text_secondary))
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply { bottomMargin = (20 * dp).toInt() }
+        }
+        root.addView(subtitle)
+
+        progressPercent = TextView(context).apply {
+            text = "0%"
+            textSize = 28f
+            typeface = Typeface.DEFAULT_BOLD
+            gravity = Gravity.CENTER
+            setTextColor(ContextCompat.getColor(context, R.color.primary))
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply { bottomMargin = (12 * dp).toInt() }
+        }
+        root.addView(progressPercent!!)
+
+        progressBar = ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal).apply {
+            max = 100
+            progress = 0
+            progressDrawable = ContextCompat.getDrawable(context, R.drawable.bg_progress_track)
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                (8 * dp).toInt()
+            ).apply { bottomMargin = (8 * dp).toInt() }
+        }
+        root.addView(progressBar!!)
+
+        progressText = TextView(context).apply {
+            text = "A preparar…"
+            textSize = 12f
+            gravity = Gravity.CENTER
+            setTextColor(ContextCompat.getColor(context, R.color.text_secondary))
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+        }
+        root.addView(progressText!!)
+
+        progressDialog = AlertDialog.Builder(context)
+            .setView(root)
+            .setCancelable(false)
+            .create()
+
+        progressDialog?.show()
+    }
+
     private fun downloadApk(context: Context, apkUrl: String) {
         if (apkUrl.isBlank()) {
             Toast.makeText(context, "URL de download não disponível.", Toast.LENGTH_SHORT).show()
             return
         }
 
+        val activity = context as? androidx.appcompat.app.AppCompatActivity ?: return
+
         val fileName = apkUrl.substringAfterLast("/")
         val destFile = File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), fileName)
         if (destFile.exists()) destFile.delete()
 
-        Toast.makeText(context, "A transferir actualização…", Toast.LENGTH_SHORT).show()
+        showDownloadProgress(context)
 
         val request = DownloadManager.Request(Uri.parse(apkUrl))
             .setTitle("Actualização do App")
@@ -380,12 +474,67 @@ object UpdateChecker {
         val dm = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
         val downloadId = dm.enqueue(request)
 
+        // Poll progress on a background thread
+        Thread {
+            var downloading = true
+            while (downloading) {
+                val query = DownloadManager.Query().setFilterById(downloadId)
+                val cursor = dm.query(query)
+                if (cursor != null && cursor.moveToFirst()) {
+                    val bytesIdx = cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR)
+                    val totalIdx = cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES)
+                    val statusIdx = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)
+
+                    val bytesDownloaded = if (bytesIdx >= 0) cursor.getLong(bytesIdx) else 0L
+                    val totalBytes = if (totalIdx >= 0) cursor.getLong(totalIdx) else -1L
+                    val status = if (statusIdx >= 0) cursor.getInt(statusIdx) else -1
+
+                    if (status == DownloadManager.STATUS_SUCCESSFUL || status == DownloadManager.STATUS_FAILED) {
+                        downloading = false
+                    }
+
+                    if (totalBytes > 0) {
+                        val percent = ((bytesDownloaded * 100) / totalBytes).toInt()
+                        val downloadedMB = String.format("%.1f", bytesDownloaded / 1_048_576.0)
+                        val totalMB = String.format("%.1f", totalBytes / 1_048_576.0)
+
+                        activity.runOnUiThread {
+                            progressBar?.progress = percent
+                            progressPercent?.text = "$percent%"
+                            progressText?.text = "$downloadedMB MB / $totalMB MB"
+                        }
+                    }
+
+                    if (status == DownloadManager.STATUS_FAILED) {
+                        activity.runOnUiThread {
+                            progressDialog?.dismiss()
+                            Toast.makeText(context, "Falha ao transferir a actualização.", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+                cursor?.close()
+                if (downloading) Thread.sleep(300)
+            }
+        }.start()
+
         val receiver = object : BroadcastReceiver() {
             override fun onReceive(ctx: Context, intent: Intent) {
                 val id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
                 if (id == downloadId) {
                     ctx.unregisterReceiver(this)
-                    installApk(ctx, fileName)
+                    activity.runOnUiThread {
+                        progressBar?.progress = 100
+                        progressPercent?.text = "100%"
+                        progressText?.text = "Concluído! A instalar…"
+                    }
+                    // Small delay so user sees 100%
+                    Thread {
+                        Thread.sleep(600)
+                        activity.runOnUiThread {
+                            progressDialog?.dismiss()
+                            installApk(ctx, fileName)
+                        }
+                    }.start()
                 }
             }
         }
