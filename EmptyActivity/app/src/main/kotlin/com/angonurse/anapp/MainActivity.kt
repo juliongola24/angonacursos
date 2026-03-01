@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.angonurse.anapp.databinding.ActivityMainBinding
 import com.angonurse.anapp.databinding.BottomSheetSettingsBinding
+import com.angonurse.anapp.util.NotificationStore
 import com.angonurse.anapp.util.PrefsManager
 import com.angonurse.anapp.util.SoundManager
 import com.angonurse.anapp.util.UpdateChecker
