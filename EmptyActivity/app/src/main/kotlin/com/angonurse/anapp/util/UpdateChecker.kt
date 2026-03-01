@@ -5,65 +5,74 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.graphics.Color
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
+import android.view.Gravity
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.ScrollView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.angonurse.anapp.R
+import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
 
 /**
- * Verifica se existe uma nova versão do app e oferece download + instalação automática.
+ * Verifica actualizações com JSON dinâmico e diálogos personalizados.
  *
- * JSON remoto esperado (version-anapp.json):
+ * JSON remoto esperado:
  * {
- *   "versionCode": 2,
- *   "versionName": "1.1.0",
- *   "releaseNotes": "Correcções e melhorias."
+ *   "version": "1.0.0",
+ *   "changelog": "Correções de bugs e melhorias...",
+ *   "force": false,
+ *   "min_supported": "1.0.0",
+ *   "apk_url": "https://angonurse.vercel.app/downloads/angonurse-anapp.apk"
  * }
  */
 object UpdateChecker {
 
     private const val VERSION_URL = "https://angonurse.vercel.app/downloads/version-anapp.json"
-    private const val APK_URL = "https://angonurse.vercel.app/downloads/analises-clinicas-materias.apk"
-    private const val APK_FILE_NAME = "analises-clinicas-materias.apk"
 
-    private data class RemoteVersion(
-        val versionCode: Int = 0,
-        val versionName: String = "",
-        val releaseNotes: String = ""
+    private data class RemoteConfig(
+        val version: String = "1.0.0",
+        val changelog: String = "",
+        val force: Boolean = false,
+        val min_supported: String = "1.0.0",
+        val apk_url: String = ""
     )
 
-    /** Chama no onCreate da MainActivity (ou onde preferir). */
+    /** Verificação automática (silenciosa se estiver actualizado). */
     fun check(context: Context) {
         Thread {
             try {
                 val json = fetchJson(VERSION_URL) ?: return@Thread
-                val remote = Gson().fromJson(json, RemoteVersion::class.java)
-                val currentCode = context.packageManager
-                    .getPackageInfo(context.packageName, 0)
-                    .let {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) it.longVersionCode.toInt()
-                        else @Suppress("DEPRECATION") it.versionCode
-                    }
+                val remote = Gson().fromJson(json, RemoteConfig::class.java)
+                val currentVersion = getAppVersion(context)
 
-                if (remote.versionCode > currentCode) {
+                val needsUpdate = compareVersions(remote.version, currentVersion) > 0
+                val unsupported = compareVersions(remote.min_supported, currentVersion) > 0
+
+                if (needsUpdate || unsupported) {
                     (context as? androidx.appcompat.app.AppCompatActivity)?.runOnUiThread {
-                        showUpdateDialog(context, remote)
+                        showUpdateDialog(context, remote, forceUpdate = unsupported || remote.force)
                     }
                 }
-            } catch (_: Exception) {
-                // Silencioso — sem rede ou erro no JSON
-            }
+            } catch (_: Exception) { }
         }.start()
     }
 
-    /** Verificação manual — mostra feedback ao utilizador mesmo se estiver actualizado. */
+    /** Verificação manual — sempre mostra feedback. */
     fun checkManual(context: Context) {
         Toast.makeText(context, "A verificar actualizações…", Toast.LENGTH_SHORT).show()
         Thread {
@@ -78,19 +87,16 @@ object UpdateChecker {
                     return@Thread
                 }
 
-                val remote = Gson().fromJson(json, RemoteVersion::class.java)
-                val currentCode = context.packageManager
-                    .getPackageInfo(context.packageName, 0)
-                    .let {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) it.longVersionCode.toInt()
-                        else @Suppress("DEPRECATION") it.versionCode
-                    }
+                val remote = Gson().fromJson(json, RemoteConfig::class.java)
+                val currentVersion = getAppVersion(context)
+                val needsUpdate = compareVersions(remote.version, currentVersion) > 0
+                val unsupported = compareVersions(remote.min_supported, currentVersion) > 0
 
                 activity.runOnUiThread {
-                    if (remote.versionCode > currentCode) {
-                        showUpdateDialog(context, remote)
+                    if (needsUpdate || unsupported) {
+                        showUpdateDialog(context, remote, forceUpdate = unsupported || remote.force)
                     } else {
-                        Toast.makeText(context, "✅ O app já está actualizado!", Toast.LENGTH_SHORT).show()
+                        showUpToDateDialog(context, currentVersion)
                     }
                 }
             } catch (_: Exception) {
@@ -99,6 +105,245 @@ object UpdateChecker {
                 }
             }
         }.start()
+    }
+
+    // ── Diálogos personalizados ──────────────────────────────────────────
+
+    private fun showUpdateDialog(context: Context, remote: RemoteConfig, forceUpdate: Boolean) {
+        val dp = context.resources.displayMetrics.density
+
+        val root = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            gravity = Gravity.CENTER_HORIZONTAL
+            setPadding((24 * dp).toInt(), (24 * dp).toInt(), (24 * dp).toInt(), (16 * dp).toInt())
+        }
+
+        // Ícone do app
+        val icon = ImageView(context).apply {
+            setImageResource(R.mipmap.ic_launcher_foreground)
+            layoutParams = LinearLayout.LayoutParams((80 * dp).toInt(), (80 * dp).toInt()).apply {
+                gravity = Gravity.CENTER_HORIZONTAL
+                bottomMargin = (12 * dp).toInt()
+            }
+        }
+        root.addView(icon)
+
+        // Badge da versão
+        val badge = TextView(context).apply {
+            text = "v${remote.version}"
+            setTextColor(Color.WHITE)
+            setBackgroundColor(ContextCompat.getColor(context, R.color.primary))
+            setPadding((12 * dp).toInt(), (4 * dp).toInt(), (12 * dp).toInt(), (4 * dp).toInt())
+            textSize = 12f
+            typeface = Typeface.DEFAULT_BOLD
+            gravity = Gravity.CENTER
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply {
+                gravity = Gravity.CENTER_HORIZONTAL
+                bottomMargin = (16 * dp).toInt()
+            }
+        }
+        root.addView(badge)
+
+        // Título
+        val title = TextView(context).apply {
+            text = if (forceUpdate) "Actualização Obrigatória" else "Nova Versão Disponível"
+            textSize = 20f
+            typeface = Typeface.DEFAULT_BOLD
+            gravity = Gravity.CENTER
+            setTextColor(ContextCompat.getColor(context, R.color.text_primary))
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply { bottomMargin = (8 * dp).toInt() }
+        }
+        root.addView(title)
+
+        // Subtítulo
+        if (forceUpdate) {
+            val sub = TextView(context).apply {
+                text = "Esta versão já não é suportada.\nPor favor, actualize para continuar a utilizar o app."
+                textSize = 14f
+                gravity = Gravity.CENTER
+                setTextColor(ContextCompat.getColor(context, R.color.text_secondary))
+                layoutParams = LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                ).apply { bottomMargin = (16 * dp).toInt() }
+            }
+            root.addView(sub)
+        }
+
+        // Changelog
+        if (remote.changelog.isNotBlank()) {
+            val changelogLabel = TextView(context).apply {
+                text = "Novidades:"
+                textSize = 14f
+                typeface = Typeface.DEFAULT_BOLD
+                setTextColor(ContextCompat.getColor(context, R.color.text_primary))
+                layoutParams = LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                ).apply { bottomMargin = (4 * dp).toInt() }
+            }
+            root.addView(changelogLabel)
+
+            val scroll = ScrollView(context).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    (120 * dp).toInt()
+                ).apply { bottomMargin = (16 * dp).toInt() }
+            }
+            val changelogText = TextView(context).apply {
+                text = remote.changelog
+                textSize = 13f
+                setTextColor(ContextCompat.getColor(context, R.color.text_secondary))
+                lineSpacingExtra = 4f
+            }
+            scroll.addView(changelogText)
+            root.addView(scroll)
+        }
+
+        // Botão Actualizar
+        val btnUpdate = MaterialButton(context).apply {
+            text = "Actualizar Agora"
+            setBackgroundColor(ContextCompat.getColor(context, R.color.primary))
+            setTextColor(Color.WHITE)
+            cornerRadius = (12 * dp).toInt()
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply { bottomMargin = (8 * dp).toInt() }
+        }
+        root.addView(btnUpdate)
+
+        val dialog = AlertDialog.Builder(context)
+            .setView(root)
+            .setCancelable(!forceUpdate)
+            .create()
+
+        btnUpdate.setOnClickListener {
+            dialog.dismiss()
+            downloadApk(context, remote.apk_url)
+        }
+
+        // Botão "Depois" só se não for forçado
+        if (!forceUpdate) {
+            val btnLater = MaterialButton(context, null, com.google.android.material.R.attr.materialButtonOutlinedStyle).apply {
+                text = "Mais Tarde"
+                setTextColor(ContextCompat.getColor(context, R.color.text_secondary))
+                cornerRadius = (12 * dp).toInt()
+                layoutParams = LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+            root.addView(btnLater)
+            btnLater.setOnClickListener { dialog.dismiss() }
+        }
+
+        dialog.show()
+    }
+
+    private fun showUpToDateDialog(context: Context, currentVersion: String) {
+        val dp = context.resources.displayMetrics.density
+
+        val root = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            gravity = Gravity.CENTER_HORIZONTAL
+            setPadding((24 * dp).toInt(), (24 * dp).toInt(), (24 * dp).toInt(), (24 * dp).toInt())
+        }
+
+        val icon = ImageView(context).apply {
+            setImageResource(R.mipmap.ic_launcher_foreground)
+            layoutParams = LinearLayout.LayoutParams((80 * dp).toInt(), (80 * dp).toInt()).apply {
+                gravity = Gravity.CENTER_HORIZONTAL
+                bottomMargin = (12 * dp).toInt()
+            }
+        }
+        root.addView(icon)
+
+        val checkIcon = TextView(context).apply {
+            text = "✅"
+            textSize = 32f
+            gravity = Gravity.CENTER
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply {
+                gravity = Gravity.CENTER_HORIZONTAL
+                bottomMargin = (12 * dp).toInt()
+            }
+        }
+        root.addView(checkIcon)
+
+        val title = TextView(context).apply {
+            text = "App Actualizado!"
+            textSize = 20f
+            typeface = Typeface.DEFAULT_BOLD
+            gravity = Gravity.CENTER
+            setTextColor(ContextCompat.getColor(context, R.color.text_primary))
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply { bottomMargin = (8 * dp).toInt() }
+        }
+        root.addView(title)
+
+        val desc = TextView(context).apply {
+            text = "Está a utilizar a versão mais recente (v$currentVersion).\nNenhuma actualização disponível."
+            textSize = 14f
+            gravity = Gravity.CENTER
+            setTextColor(ContextCompat.getColor(context, R.color.text_secondary))
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply { bottomMargin = (20 * dp).toInt() }
+        }
+        root.addView(desc)
+
+        val btnOk = MaterialButton(context).apply {
+            text = "OK"
+            setBackgroundColor(ContextCompat.getColor(context, R.color.primary))
+            setTextColor(Color.WHITE)
+            cornerRadius = (12 * dp).toInt()
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+        }
+        root.addView(btnOk)
+
+        val dialog = AlertDialog.Builder(context)
+            .setView(root)
+            .setCancelable(true)
+            .create()
+
+        btnOk.setOnClickListener { dialog.dismiss() }
+        dialog.show()
+    }
+
+    // ── Utilitários ──────────────────────────────────────────────────────
+
+    private fun getAppVersion(context: Context): String {
+        return try {
+            context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: "1.0.0"
+        } catch (_: Exception) { "1.0.0" }
+    }
+
+    /** Compara versões semânticas (ex: "1.2.3" vs "1.3.0"). Retorna >0 se a > b. */
+    private fun compareVersions(a: String, b: String): Int {
+        val pa = a.split(".").map { it.toIntOrNull() ?: 0 }
+        val pb = b.split(".").map { it.toIntOrNull() ?: 0 }
+        val len = maxOf(pa.size, pb.size)
+        for (i in 0 until len) {
+            val va = pa.getOrElse(i) { 0 }
+            val vb = pb.getOrElse(i) { 0 }
+            if (va != vb) return va - vb
+        }
+        return 0
     }
 
     private fun fetchJson(url: String): String? {
@@ -112,41 +357,35 @@ object UpdateChecker {
         }
     }
 
-    private fun showUpdateDialog(context: Context, remote: RemoteVersion) {
-        AlertDialog.Builder(context)
-            .setTitle("Nova versão disponível (${remote.versionName})")
-            .setMessage(remote.releaseNotes.ifBlank { "Uma nova versão do app está disponível. Deseja actualizar agora?" })
-            .setPositiveButton("Actualizar") { _, _ -> downloadApk(context) }
-            .setNegativeButton("Depois", null)
-            .setCancelable(true)
-            .show()
-    }
+    private fun downloadApk(context: Context, apkUrl: String) {
+        if (apkUrl.isBlank()) {
+            Toast.makeText(context, "URL de download não disponível.", Toast.LENGTH_SHORT).show()
+            return
+        }
 
-    private fun downloadApk(context: Context) {
-        Toast.makeText(context, "A transferir actualização…", Toast.LENGTH_SHORT).show()
-
-        // Remove APK antigo se existir
-        val destFile = File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), APK_FILE_NAME)
+        val fileName = apkUrl.substringAfterLast("/")
+        val destFile = File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), fileName)
         if (destFile.exists()) destFile.delete()
 
-        val request = DownloadManager.Request(Uri.parse(APK_URL))
-            .setTitle("Actualização AngoNurse")
+        Toast.makeText(context, "A transferir actualização…", Toast.LENGTH_SHORT).show()
+
+        val request = DownloadManager.Request(Uri.parse(apkUrl))
+            .setTitle("Actualização do App")
             .setDescription("A transferir nova versão…")
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            .setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, APK_FILE_NAME)
+            .setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, fileName)
             .setAllowedOverMetered(true)
             .setAllowedOverRoaming(true)
 
         val dm = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
         val downloadId = dm.enqueue(request)
 
-        // Escuta conclusão do download
         val receiver = object : BroadcastReceiver() {
             override fun onReceive(ctx: Context, intent: Intent) {
                 val id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
                 if (id == downloadId) {
                     ctx.unregisterReceiver(this)
-                    installApk(ctx)
+                    installApk(ctx, fileName)
                 }
             }
         }
@@ -158,8 +397,8 @@ object UpdateChecker {
         }
     }
 
-    private fun installApk(context: Context) {
-        val file = File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), APK_FILE_NAME)
+    private fun installApk(context: Context, fileName: String) {
+        val file = File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), fileName)
         if (!file.exists()) {
             Toast.makeText(context, "Ficheiro não encontrado.", Toast.LENGTH_SHORT).show()
             return
