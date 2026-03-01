@@ -39,6 +39,7 @@
         <activity android:name=".ConteudoActivity" android:screenOrientation="portrait" />
         <activity android:name=".DonativosActivity" android:screenOrientation="portrait" />
         <activity android:name=".AboutActivity" android:screenOrientation="portrait" />
+        <activity android:name=".NotificationsActivity" android:screenOrientation="portrait" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
