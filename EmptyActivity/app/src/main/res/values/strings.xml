@@ -111,4 +111,10 @@
     <!-- Permissions -->
     <string name="notification_permission_title">Ativar Notificações</string>
     <string name="notification_permission_desc">Permita notificações para receber atualizações sobre novos testes e conteúdos.</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">Notificações</string>
+    <string name="no_notifications">Nenhuma notificação recebida ainda.</string>
+    <string name="clear_notifications_title">Limpar Notificações?</string>
+    <string name="clear_notifications_desc">Todas as notificações serão eliminadas permanentemente.</string>
 </resources>
