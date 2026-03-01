@@ -73,6 +73,26 @@ class MainActivity : AppCompatActivity() {
             SoundManager.playClick()
             showSettings()
         }
+        binding.btnNotifications.setOnClickListener {
+            SoundManager.playClick()
+            startActivity(Intent(this, NotificationsActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateBadge()
+    }
+
+    private fun updateBadge() {
+        val count = NotificationStore.unreadCount(this)
+        if (count > 0) {
+            binding.tvBadge.text = if (count > 9) "9+" else count.toString()
+            binding.tvBadge.visibility = View.VISIBLE
+        } else {
+            binding.tvBadge.visibility = View.GONE
+        }
     }
 
     private fun requestNotificationPermission() {
