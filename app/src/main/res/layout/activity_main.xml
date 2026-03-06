@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Settings button -->
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
+            android:background="?selectableItemBackgroundBorderless"
+            android:contentDescription="Definições"
+            android:src="@drawable/ic_settings"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teste Online"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plataforma Profissional de Avaliação"
+            android:textSize="16sp"
+            android:textColor="?android:textColorSecondary"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Buttons -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnIniciarTeste"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Iniciar Teste"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_play"
+            app:iconGravity="textStart"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConteudo"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Conteúdo"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_book"
+            app:iconGravity="textStart"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDonativos"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Apoio &amp; Donativos"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_heart"
+            app:iconGravity="textStart"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnHistorico"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Histórico de Resultados"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_history"
+            app:iconGravity="textStart"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaberMais"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Saber Mais"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_info"
+            app:iconGravity="textStart"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCompartilhar"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Compartilhar"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_share"
+            app:iconGravity="textStart"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Info -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="95 questões · 60 minutos · Gabarito detalhado"
+            android:textSize="13sp"
+            android:textColor="?android:textColorSecondary"
+            android:gravity="center" />
+
+    </LinearLayout>
+</ScrollView>
