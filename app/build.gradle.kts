@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.angonurse.anapp"
-    compileSdk = 36
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.angonurse.anapp"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0.0"
     }
