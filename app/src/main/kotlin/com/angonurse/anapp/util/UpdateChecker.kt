@@ -244,7 +244,7 @@ class UpdateChecker(private val activity: Activity) {
         }
         progressLayout.addView(progressBar)
 
-        var progressText = TextView(activity).apply {
+        val progressText = TextView(activity).apply {
             text = "A transferir... 0%"
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
             gravity = Gravity.CENTER
