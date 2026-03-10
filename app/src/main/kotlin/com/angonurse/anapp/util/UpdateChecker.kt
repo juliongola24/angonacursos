@@ -235,7 +235,7 @@ class UpdateChecker(private val activity: Activity) {
             gravity = Gravity.CENTER
         }
 
-        var progressBar = ProgressBar(activity, null, android.R.attr.progressBarStyleHorizontal).apply {
+        val progressBar = ProgressBar(activity, null, android.R.attr.progressBarStyleHorizontal).apply {
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
