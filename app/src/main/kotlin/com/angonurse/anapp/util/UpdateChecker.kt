@@ -235,7 +235,7 @@ class UpdateChecker(private val activity: Activity) {
             gravity = Gravity.CENTER
         }
 
-        var progressBar = ProgressBar(activity, null, android.R.attr.progressBarStyleHorizontal).apply {
+        val progressBar = ProgressBar(activity, null, android.R.attr.progressBarStyleHorizontal).apply {
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -244,14 +244,14 @@ class UpdateChecker(private val activity: Activity) {
         }
         progressLayout.addView(progressBar)
 
-        var progressText = TextView(activity).apply {
+        val progressText = TextView(activity).apply {
             text = "A transferir... 0%"
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
             gravity = Gravity.CENTER
         }
         progressLayout.addView(progressText)
 
-        var progressPercent = TextView(activity).apply {
+        val progressPercent = TextView(activity).apply {
             text = ""
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
             gravity = Gravity.CENTER
@@ -262,7 +262,7 @@ class UpdateChecker(private val activity: Activity) {
         }
         progressLayout.addView(progressPercent)
 
-        var progressDialog = AlertDialog.Builder(activity)
+        val progressDialog = AlertDialog.Builder(activity)
             .setTitle("A transferir actualização")
             .setView(progressLayout)
             .setCancelable(false)
