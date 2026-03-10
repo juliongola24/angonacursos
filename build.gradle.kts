@@ -1,6 +1,6 @@
 // Top-level build file
 plugins {
-    id("com.android.application") version "7.3.1" apply false
-    id("org.jetbrains.kotlin.android") version "1.7.20" apply false
-    id("com.google.gms.google-services") version "4.3.15" apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.google.services) apply false
 }
