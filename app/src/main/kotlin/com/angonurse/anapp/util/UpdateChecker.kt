@@ -262,7 +262,7 @@ class UpdateChecker(private val activity: Activity) {
         }
         progressLayout.addView(progressPercent)
 
-        var progressDialog = AlertDialog.Builder(activity)
+        val progressDialog = AlertDialog.Builder(activity)
             .setTitle("A transferir actualização")
             .setView(progressLayout)
             .setCancelable(false)
