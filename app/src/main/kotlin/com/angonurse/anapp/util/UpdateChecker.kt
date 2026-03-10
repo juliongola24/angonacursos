@@ -251,7 +251,7 @@ class UpdateChecker(private val activity: Activity) {
         }
         progressLayout.addView(progressText)
 
-        var progressPercent = TextView(activity).apply {
+        val progressPercent = TextView(activity).apply {
             text = ""
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
             gravity = Gravity.CENTER
