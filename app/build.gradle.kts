@@ -54,4 +54,7 @@ dependencies {
 
     // Coroutines
     implementation(libs.kotlinx.coroutines.android)
+
+    // Markdown rendering
+    implementation("io.noties.markwon:core:4.6.2")
 }

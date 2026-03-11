@@ -26,7 +26,7 @@ class HistoricoActivity : AppCompatActivity() {
         binding = ActivityHistoricoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toolbar.setNavigationOnClickListener { finish() }
+        binding.btnBack.setOnClickListener { finish() }
 
         binding.btnClearHistory.setOnClickListener {
             AlertDialog.Builder(this)

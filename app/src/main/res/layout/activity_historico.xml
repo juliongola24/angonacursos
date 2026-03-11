@@ -6,14 +6,36 @@
     android:orientation="vertical"
     android:background="?android:colorBackground">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
+    <!-- Gradient Toolbar -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="?colorSurface"
-        android:elevation="4dp"
-        app:title="Histórico de Resultados"
-        app:navigationIcon="@drawable/ic_back" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_header"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingHorizontal="4dp"
+        android:elevation="6dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back"
+            app:tint="@android:color/white"
+            android:contentDescription="Voltar" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Histórico de Resultados"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
