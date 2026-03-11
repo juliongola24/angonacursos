@@ -10,14 +10,36 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+        <!-- Gradient Toolbar -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="?colorSurface"
-            android:elevation="4dp"
-            app:title="Apoio &amp; Donativos"
-            app:navigationIcon="@drawable/ic_back" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_header"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingHorizontal="4dp"
+            android:elevation="6dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_back"
+                app:tint="@android:color/white"
+                android:contentDescription="Voltar" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Apoio &amp; Donativos"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="4dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="16dp"
                 android:layout_marginBottom="16dp">
 
                 <LinearLayout
@@ -38,7 +60,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center_horizontal"
-                    android:padding="20dp">
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💛"
+                        android:textSize="36sp"
+                        android:layout_marginBottom="12dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -72,7 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="2dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="16dp"
                 android:layout_marginBottom="12dp">
 
                 <LinearLayout
@@ -138,22 +167,13 @@
                             android:textStyle="bold"
                             android:layout_marginBottom="8dp" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:layout_marginBottom="4dp">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Entidade: " android:textSize="13sp" android:textStyle="bold" />
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="10116" android:textSize="13sp" android:fontFamily="monospace" />
                             <ImageButton android:id="@+id/btnCopyEntidade" android:layout_width="32dp" android:layout_height="32dp" android:background="?selectableItemBackgroundBorderless" android:src="@drawable/ic_copy" android:contentDescription="Copiar" />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Referência: " android:textSize="13sp" android:textStyle="bold" />
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="943693959" android:textSize="13sp" android:fontFamily="monospace" />
                             <ImageButton android:id="@+id/btnCopyReferencia" android:layout_width="32dp" android:layout_height="32dp" android:background="?selectableItemBackgroundBorderless" android:src="@drawable/ic_copy" android:contentDescription="Copiar" />
@@ -167,7 +187,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="2dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="16dp"
                 android:layout_marginBottom="12dp">
 
                 <LinearLayout
@@ -191,7 +211,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="2dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="16dp"
                 android:layout_marginBottom="12dp">
 
                 <LinearLayout
@@ -213,7 +233,8 @@
                         style="@style/Widget.Material3.Button.OutlinedButton"
                         android:layout_width="match_parent"
                         android:layout_height="44dp"
-                        android:text="Abrir E-mail" />
+                        android:text="Abrir E-mail"
+                        app:cornerRadius="12dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

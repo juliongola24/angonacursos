@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:colorBackground"
@@ -8,119 +9,371 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:padding="24dp">
+        android:orientation="vertical">
 
-        <!-- Settings button -->
-        <ImageButton
-            android:id="@+id/btnSettings"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="end"
-            android:background="?selectableItemBackgroundBorderless"
-            android:contentDescription="Definições"
-            android:src="@drawable/ic_settings"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Gradient Hero Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Teste Online"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            android:textColor="@color/primary"
-            android:layout_marginBottom="8dp" />
+            android:background="@drawable/gradient_header"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="40dp"
+            android:paddingBottom="32dp"
+            android:paddingHorizontal="24dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <!-- Settings button -->
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="end"
+                android:background="?selectableItemBackgroundBorderless"
+                android:contentDescription="Definições"
+                android:src="@drawable/ic_settings"
+                android:layout_marginBottom="16dp"
+                app:tint="@android:color/white" />
+
+            <!-- Icon -->
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic_graduation"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Ícone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teste Online"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plataforma Profissional de Avaliação"
+                android:textSize="14sp"
+                android:textColor="#D4C6FF"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Stats row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/rounded_surface"
+                    android:backgroundTint="#2BFFFFFF"
+                    android:padding="12dp"
+                    android:layout_marginEnd="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="95"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Questões"
+                        android:textSize="11sp"
+                        android:textColor="#D4C6FF" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/rounded_surface"
+                    android:backgroundTint="#2BFFFFFF"
+                    android:padding="12dp"
+                    android:layout_marginHorizontal="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Minutos"
+                        android:textSize="11sp"
+                        android:textColor="#D4C6FF" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/rounded_surface"
+                    android:backgroundTint="#2BFFFFFF"
+                    android:padding="12dp"
+                    android:layout_marginStart="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Opções"
+                        android:textSize="11sp"
+                        android:textColor="#D4C6FF" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Buttons Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Plataforma Profissional de Avaliação"
-            android:textSize="16sp"
-            android:textColor="?android:textColorSecondary"
-            android:layout_marginBottom="32dp" />
+            android:orientation="vertical"
+            android:padding="20dp">
 
-        <!-- Buttons -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnIniciarTeste"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Iniciar Teste"
-            android:textSize="16sp"
-            app:icon="@drawable/ic_play"
-            app:iconGravity="textStart"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_marginBottom="12dp" />
+            <!-- Primary CTA -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnIniciarTeste"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Iniciar Teste"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                app:icon="@drawable/ic_play"
+                app:iconGravity="textStart"
+                app:iconTint="@android:color/white"
+                app:cornerRadius="16dp"
+                android:backgroundTint="@color/primary"
+                android:layout_marginBottom="16dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnConteudo"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Conteúdo"
-            android:textSize="16sp"
-            app:icon="@drawable/ic_book"
-            app:iconGravity="textStart"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_marginBottom="12dp" />
+            <!-- Grid of feature cards -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDonativos"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Apoio &amp; Donativos"
-            android:textSize="16sp"
-            app:icon="@drawable/ic_heart"
-            app:iconGravity="textStart"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_marginBottom="12dp" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnConteudo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardElevation="3dp"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnHistorico"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Histórico de Resultados"
-            android:textSize="16sp"
-            app:icon="@drawable/ic_history"
-            app:iconGravity="textStart"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_marginBottom="12dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="20dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSaberMais"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Saber Mais"
-            android:textSize="16sp"
-            app:icon="@drawable/ic_info"
-            app:iconGravity="textStart"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_marginBottom="12dp" />
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/ic_book"
+                            app:tint="@color/primary"
+                            android:layout_marginBottom="10dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCompartilhar"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Compartilhar"
-            android:textSize="16sp"
-            app:icon="@drawable/ic_share"
-            app:iconGravity="textStart"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_marginBottom="24dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Conteúdo"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:gravity="center" />
 
-        <!-- Info -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="95 questões · 60 minutos · Gabarito detalhado"
-            android:textSize="13sp"
-            android:textColor="?android:textColorSecondary"
-            android:gravity="center" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Material de estudo"
+                            android:textSize="11sp"
+                            android:textColor="?android:textColorSecondary"
+                            android:gravity="center" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnHistorico"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardElevation="3dp"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginStart="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="20dp">
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/ic_history"
+                            app:tint="@color/secondary"
+                            android:layout_marginBottom="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Histórico"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Resultados anteriores"
+                            android:textSize="11sp"
+                            android:textColor="?android:textColorSecondary"
+                            android:gravity="center" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnDonativos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardElevation="3dp"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="20dp">
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/ic_heart"
+                            app:tint="@color/red"
+                            android:layout_marginBottom="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Donativos"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Apoie o projecto"
+                            android:textSize="11sp"
+                            android:textColor="?android:textColorSecondary"
+                            android:gravity="center" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnSaberMais"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardElevation="3dp"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginStart="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="20dp">
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/ic_info"
+                            app:tint="@color/orange"
+                            android:layout_marginBottom="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Saber Mais"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sobre a aplicação"
+                            android:textSize="11sp"
+                            android:textColor="?android:textColorSecondary"
+                            android:gravity="center" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Share button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCompartilhar"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Compartilhar App"
+                android:textSize="14sp"
+                app:icon="@drawable/ic_share"
+                app:iconGravity="textStart"
+                app:cornerRadius="12dp" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

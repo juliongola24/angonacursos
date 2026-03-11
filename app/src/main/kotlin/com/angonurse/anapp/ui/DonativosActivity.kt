@@ -18,30 +18,14 @@ class DonativosActivity : AppCompatActivity() {
         binding = ActivityDonativosBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toolbar.setNavigationOnClickListener { finish() }
+        binding.btnBack.setOnClickListener { finish() }
 
-        // PayPay reference
-        binding.btnCopyPaypay.setOnClickListener {
-            copyToClipboard("923 456 789")
-        }
+        binding.btnCopyPaypay.setOnClickListener { copyToClipboard("923 456 789") }
+        binding.btnCopyEntidade.setOnClickListener { copyToClipboard("10116") }
+        binding.btnCopyReferencia.setOnClickListener { copyToClipboard("943693959") }
+        binding.btnCopyIban.setOnClickListener { copyToClipboard("AO06042000000000061156412") }
+        binding.btnCopyEmail.setOnClickListener { copyToClipboard("angonurse@gmail.com") }
 
-        // Multicaixa Express
-        binding.btnCopyEntidade.setOnClickListener {
-            copyToClipboard("10116")
-        }
-        binding.btnCopyReferencia.setOnClickListener {
-            copyToClipboard("943693959")
-        }
-
-        // KWiK IBAN
-        binding.btnCopyIban.setOnClickListener {
-            copyToClipboard("AO06042000000000061156412")
-        }
-
-        // Email
-        binding.btnCopyEmail.setOnClickListener {
-            copyToClipboard("angonurse@gmail.com")
-        }
         binding.btnOpenEmail.setOnClickListener {
             val intent = Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:angonurse@gmail.com?subject=Comprovativo de Donativo - Teste Online"))
             startActivity(Intent.createChooser(intent, "Enviar e-mail"))

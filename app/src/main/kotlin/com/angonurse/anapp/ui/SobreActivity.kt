@@ -13,6 +13,6 @@ class SobreActivity : AppCompatActivity() {
         binding = ActivitySobreBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toolbar.setNavigationOnClickListener { finish() }
+        binding.btnBack.setOnClickListener { finish() }
     }
 }
