@@ -25,7 +25,7 @@ import android.widget.TextView
 class ExamQuizActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityExamQuizBinding
-    private val questions = QuestionBank.getQuestions()
+    private val questions = QuestionBank.questions
     private val userAnswers = mutableMapOf<Int, String>()
     private var currentIndex = 0
     private var timer: CountDownTimer? = null
