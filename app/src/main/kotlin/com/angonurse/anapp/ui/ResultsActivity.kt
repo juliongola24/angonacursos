@@ -22,6 +22,7 @@ import java.io.FileOutputStream
 class ResultsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityResultsBinding
+    private lateinit var soundManager: SoundManager
     private var participantName = ""
     private var percentage = ""
     private var correctCount = 0
@@ -32,7 +33,7 @@ class ResultsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityResultsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        SoundManager.init(this)
+        soundManager = SoundManager(this)
 
         participantName = intent.getStringExtra("participant_name") ?: ""
         percentage = intent.getStringExtra("percentage") ?: "0"
@@ -51,13 +52,13 @@ class ResultsActivity : AppCompatActivity() {
         binding.tvScore.text = "$correctCount de $totalQuestions questões corretas"
 
         binding.btnRestart.setOnClickListener {
-            SoundManager.playClick()
+            soundManager.playClick()
             startActivity(Intent(this, ExamQuizActivity::class.java))
             finish()
         }
 
         binding.btnShare.setOnClickListener {
-            SoundManager.playClick()
+            soundManager.playClick()
             val text = "🎓 Teste Online - Resultado\n\n$participantName obteve $percentage% ($correctCount/$totalQuestions questões corretas)!\n\nExperimenta também o Teste Online!"
             val intent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
