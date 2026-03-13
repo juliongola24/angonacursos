@@ -22,6 +22,7 @@ import java.io.FileOutputStream
 class ResultsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityResultsBinding
+    private lateinit var soundManager: SoundManager
     private var participantName = ""
     private var percentage = ""
     private var correctCount = 0
@@ -32,7 +33,7 @@ class ResultsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityResultsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        SoundManager.init(this)
+        soundManager = SoundManager(this)
 
         participantName = intent.getStringExtra("participant_name") ?: ""
         percentage = intent.getStringExtra("percentage") ?: "0"
