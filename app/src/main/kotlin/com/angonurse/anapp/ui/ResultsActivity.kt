@@ -58,7 +58,7 @@ class ResultsActivity : AppCompatActivity() {
         }
 
         binding.btnShare.setOnClickListener {
-            SoundManager.playClick()
+            soundManager.playClick()
             val text = "🎓 Teste Online - Resultado\n\n$participantName obteve $percentage% ($correctCount/$totalQuestions questões corretas)!\n\nExperimenta também o Teste Online!"
             val intent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
