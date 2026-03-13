@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
@@ -13,6 +15,8 @@ import com.angonurse.anapp.databinding.ActivityMainBinding
 import com.angonurse.anapp.ui.*
 import com.angonurse.anapp.util.SoundManager
 import com.angonurse.anapp.util.UpdateChecker
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.materialswitch.MaterialSwitch
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         UpdateChecker(this).checkForUpdate()
 
         setupButtons()
+        updateNotificationBadge()
     }
 
     private fun loadSettings() {
@@ -82,6 +87,22 @@ class MainActivity : AppCompatActivity() {
             soundManager.playClick()
             showSettingsDialog()
         }
+
+        binding.btnNotificacoes.setOnClickListener {
+            soundManager.playClick()
+            startActivity(Intent(this, NotificacoesActivity::class.java))
+        }
+    }
+
+    private fun updateNotificationBadge() {
+        val count = NotificacoesActivity.getUnreadCount(this)
+        val badge = binding.tvNotifBadge
+        if (count > 0) {
+            badge.visibility = android.view.View.VISIBLE
+            badge.text = if (count > 9) "9+" else count.toString()
+        } else {
+            badge.visibility = android.view.View.GONE
+        }
     }
 
     private fun shareApp() {
@@ -95,42 +116,50 @@ class MainActivity : AppCompatActivity() {
 
     private fun showSettingsDialog() {
         val prefs = getSharedPreferences("settings", MODE_PRIVATE)
-        val items = arrayOf("Modo Escuro", "Efeitos Sonoros", "Música de Fundo")
-        val checked = booleanArrayOf(
-            prefs.getBoolean("dark_mode", false),
-            prefs.getBoolean("sound_effects", true),
-            prefs.getBoolean("background_music", false)
-        )
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_settings, null)
 
-        androidx.appcompat.app.AlertDialog.Builder(this)
-            .setTitle("Definições")
-            .setMultiChoiceItems(items, checked) { _, which, isChecked ->
-                val editor = prefs.edit()
-                when (which) {
-                    0 -> {
-                        editor.putBoolean("dark_mode", isChecked)
-                        AppCompatDelegate.setDefaultNightMode(
-                            if (isChecked) AppCompatDelegate.MODE_NIGHT_YES
-                            else AppCompatDelegate.MODE_NIGHT_NO
-                        )
-                    }
-                    1 -> {
-                        editor.putBoolean("sound_effects", isChecked)
-                        soundManager.setSoundEnabled(isChecked)
-                    }
-                    2 -> {
-                        editor.putBoolean("background_music", isChecked)
-                        if (isChecked) soundManager.startBackgroundMusic()
-                        else soundManager.stopBackgroundMusic()
-                    }
-                }
-                editor.apply()
-            }
-            .setPositiveButton("Fechar", null)
-            .setNeutralButton("Verificar Actualização") { _, _ ->
-                UpdateChecker(this).checkForUpdate(manual = true)
-            }
-            .show()
+        val switchDark = dialogView.findViewById<MaterialSwitch>(R.id.switchDarkMode)
+        val switchSound = dialogView.findViewById<MaterialSwitch>(R.id.switchSoundEffects)
+        val switchMusic = dialogView.findViewById<MaterialSwitch>(R.id.switchBackgroundMusic)
+
+        switchDark.isChecked = prefs.getBoolean("dark_mode", false)
+        switchSound.isChecked = prefs.getBoolean("sound_effects", true)
+        switchMusic.isChecked = prefs.getBoolean("background_music", false)
+
+        val dialog = MaterialAlertDialogBuilder(this)
+            .setView(dialogView)
+            .setCancelable(true)
+            .create()
+
+        dialog.window?.setBackgroundDrawableResource(R.drawable.rounded_surface)
+
+        switchDark.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("dark_mode", isChecked).apply()
+            AppCompatDelegate.setDefaultNightMode(
+                if (isChecked) AppCompatDelegate.MODE_NIGHT_YES
+                else AppCompatDelegate.MODE_NIGHT_NO
+            )
+        }
+
+        switchSound.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("sound_effects", isChecked).apply()
+            soundManager.setSoundEnabled(isChecked)
+        }
+
+        switchMusic.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("background_music", isChecked).apply()
+            if (isChecked) soundManager.startBackgroundMusic()
+            else soundManager.stopBackgroundMusic()
+        }
+
+        dialogView.findViewById<ImageButton>(R.id.btnCloseSettings).setOnClickListener { dialog.dismiss() }
+        dialogView.findViewById<android.view.View>(R.id.btnCloseSettingsBottom).setOnClickListener { dialog.dismiss() }
+        dialogView.findViewById<android.view.View>(R.id.btnCheckUpdate).setOnClickListener {
+            dialog.dismiss()
+            UpdateChecker(this).checkForUpdate(manual = true)
+        }
+
+        dialog.show()
     }
 
     private fun requestPermissions() {
@@ -153,6 +182,7 @@ class MainActivity : AppCompatActivity() {
         if (prefs.getBoolean("background_music", false)) {
             soundManager.startBackgroundMusic()
         }
+        updateNotificationBadge()
     }
 
     override fun onPause() {

@@ -47,76 +47,44 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Incentive -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="4dp"
-                app:cardCornerRadius="16dp"
-                android:layout_marginBottom="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal"
-                    android:padding="24dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="💛"
-                        android:textSize="36sp"
-                        android:layout_marginBottom="12dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Apoie o Teste Online"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="12dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="O Teste Online é uma plataforma gratuita dedicada a ajudar estudantes e profissionais a prepararem-se para provas e concursos.\n\nA sua contribuição ajuda-nos a manter a plataforma activa e criar novas questões."
-                        android:textSize="14sp"
-                        android:textColor="?android:textColorSecondary"
-                        android:lineSpacingExtra="4dp"
-                        android:layout_marginBottom="16dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Valor mínimo: 100 Kz"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/primary" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- PayPay -->
+            <!-- PayPay Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="16dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E5E7EB"
                 android:layout_marginBottom="12dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <!-- PayPay header with emoji -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="PayPay"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="4dp" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="👛"
+                            android:textSize="24sp"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PayPay"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -124,20 +92,22 @@
                         android:text="Envie o seu donativo via carteira PayPay"
                         android:textSize="13sp"
                         android:textColor="?android:textColorSecondary"
-                        android:layout_marginBottom="8dp" />
+                        android:layout_marginBottom="12dp" />
 
+                    <!-- Phone number -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="923 456 789"
-                            android:textSize="16sp"
+                            android:textSize="22sp"
                             android:textStyle="bold"
                             android:fontFamily="monospace" />
 
@@ -150,91 +120,261 @@
                             android:contentDescription="Copiar" />
                     </LinearLayout>
 
-                    <!-- Multicaixa Express -->
+                    <!-- Multicaixa Express sub-card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="#E5E7EB">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="14dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Também pode doar via Multicaixa Express:"
+                                android:textSize="13sp"
+                                android:textStyle="italic"
+                                android:layout_marginBottom="10dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_marginBottom="6dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Entidade: "
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="10116"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="monospace" />
+
+                                <ImageButton
+                                    android:id="@+id/btnCopyEntidade"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:background="?selectableItemBackgroundBorderless"
+                                    android:src="@drawable/ic_copy"
+                                    android:contentDescription="Copiar" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Referência: "
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="943693959"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="monospace" />
+
+                                <ImageButton
+                                    android:id="@+id/btnCopyReferencia"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:background="?selectableItemBackgroundBorderless"
+                                    android:src="@drawable/ic_copy"
+                                    android:contentDescription="Copiar" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- KWiK Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="16dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E5E7EB"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@drawable/muted_bg"
-                        android:padding="12dp"
-                        android:layout_marginTop="12dp">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="4dp">
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🏛"
+                            android:textSize="24sp"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="KWiK"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Transfira usando o IBAN da conta KWiK"
+                        android:textSize="13sp"
+                        android:textColor="?android:textColorSecondary"
+                        android:layout_marginBottom="12dp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="#E5E7EB">
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Também pode doar via Multicaixa Express:"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="8dp" />
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="14dp">
 
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Entidade: " android:textSize="13sp" android:textStyle="bold" />
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="10116" android:textSize="13sp" android:fontFamily="monospace" />
-                            <ImageButton android:id="@+id/btnCopyEntidade" android:layout_width="32dp" android:layout_height="32dp" android:background="?selectableItemBackgroundBorderless" android:src="@drawable/ic_copy" android:contentDescription="Copiar" />
-                        </LinearLayout>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="AO06042000000000061156412"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                android:fontFamily="monospace" />
 
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Referência: " android:textSize="13sp" android:textStyle="bold" />
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="943693959" android:textSize="13sp" android:fontFamily="monospace" />
-                            <ImageButton android:id="@+id/btnCopyReferencia" android:layout_width="32dp" android:layout_height="32dp" android:background="?selectableItemBackgroundBorderless" android:src="@drawable/ic_copy" android:contentDescription="Copiar" />
+                            <ImageButton
+                                android:id="@+id/btnCopyIban"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="?selectableItemBackgroundBorderless"
+                                android:src="@drawable/ic_copy"
+                                android:contentDescription="Copiar" />
                         </LinearLayout>
-                    </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- KWiK -->
+            <!-- Email Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="16dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E5E7EB"
                 android:layout_marginBottom="12dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="20dp">
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="KWiK" android:textSize="18sp" android:textStyle="bold" android:layout_marginBottom="4dp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Transfira usando o IBAN da conta KWiK" android:textSize="13sp" android:textColor="?android:textColorSecondary" android:layout_marginBottom="8dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="4dp">
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="AO06042000000000061156412" android:textSize="13sp" android:textStyle="bold" android:fontFamily="monospace" />
-                        <ImageButton android:id="@+id/btnCopyIban" android:layout_width="40dp" android:layout_height="40dp" android:background="?selectableItemBackgroundBorderless" android:src="@drawable/ic_copy" android:contentDescription="Copiar" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✉️"
+                            android:textSize="24sp"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enviar Comprovativo"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
 
-            <!-- Email -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="2dp"
-                app:cardCornerRadius="16dp"
-                android:layout_marginBottom="12dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Envie o comprovativo para o nosso e-mail"
+                        android:textSize="13sp"
+                        android:textColor="?android:textColorSecondary"
+                        android:layout_marginBottom="8dp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="angonurse@gmail.com"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="monospace"
+                        android:layout_marginBottom="4dp" />
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Enviar Comprovativo" android:textSize="18sp" android:textStyle="bold" android:layout_marginBottom="4dp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Envie o comprovativo para o nosso e-mail" android:textSize="13sp" android:textColor="?android:textColorSecondary" android:layout_marginBottom="8dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="angonurse@gmail.com" android:textSize="14sp" android:textStyle="bold" android:fontFamily="monospace" />
-                        <ImageButton android:id="@+id/btnCopyEmail" android:layout_width="40dp" android:layout_height="40dp" android:background="?selectableItemBackgroundBorderless" android:src="@drawable/ic_copy" android:contentDescription="Copiar" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <ImageButton
+                            android:id="@+id/btnCopyEmail"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:src="@drawable/ic_copy"
+                            android:contentDescription="Copiar" />
                     </LinearLayout>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnOpenEmail"
-                        style="@style/Widget.Material3.Button.OutlinedButton"
                         android:layout_width="match_parent"
-                        android:layout_height="44dp"
+                        android:layout_height="48dp"
                         android:text="Abrir E-mail"
-                        app:cornerRadius="12dp" />
+                        android:textSize="14sp"
+                        android:textColor="@android:color/white"
+                        app:cornerRadius="14dp"
+                        android:backgroundTint="@color/primary" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
