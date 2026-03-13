@@ -52,7 +52,7 @@ class ResultsActivity : AppCompatActivity() {
         binding.tvScore.text = "$correctCount de $totalQuestions questões corretas"
 
         binding.btnRestart.setOnClickListener {
-            SoundManager.playClick()
+            soundManager.playClick()
             startActivity(Intent(this, ExamQuizActivity::class.java))
             finish()
         }
