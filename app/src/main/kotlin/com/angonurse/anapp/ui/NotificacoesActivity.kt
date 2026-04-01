@@ -118,6 +118,26 @@ class NotificacoesActivity : AppCompatActivity() {
         override fun getItemCount() = notifications.size
     }
 
+    private fun handleIncomingIntent(intent: Intent?) {
+        val title = intent?.getStringExtra("fcm_title") ?: intent?.getStringExtra("title")
+        val body = intent?.getStringExtra("fcm_body") ?: intent?.getStringExtra("body")
+        if (!title.isNullOrBlank() && !body.isNullOrBlank()) {
+            addNotification(this, title, body)
+            // Clear to avoid re-adding on config change
+            intent?.removeExtra("fcm_title")
+            intent?.removeExtra("fcm_body")
+            intent?.removeExtra("title")
+            intent?.removeExtra("body")
+        }
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        handleIncomingIntent(intent)
+        loadNotifications()
+        updateUI()
+    }
+
     companion object {
         fun addNotification(context: android.content.Context, title: String, body: String) {
             val prefs = context.getSharedPreferences("notifications", MODE_PRIVATE)
