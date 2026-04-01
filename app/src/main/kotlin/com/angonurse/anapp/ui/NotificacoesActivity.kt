@@ -28,6 +28,9 @@ class NotificacoesActivity : AppCompatActivity() {
 
         binding.btnBack.setOnClickListener { finish() }
 
+        // Handle notification from background tap (FCM extras)
+        handleIncomingIntent(intent)
+
         loadNotifications()
 
         binding.btnClearAll.setOnClickListener {
