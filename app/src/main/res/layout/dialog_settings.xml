@@ -50,12 +50,12 @@
             android:gravity="center_vertical"
             android:padding="16dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🌙"
-                android:textSize="24sp"
-                android:layout_marginEnd="14dp" />
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_moon"
+                android:layout_marginEnd="14dp"
+                android:contentDescription="Modo Escuro" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -102,12 +102,12 @@
             android:gravity="center_vertical"
             android:padding="16dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🔊"
-                android:textSize="24sp"
-                android:layout_marginEnd="14dp" />
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_volume"
+                android:layout_marginEnd="14dp"
+                android:contentDescription="Efeitos Sonoros" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -154,12 +154,12 @@
             android:gravity="center_vertical"
             android:padding="16dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🎵"
-                android:textSize="24sp"
-                android:layout_marginEnd="14dp" />
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_music"
+                android:layout_marginEnd="14dp"
+                android:contentDescription="Música de Fundo" />
 
             <LinearLayout
                 android:layout_width="0dp"
