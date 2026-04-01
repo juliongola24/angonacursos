@@ -35,6 +35,20 @@ class MainActivity : AppCompatActivity() {
 
         setupButtons()
         updateNotificationBadge()
+
+        // If opened from a background FCM notification, store it and forward
+        handleFcmIntent(intent)
+    }
+
+    private fun handleFcmIntent(intent: Intent?) {
+        val title = intent?.getStringExtra("title") ?: intent?.getStringExtra("gcm.notification.title")
+        val body = intent?.getStringExtra("body") ?: intent?.getStringExtra("gcm.notification.body")
+        if (!title.isNullOrBlank() && !body.isNullOrBlank()) {
+            NotificacoesActivity.addNotification(this, title, body)
+            updateNotificationBadge()
+            intent?.removeExtra("title")
+            intent?.removeExtra("body")
+        }
     }
 
     private fun loadSettings() {
