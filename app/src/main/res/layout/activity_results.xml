@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:colorBackground">
@@ -14,7 +15,6 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             app:cardElevation="6dp"
             app:cardCornerRadius="20dp"
             android:layout_marginBottom="20dp">
@@ -33,11 +33,11 @@
                     android:gravity="center_horizontal"
                     android:padding="28dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🎓"
-                        android:textSize="40sp"
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_graduation"
+                        app:tint="@android:color/white"
                         android:layout_marginBottom="12dp" />
 
                     <TextView
@@ -77,7 +77,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:text="Reiniciar Teste"
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
                         app:cornerRadius="12dp"
                         android:layout_marginBottom="8dp" />
 
@@ -87,7 +86,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:text="Compartilhar Resultado"
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        app:icon="@drawable/ic_share"
+                        app:iconGravity="textStart"
                         app:cornerRadius="12dp"
                         android:layout_marginBottom="8dp" />
 
@@ -101,13 +101,36 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Gabarito Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gabarito Detalhado"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="12dp" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_book"
+                app:tint="@color/primary"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Gabarito Detalhado"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvGabaritoCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="?android:textColorSecondary" />
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvGabarito"
