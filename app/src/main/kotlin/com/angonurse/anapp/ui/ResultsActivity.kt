@@ -1,14 +1,12 @@
 package com.angonurse.anapp.ui
 
 import android.content.Intent
-import android.graphics.pdf.PdfDocument
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,8 +14,6 @@ import com.angonurse.anapp.R
 import com.angonurse.anapp.data.QuestionBank
 import com.angonurse.anapp.databinding.ActivityResultsBinding
 import com.angonurse.anapp.util.SoundManager
-import java.io.File
-import java.io.FileOutputStream
 
 class ResultsActivity : AppCompatActivity() {
 
@@ -51,6 +47,10 @@ class ResultsActivity : AppCompatActivity() {
         binding.tvPercentage.text = "$percentage%"
         binding.tvScore.text = "$correctCount de $totalQuestions questões corretas"
 
+        // Show all questions in gabarito
+        val allQuestions = QuestionBank.questions
+        binding.tvGabaritoCount.text = "${allQuestions.size} questões"
+
         binding.btnRestart.setOnClickListener {
             soundManager.playClick()
             startActivity(Intent(this, ExamQuizActivity::class.java))
@@ -69,11 +69,10 @@ class ResultsActivity : AppCompatActivity() {
 
         binding.btnHome.setOnClickListener { finish() }
 
-        // Setup gabarito
-        val questions = QuestionBank.questions
+        // Setup gabarito with ALL questions
         binding.rvGabarito.layoutManager = LinearLayoutManager(this)
         binding.rvGabarito.isNestedScrollingEnabled = false
-        binding.rvGabarito.adapter = GabaritoAdapter(questions, userAnswers)
+        binding.rvGabarito.adapter = GabaritoAdapter(allQuestions, userAnswers)
     }
 
     inner class GabaritoAdapter(
@@ -98,11 +97,19 @@ class ResultsActivity : AppCompatActivity() {
             val q = questions[position]
             val userAnswer = userAnswers[q.id]
             val isCorrect = userAnswer == q.correctAnswer
+            val wasAnswered = userAnswer != null
 
             holder.tvNum.text = "Questão ${position + 1}"
+            
+            if (!wasAnswered) {
+                holder.tvUserAnswer.text = "Não respondida"
+                holder.tvUserAnswer.setTextColor(getColor(R.color.orange))
+            } else {
+                holder.tvUserAnswer.text = "Sua resposta: ${userAnswer.uppercase()}"
+                holder.tvUserAnswer.setTextColor(getColor(if (isCorrect) R.color.green else R.color.red))
+            }
+
             holder.tvQuestion.text = q.question
-            holder.tvUserAnswer.text = "Sua resposta: ${userAnswer?.uppercase() ?: "Não respondida"}"
-            holder.tvUserAnswer.setTextColor(getColor(if (isCorrect) R.color.green else R.color.red))
 
             if (isCorrect) {
                 holder.tvCorrectAnswer.visibility = View.GONE
