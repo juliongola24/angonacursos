@@ -61,11 +61,11 @@
                     android:orientation="vertical"
                     android:padding="24dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="📱"
-                        android:textSize="32sp"
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_info"
+                        app:tint="@color/primary"
                         android:layout_marginBottom="12dp" />
 
                     <TextView
@@ -101,11 +101,12 @@
                     android:gravity="center_horizontal"
                     android:padding="24dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="👨‍💻"
-                        android:textSize="32sp"
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/developer_photo"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
                         android:layout_marginBottom="12dp" />
 
                     <TextView
@@ -137,44 +138,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Apaixonado por tecnologia e educação, Lucas Mendes é desenvolvedor full stack com experiência em criar soluções digitais que impactam positivamente a vida das pessoas.\n\nTecnologias: Kotlin, Android, Firebase."
-                        android:textSize="14sp"
-                        android:textColor="?android:textColorSecondary"
-                        android:lineSpacingExtra="4dp" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Mission -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="4dp"
-                app:cardCornerRadius="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="24dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🎯"
-                        android:textSize="32sp"
-                        android:layout_marginBottom="12dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nossa Missão"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="12dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Democratizar o acesso à educação e preparação para provas, oferecendo uma ferramenta gratuita, acessível e de qualidade para estudantes e profissionais."
                         android:textSize="14sp"
                         android:textColor="?android:textColorSecondary"
                         android:lineSpacingExtra="4dp" />
