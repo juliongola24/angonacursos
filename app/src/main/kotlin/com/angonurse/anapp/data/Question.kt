@@ -15,10 +15,6 @@ object QuestionBank {
 
     const val EXAM_DURATION_MINUTES = 60
 
-    fun getQuestions(): List<Question> {
-        return questions
-    }
-
     val questions: List<Question> by lazy {
         listOf(
             // ── 1. CONCEITOS BÁSICOS DE FISIOTERAPIA (1-6) ──
